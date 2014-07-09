@@ -1,0 +1,6 @@
+var classic_1_1populacional_1_1_populacao_ordenada_3_01_g_01extends_01_number_01_6_comparable_3_01_gcbbf91bc78c3435d640426d27f204196 =
+[
+    [ "PopulacaoOrdenada", "classic_1_1populacional_1_1_populacao_ordenada_3_01_g_01extends_01_number_01_6_comparable_3_01_gcbbf91bc78c3435d640426d27f204196.html#a3fdb0c7389415490f8875de85ff76bae", null ],
+    [ "getMelhor", "classic_1_1populacional_1_1_populacao_ordenada_3_01_g_01extends_01_number_01_6_comparable_3_01_gcbbf91bc78c3435d640426d27f204196.html#a085922551f8405b616638ab84756f28e", null ],
+    [ "getNMelhores", "classic_1_1populacional_1_1_populacao_ordenada_3_01_g_01extends_01_number_01_6_comparable_3_01_gcbbf91bc78c3435d640426d27f204196.html#a59006c0b3b86fd64b7d7f9527dbf3518", null ]
+];

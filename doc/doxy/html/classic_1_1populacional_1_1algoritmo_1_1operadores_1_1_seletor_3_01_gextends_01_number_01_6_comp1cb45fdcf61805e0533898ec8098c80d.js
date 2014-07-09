@@ -1,0 +1,9 @@
+var classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_seletor_3_01_gextends_01_number_01_6_comp1cb45fdcf61805e0533898ec8098c80d =
+[
+    [ "Seletor", "classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_seletor_3_01_gextends_01_number_01_6_comp1cb45fdcf61805e0533898ec8098c80d.html#a7c9bcb3b417d075c1b4deb3dfd7f8c6a", null ],
+    [ "getPais", "classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_seletor_3_01_gextends_01_number_01_6_comp1cb45fdcf61805e0533898ec8098c80d.html#a78e607afcfe6b3819a1818d05a34c420", null ],
+    [ "getSobreviventes", "classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_seletor_3_01_gextends_01_number_01_6_comp1cb45fdcf61805e0533898ec8098c80d.html#aacfd4141a6bd4050bc88097f2ff73c7b", null ],
+    [ "melhoresEntreAleatorios", "classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_seletor_3_01_gextends_01_number_01_6_comp1cb45fdcf61805e0533898ec8098c80d.html#a2eb06a387793a6190c98b2fdc4888b10", null ],
+    [ "ambiente", "classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_seletor_3_01_gextends_01_number_01_6_comp1cb45fdcf61805e0533898ec8098c80d.html#ae37847f40473f702dbee3d27875daf10", null ],
+    [ "populacao", "classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_seletor_3_01_gextends_01_number_01_6_comp1cb45fdcf61805e0533898ec8098c80d.html#adcfe10d9432643be21b2f9e605a6338c", null ]
+];

@@ -1,0 +1,111 @@
+\hypertarget{interfaceic_1_1populacional_1_1_caracteristica}{\section{Referência da Interface ic.\-populacional.\-Caracteristica}
+\label{interfaceic_1_1populacional_1_1_caracteristica}\index{ic.\-populacional.\-Caracteristica@{ic.\-populacional.\-Caracteristica}}
+}
+
+
+Diagrama de Hierarquia para ic.\-populacional.\-Caracteristica\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interfaceic_1_1populacional_1_1_caracteristica__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboração para ic.\-populacional.\-Caracteristica\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{interfaceic_1_1populacional_1_1_caracteristica__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+Number \hyperlink{interfaceic_1_1populacional_1_1_caracteristica_a67fedc2ec2577e410965a07e541aacc5}{get\-Representacao\-Numerica} ()
+\begin{DoxyCompactList}\small\item\em Calcula uma representação (expressão) numérica para essa característica. \end{DoxyCompactList}\item 
+void \hyperlink{interfaceic_1_1populacional_1_1_caracteristica_affaf135154f7a5abacf5434a940f0923}{set\-Representacao\-Numerica} (Number x)
+\item 
+\hyperlink{interfaceic_1_1populacional_1_1_caracteristica}{Caracteristica} \hyperlink{interfaceic_1_1populacional_1_1_caracteristica_ac1c99f413a8de79824b40d40a41ec94c}{copia} ()
+\begin{DoxyCompactList}\small\item\em Retorna uma cópia da característica. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição Detalhada}
+\begin{DoxyAuthor}{Autor}
+Victor Soares 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versão}
+1.\-0
+\end{DoxyVersion}
+Interface de marcação. 
+
+\subsection{Métodos}
+\hypertarget{interfaceic_1_1populacional_1_1_caracteristica_ac1c99f413a8de79824b40d40a41ec94c}{\index{ic\-::populacional\-::\-Caracteristica@{ic\-::populacional\-::\-Caracteristica}!copia@{copia}}
+\index{copia@{copia}!ic::populacional::Caracteristica@{ic\-::populacional\-::\-Caracteristica}}
+\subsubsection[{copia}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Caracteristica} ic.\-populacional.\-Caracteristica.\-copia (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{interfaceic_1_1populacional_1_1_caracteristica_ac1c99f413a8de79824b40d40a41ec94c}
+
+
+Retorna uma cópia da característica. 
+
+Essa cópia deverá ser uma nova instância, tal que {\ttfamily iquals(copia)} seja verdadeiro. Difere de clone, para evitar conflito na A\-P\-I, e resultados inesperados.
+
+{\bfseries Deve gerar nova instância}
+
+\begin{DoxySeeAlso}{Veja também}
+Object\-::equals(java.\-lang.\-Object) 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Retorna}
+Uma copia desta característica. 
+\end{DoxyReturn}
+
+
+Implementado por \hyperlink{classic_1_1populacional_1_1seres_1_1permutacao_1_1_locus_permutacao_a1f988e306c66b686cc0aeaa71f7b8d4a}{ic.\-populacional.\-seres.\-permutacao.\-Locus\-Permutacao}.
+
+\hypertarget{interfaceic_1_1populacional_1_1_caracteristica_a67fedc2ec2577e410965a07e541aacc5}{\index{ic\-::populacional\-::\-Caracteristica@{ic\-::populacional\-::\-Caracteristica}!get\-Representacao\-Numerica@{get\-Representacao\-Numerica}}
+\index{get\-Representacao\-Numerica@{get\-Representacao\-Numerica}!ic::populacional::Caracteristica@{ic\-::populacional\-::\-Caracteristica}}
+\subsubsection[{get\-Representacao\-Numerica}]{\setlength{\rightskip}{0pt plus 5cm}Number ic.\-populacional.\-Caracteristica.\-get\-Representacao\-Numerica (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{interfaceic_1_1populacional_1_1_caracteristica_a67fedc2ec2577e410965a07e541aacc5}
+
+
+Calcula uma representação (expressão) numérica para essa característica. 
+
+{\ttfamily Características} podem conter uma série de informações sobre si mesma, constituindo o globalmente o genótipo dos {\ttfamily seres} que as contem. Porém, uma expressão numérica única, sumarizando os efeitos mais relevantes dessa unidade de formação do {\ttfamily ser} em um único número, é necessária tanto para criar-\/se um modelo fenótipo, quanto para propósitos de processamento. 
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\begin{DoxyReturn}{Retorna}
+Expressão numérica da característica.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Veja também}
+Ser 
+\end{DoxySeeAlso}
+
+
+Implementado por \hyperlink{classic_1_1populacional_1_1seres_1_1binarios_1_1_caracteristica_binaria_afc753198f1e3d4bda1b714c5e19498ee}{ic.\-populacional.\-seres.\-binarios.\-Caracteristica\-Binaria} e \hyperlink{classic_1_1populacional_1_1seres_1_1permutacao_1_1_locus_permutacao_a0e451821af43f1f6e2da99d7c0c0f18e}{ic.\-populacional.\-seres.\-permutacao.\-Locus\-Permutacao}.
+
+\hypertarget{interfaceic_1_1populacional_1_1_caracteristica_affaf135154f7a5abacf5434a940f0923}{\index{ic\-::populacional\-::\-Caracteristica@{ic\-::populacional\-::\-Caracteristica}!set\-Representacao\-Numerica@{set\-Representacao\-Numerica}}
+\index{set\-Representacao\-Numerica@{set\-Representacao\-Numerica}!ic::populacional::Caracteristica@{ic\-::populacional\-::\-Caracteristica}}
+\subsubsection[{set\-Representacao\-Numerica}]{\setlength{\rightskip}{0pt plus 5cm}void ic.\-populacional.\-Caracteristica.\-set\-Representacao\-Numerica (
+\begin{DoxyParamCaption}
+\item[{Number}]{x}
+\end{DoxyParamCaption}
+)}}\label{interfaceic_1_1populacional_1_1_caracteristica_affaf135154f7a5abacf5434a940f0923}
+
+
+Implementado por \hyperlink{classic_1_1populacional_1_1seres_1_1binarios_1_1_caracteristica_binaria_a2a0715e524f66be9fc4e534f14cda63e}{ic.\-populacional.\-seres.\-binarios.\-Caracteristica\-Binaria} e \hyperlink{classic_1_1populacional_1_1seres_1_1permutacao_1_1_locus_permutacao_a64928060d205a3c0ced139d468a314be}{ic.\-populacional.\-seres.\-permutacao.\-Locus\-Permutacao}.
+
+
+
+A documentação para esta interface foi gerada a partir do seguinte arquivo\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Victor/workplace/\-Net\-Beans\-Projects/\-Inteligencia Computacional/src/ic/populacional/\hyperlink{_caracteristica_8java}{Caracteristica.\-java}\end{DoxyCompactItemize}

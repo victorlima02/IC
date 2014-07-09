@@ -1,0 +1,6 @@
+var classic_1_1populacional_1_1seres_1_1reais_1_1_ser_real_3_01_gextends_01_number_01_6_comparable_3_01_g_01_4_01_4 =
+[
+    [ "SerReal", "classic_1_1populacional_1_1seres_1_1reais_1_1_ser_real_3_01_gextends_01_number_01_6_comparable_3_01_g_01_4_01_4.html#ad4bc50ed5b2105a76400496f1cac7a7b", null ],
+    [ "SerReal", "classic_1_1populacional_1_1seres_1_1reais_1_1_ser_real_3_01_gextends_01_number_01_6_comparable_3_01_g_01_4_01_4.html#ad46b7553c53c69f1a5b7897a8764c74b", null ],
+    [ "doubleListToLocusList", "classic_1_1populacional_1_1seres_1_1reais_1_1_ser_real_3_01_gextends_01_number_01_6_comparable_3_01_g_01_4_01_4.html#a32633bd064a00981e82f0ddaf8569408", null ]
+];

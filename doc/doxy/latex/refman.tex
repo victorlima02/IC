@@ -1,0 +1,219 @@
+\documentclass[twoside]{book}
+
+% Packages required by doxygen
+\usepackage{calc}
+\usepackage{doxygen}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{makeidx}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{textcomp}
+\usepackage[table]{xcolor}
+
+% NLS support packages
+\usepackage[brazil]{babel}
+% Font selection
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\usepackage{amssymb}
+\usepackage{sectsty}
+\renewcommand{\familydefault}{\sfdefault}
+\allsectionsfont{%
+  \fontseries{bc}\selectfont%
+  \color{darkgray}%
+}
+\renewcommand{\DoxyLabelFont}{%
+  \fontseries{bc}\selectfont%
+  \color{darkgray}%
+}
+
+% Page & text layout
+\usepackage{geometry}
+\geometry{%
+  a4paper,%
+  top=2.5cm,%
+  bottom=2.5cm,%
+  left=2.5cm,%
+  right=2.5cm%
+}
+\tolerance=750
+\hfuzz=15pt
+\hbadness=750
+\setlength{\emergencystretch}{15pt}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.2cm}
+\makeatletter
+\renewcommand{\paragraph}{%
+  \@startsection{paragraph}{4}{0ex}{-1.0ex}{1.0ex}{%
+    \normalfont\normalsize\bfseries\SS@parafont%
+  }%
+}
+\renewcommand{\subparagraph}{%
+  \@startsection{subparagraph}{5}{0ex}{-1.0ex}{1.0ex}{%
+    \normalfont\normalsize\bfseries\SS@subparafont%
+  }%
+}
+\makeatother
+
+% Headers & footers
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead[LE]{\fancyplain{}{\bfseries\thepage}}
+\fancyhead[CE]{\fancyplain{}{}}
+\fancyhead[RE]{\fancyplain{}{\bfseries\leftmark}}
+\fancyhead[LO]{\fancyplain{}{\bfseries\rightmark}}
+\fancyhead[CO]{\fancyplain{}{}}
+\fancyhead[RO]{\fancyplain{}{\bfseries\thepage}}
+\fancyfoot[LE]{\fancyplain{}{}}
+\fancyfoot[CE]{\fancyplain{}{}}
+\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Gerado em Quarta, 25 de Junho de 2014 15\-:10\-:15 para T\-C\-C por Doxygen }}
+\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Gerado em Quarta, 25 de Junho de 2014 15\-:10\-:15 para T\-C\-C por Doxygen }}
+\fancyfoot[CO]{\fancyplain{}{}}
+\fancyfoot[RO]{\fancyplain{}{}}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\chaptermark}[1]{%
+  \markboth{#1}{}%
+}
+\renewcommand{\sectionmark}[1]{%
+  \markright{\thesection\ #1}%
+}
+
+% Indices & bibliography
+\usepackage{natbib}
+\usepackage[titles]{tocloft}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{5}
+\makeindex
+
+% Hyperlinks (required, but should be loaded last)
+\usepackage{ifpdf}
+\ifpdf
+  \usepackage[pdftex,pagebackref=true]{hyperref}
+\else
+  \usepackage[ps2pdf,pagebackref=true]{hyperref}
+\fi
+\hypersetup{%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  unicode%
+}
+
+% Custom commands
+\newcommand{\clearemptydoublepage}{%
+  \newpage{\pagestyle{empty}\cleardoublepage}%
+}
+
+
+%===== C O N T E N T S =====
+
+\begin{document}
+
+% Titlepage & ToC
+\hypersetup{pageanchor=false}
+\pagenumbering{roman}
+\begin{titlepage}
+\vspace*{7cm}
+\begin{center}%
+{\Large T\-C\-C \\[1ex]\large 1.\-0 }\\
+\vspace*{1cm}
+{\large Gerado por Doxygen 1.8.6}\\
+\vspace*{0.5cm}
+{\small Quarta, 25 de Junho de 2014 15:10:15}\\
+\end{center}
+\end{titlepage}
+\clearemptydoublepage
+\tableofcontents
+\clearemptydoublepage
+\pagenumbering{arabic}
+\hypersetup{pageanchor=true}
+
+%--- Begin generated contents ---
+\chapter{Lista de Descontinuados(as)}
+\label{deprecated}
+\hypertarget{deprecated}{}
+\input{deprecated}
+\chapter{Namespaces}
+\input{namespaces}
+\chapter{Índice Hierárquico}
+\input{hierarchy}
+\chapter{Índice dos Componentes}
+\input{annotated}
+\chapter{Índice dos Arquivos}
+\input{files}
+\chapter{Namespaces}
+\input{namespaceic}
+\input{namespaceic_1_1populacional}
+\input{namespaceic_1_1populacional_1_1algoritmo}
+\input{namespaceic_1_1populacional_1_1algoritmo_1_1operadores}
+\input{namespaceic_1_1populacional_1_1algoritmo_1_1operadores_1_1recombinador}
+\input{namespaceic_1_1populacional_1_1seres}
+\input{namespaceic_1_1populacional_1_1seres_1_1binarios}
+\input{namespaceic_1_1populacional_1_1seres_1_1permutacoes}
+\input{namespaceic_1_1populacional_1_1seres_1_1reais}
+\input{namespaceic_1_1populacional_1_1utilidades}
+\chapter{Classes}
+\input{classic_1_1populacional_1_1algoritmo_1_1_a_g_simples_3_01_gextends_01_number_01_6_comparable_3_0be0ec9d5f7dd5a82100acb38215a761d}
+\input{classic_1_1populacional_1_1utilidades_1_1_aleatorios}
+\input{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254}
+\input{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_01_6_comparable_3_01_g_01_4_00_01a5eb548f12ccc7dbff4cf5c498ddc51}
+\input{classic_1_1populacional_1_1utilidades_1_1_binario}
+\input{interfaceic_1_1populacional_1_1_caracteristica_3_01_v_01extends_01_number_01_4}
+\input{classic_1_1populacional_1_1seres_1_1binarios_1_1_caracteristica_binaria}
+\input{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4}
+\input{classic_1_1populacional_1_1seres_1_1permutacoes_1_1_gerador_permutacoes}
+\input{classic_1_1populacional_1_1utilidades_1_1_indice_aleatorio}
+\input{classic_1_1populacional_1_1seres_1_1binarios_1_1_locus_binario}
+\input{classic_1_1populacional_1_1seres_1_1permutacoes_1_1_locus_permutacao}
+\input{classic_1_1populacional_1_1seres_1_1reais_1_1_locus_real}
+\input{enumic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_01_6_comparable_3_01_g_01_4_00_0156fb2ffb0f78f5b655aaee5b0df471a7}
+\input{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_mutador_3_01_t_01extends_01_ser_01_4}
+\input{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_operador}
+\input{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1recombinador_1_1_p_m_x_3_01_s_01extends_01_ser_01_4}
+\input{classic_1_1populacional_1_1_populacao_3_01_g_01extends_01_number_01_6_comparable_3_01_g_01_4_00_506237fa66af7bbd01f529b68d4beaca}
+\input{classic_1_1populacional_1_1_populacao_ordenada_3_01_g_01extends_01_number_01_6_comparable_3_01_gcbbf91bc78c3435d640426d27f204196}
+\input{classic_1_1populacional_1_1algoritmo_1_1_programacao_evolucionaria_3_01_gextends_01_number_01_6_8364919866d606ef485dd5624b0253b0}
+\input{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_recombinador_3_01_s_01extends_01_ser_01_4}
+\input{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_seletor_3_01_gextends_01_number_01_6_comp1cb45fdcf61805e0533898ec8098c80d}
+\input{classic_1_1populacional_1_1_ser_3_01_g_01extends_01_number_01_6_comparable_3_01_g_01_4_01_4}
+\input{classic_1_1populacional_1_1seres_1_1_ser_fixo_3_01_gextends_01_number_01_6_comparable_3_01_g_01_4_01_4}
+\input{classic_1_1populacional_1_1seres_1_1permutacoes_1_1_ser_permutacao_3_01_gextends_01_number_01_6_comparable_3_01_g_01_4_01_4}
+\input{classic_1_1populacional_1_1seres_1_1reais_1_1_ser_real_3_01_gextends_01_number_01_6_comparable_3_01_g_01_4_01_4}
+\chapter{Arquivos}
+\input{_a_g_simples_8java}
+\input{_algoritmo_evolucionario_8java}
+\input{_gerador_8java}
+\input{_mutador_8java}
+\input{_operador_8java}
+\input{_recombinador_8java}
+\input{_p_m_x_8java}
+\input{_seletor_8java}
+\input{_programacao_evolucionaria_8java}
+\input{_ambiente_8java}
+\input{_caracteristica_8java}
+\input{_populacao_8java}
+\input{_populacao_ordenada_8java}
+\input{_ser_8java}
+\input{_caracteristica_binaria_8java}
+\input{_locus_binario_8java}
+\input{_gerador_permutacoes_8java}
+\input{_locus_permutacao_8java}
+\input{_ser_permutacao_8java}
+\input{_locus_real_8java}
+\input{_ser_real_8java}
+\input{_ser_fixo_8java}
+\input{_aleatorios_8java}
+\input{_binario_8java}
+\input{_indice_aleatorio_8java}
+%--- End generated contents ---
+
+% Index
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Índice}
+\printindex
+
+\end{document}

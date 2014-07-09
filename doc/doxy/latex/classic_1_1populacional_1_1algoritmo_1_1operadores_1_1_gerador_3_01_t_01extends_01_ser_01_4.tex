@@ -1,0 +1,126 @@
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4}{\section{Referência da Classe ic.\-populacional.\-algoritmo.\-operadores.\-Gerador$<$ T extends Ser $>$}
+\label{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4}\index{ic.\-populacional.\-algoritmo.\-operadores.\-Gerador$<$ T extends Ser $>$@{ic.\-populacional.\-algoritmo.\-operadores.\-Gerador$<$ T extends Ser $>$}}
+}
+
+
+Diagrama de Hierarquia para ic.\-populacional.\-algoritmo.\-operadores.\-Gerador$<$ T extends Ser $>$\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboração para ic.\-populacional.\-algoritmo.\-operadores.\-Gerador$<$ T extends Ser $>$\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+abstract T \hyperlink{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4_af4da005d5efc0435aa204118b00afe80}{gera\-Aleatorio} ()
+\begin{DoxyCompactList}\small\item\em Retorna uma nova instância. \end{DoxyCompactList}\item 
+abstract T \hyperlink{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4_afa90423ad3e11f2795583c2bc91b163b}{gera} ()
+\begin{DoxyCompactList}\small\item\em Retorna uma nova instância de ser, sem atribuição de características. \end{DoxyCompactList}\item 
+Array\-List$<$ T $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4_aaec94d77b3c8b040639d2d138e0d0d86}{gera\-N} (int n)
+\begin{DoxyCompactList}\small\item\em Retorna n novas instâncias. \end{DoxyCompactList}\item 
+Array\-List$<$ T $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4_a3dc5afd018e47d5036123df91a542c4d}{gera\-N\-Aleatorios} (int n)
+\begin{DoxyCompactList}\small\item\em Retorna n novas instâncias geradas aleatoriamente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição Detalhada}
+\begin{DoxyAuthor}{Autor}
+Victor de Lima Soares 
+\end{DoxyAuthor}
+
+
+\subsection{Métodos}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4_afa90423ad3e11f2795583c2bc91b163b}{\index{ic\-::populacional\-::algoritmo\-::operadores\-::\-Gerador$<$ T extends Ser $>$@{ic\-::populacional\-::algoritmo\-::operadores\-::\-Gerador$<$ T extends Ser $>$}!gera@{gera}}
+\index{gera@{gera}!ic::populacional::algoritmo::operadores::Gerador< T extends Ser >@{ic\-::populacional\-::algoritmo\-::operadores\-::\-Gerador$<$ T extends Ser $>$}}
+\subsubsection[{gera}]{\setlength{\rightskip}{0pt plus 5cm}abstract T ic.\-populacional.\-algoritmo.\-operadores.\-Gerador$<$ T extends Ser $>$.gera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}}\label{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4_afa90423ad3e11f2795583c2bc91b163b}
+
+
+Retorna uma nova instância de ser, sem atribuição de características. 
+
+Esse método deve gerar um ser, oriundo de um processamento mais leve que \hyperlink{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4_af4da005d5efc0435aa204118b00afe80}{gera\-Aleatorio()}.
+
+Enquanto \hyperlink{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4_af4da005d5efc0435aa204118b00afe80}{gera\-Aleatorio()} visa a criação de um ser completo, possivelmente com características aleatórias; esse método visa a geração de uma instância para manipulação, possivelmente para um atribuição mais elaborada de características; e.\-g, novo ser para receber o resultado de uma recombinação (Motivação nesse caso seria puramente por desempenho).
+
+Essa cópia deverá ser uma nova instância. E o método não deverá receber parâmetros, pois o mesmo será usado e partes diversas da A\-P\-I, que não consideram sobrecargas.
+
+\begin{DoxyReturn}{Retorna}
+Nova instância de ser. 
+\end{DoxyReturn}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4_af4da005d5efc0435aa204118b00afe80}{\index{ic\-::populacional\-::algoritmo\-::operadores\-::\-Gerador$<$ T extends Ser $>$@{ic\-::populacional\-::algoritmo\-::operadores\-::\-Gerador$<$ T extends Ser $>$}!gera\-Aleatorio@{gera\-Aleatorio}}
+\index{gera\-Aleatorio@{gera\-Aleatorio}!ic::populacional::algoritmo::operadores::Gerador< T extends Ser >@{ic\-::populacional\-::algoritmo\-::operadores\-::\-Gerador$<$ T extends Ser $>$}}
+\subsubsection[{gera\-Aleatorio}]{\setlength{\rightskip}{0pt plus 5cm}abstract T ic.\-populacional.\-algoritmo.\-operadores.\-Gerador$<$ T extends Ser $>$.gera\-Aleatorio (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}}\label{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4_af4da005d5efc0435aa204118b00afe80}
+
+
+Retorna uma nova instância. 
+
+Essa cópia deverá ser uma nova instância. E o método não deverá receber parâmetros, pois o mesmo será usado e partes diversas da A\-P\-I, que não consideram sobrecargas.
+
+\begin{DoxyReturn}{Retorna}
+Nova instância de ser. 
+\end{DoxyReturn}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4_aaec94d77b3c8b040639d2d138e0d0d86}{\index{ic\-::populacional\-::algoritmo\-::operadores\-::\-Gerador$<$ T extends Ser $>$@{ic\-::populacional\-::algoritmo\-::operadores\-::\-Gerador$<$ T extends Ser $>$}!gera\-N@{gera\-N}}
+\index{gera\-N@{gera\-N}!ic::populacional::algoritmo::operadores::Gerador< T extends Ser >@{ic\-::populacional\-::algoritmo\-::operadores\-::\-Gerador$<$ T extends Ser $>$}}
+\subsubsection[{gera\-N}]{\setlength{\rightskip}{0pt plus 5cm}Array\-List$<$T$>$ ic.\-populacional.\-algoritmo.\-operadores.\-Gerador$<$ T extends Ser $>$.gera\-N (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4_aaec94d77b3c8b040639d2d138e0d0d86}
+
+
+Retorna n novas instâncias. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em n} & Numero de instâncias necessárias. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Uma coleção de seres recém criados.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4_afa90423ad3e11f2795583c2bc91b163b}{gera()} 
+\end{DoxySeeAlso}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4_a3dc5afd018e47d5036123df91a542c4d}{\index{ic\-::populacional\-::algoritmo\-::operadores\-::\-Gerador$<$ T extends Ser $>$@{ic\-::populacional\-::algoritmo\-::operadores\-::\-Gerador$<$ T extends Ser $>$}!gera\-N\-Aleatorios@{gera\-N\-Aleatorios}}
+\index{gera\-N\-Aleatorios@{gera\-N\-Aleatorios}!ic::populacional::algoritmo::operadores::Gerador< T extends Ser >@{ic\-::populacional\-::algoritmo\-::operadores\-::\-Gerador$<$ T extends Ser $>$}}
+\subsubsection[{gera\-N\-Aleatorios}]{\setlength{\rightskip}{0pt plus 5cm}Array\-List$<$T$>$ ic.\-populacional.\-algoritmo.\-operadores.\-Gerador$<$ T extends Ser $>$.gera\-N\-Aleatorios (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4_a3dc5afd018e47d5036123df91a542c4d}
+
+
+Retorna n novas instâncias geradas aleatoriamente. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em n} & Numero de instâncias necessárias. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Uma coleção de seres recém criados.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_gerador_3_01_t_01extends_01_ser_01_4_af4da005d5efc0435aa204118b00afe80}{gera\-Aleatorio()} 
+\end{DoxySeeAlso}
+
+
+A documentação para esta classe foi gerada a partir do seguinte arquivo\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Victor/workplace/\-Net\-Beans\-Projects/\-Inteligencia Computacional/src/ic/populacional/algoritmo/operadores/\hyperlink{_gerador_8java}{Gerador.\-java}\end{DoxyCompactItemize}

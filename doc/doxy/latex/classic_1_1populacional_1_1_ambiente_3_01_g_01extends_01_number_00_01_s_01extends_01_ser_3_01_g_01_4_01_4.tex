@@ -1,0 +1,168 @@
+\hypertarget{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4}{\section{Referência da Classe ic.\-populacional.\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$}
+\label{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4}\index{ic.\-populacional.\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$@{ic.\-populacional.\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$}}
+}
+
+
+Diagrama de Hierarquia para ic.\-populacional.\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboração para ic.\-populacional.\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_a6c2cb1321f4b8193c73795a63dd7b6b6}{compare} (S ser1, S ser2)
+\begin{DoxyCompactList}\small\item\em Compara graus de adaptação. \end{DoxyCompactList}\item 
+Comparator$<$ S $>$ \hyperlink{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_af5f2d9cb2f272b57dc9df40fe28eaa23}{comparador\-Inverso} ()
+\item 
+abstract void \hyperlink{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_a3c92882c3d2b737929b71252bb7547a6}{avalia} (S individuo)
+\begin{DoxyCompactList}\small\item\em Função de Fitness\-: Avalia um {\ttfamily Ser} retornando o grau de adaptação. \end{DoxyCompactList}\item 
+void \hyperlink{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_a285d0ff2ed86603ad7e0d330619b802c}{avalia} (Populacao$<$ G, S $>$ seres)
+\item 
+void \hyperlink{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_af55eb2495ac299158dd94fd3bb12bb8b}{avalia} (Collection$<$ S $>$ seres)
+\item 
+String \hyperlink{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_a983291994cef2fc984dc1ccd5a1e216a}{to\-String} (Populacao populacao)
+\end{DoxyCompactItemize}
+\subsection*{Métodos Privados}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_ac655429478451f27f8140ac57f1e64fe}{compara} (S ser1, S ser2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição Detalhada}
+Essa classe visa criar uma abstração do conceito de ambiente em seu sentido biológico. Sendo dessa forma, um espaço, um container, para uma população, que quando sujeita aos vários fenômenos ambientais, evoluirá no tempo. 
+
+Um ambiente conterá mecanismos que permitirão uma população a evoluir em acordo com as pressões evolutivas impostas, implementadas na forma de métodos em classes mais especializadas. 
+
+De forma generalizada, derivações de {\ttfamily ambiente} avaliarão indivíduos em uma {\ttfamily população}, armazenando dados críticos, observando o comportamento populacional enquanto parametrizando seu percurso evolucionário. 
+
+Observação sobre populações\-: \begin{quotation}
+A classe foi implementada como genérica para garantir a existência de seres (instâncias de classes derivadas de {\ttfamily Ser}) de um único tipo -\/ uma única classe, e suas derivadas, serão usadas em uma {\ttfamily população}. Deste modo, interpreta-\/se que {\ttfamily seres} de uma única espécie, e suas subespécies, conviverão em uma {\ttfamily população}. \end{quotation}
+
+
+Suposições básicas\-: 
+\begin{DoxyItemize}
+\item {\ttfamily Seres} de uma {\ttfamily população} pertencem a uma única família de classes derivadas hierarquicamente de {\ttfamily Ser}; mantendo, portanto, a característica de espécie. 
+\item Uma {\ttfamily população} não pode se auto avaliar, bem como seus indivíduos. Uma vez que indivíduos terão um grau de adaptação variado, flutuante, em função do ambiente em que se encontrarão.  
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Autor}
+Victor de Lima Soares 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versão}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxySeeAlso}{Veja também}
+Ser 
+
+Populacao 
+\end{DoxySeeAlso}
+
+
+\subsection{Métodos}
+\hypertarget{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_a3c92882c3d2b737929b71252bb7547a6}{\index{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$}!avalia@{avalia}}
+\index{avalia@{avalia}!ic::populacional::Ambiente< G extends Number, S extends Ser< G > >@{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{avalia}]{\setlength{\rightskip}{0pt plus 5cm}abstract void ic.\-populacional.\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$.avalia (
+\begin{DoxyParamCaption}
+\item[{S}]{individuo}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}}\label{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_a3c92882c3d2b737929b71252bb7547a6}
+
+
+Função de Fitness\-: Avalia um {\ttfamily Ser} retornando o grau de adaptação. 
+
+Atua como função objetivo em algoritmos de otimização e permite que {\ttfamily seres} sejam classificados em função do seu grau de adaptação, nesse {\ttfamily ambiente}.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em individuo} & {\ttfamily Ser} a ser avaliado pelo ambiente.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\hypertarget{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_a285d0ff2ed86603ad7e0d330619b802c}{\index{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$}!avalia@{avalia}}
+\index{avalia@{avalia}!ic::populacional::Ambiente< G extends Number, S extends Ser< G > >@{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{avalia}]{\setlength{\rightskip}{0pt plus 5cm}void ic.\-populacional.\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$.avalia (
+\begin{DoxyParamCaption}
+\item[{Populacao$<$ G, S $>$}]{seres}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_a285d0ff2ed86603ad7e0d330619b802c}
+\hypertarget{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_af55eb2495ac299158dd94fd3bb12bb8b}{\index{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$}!avalia@{avalia}}
+\index{avalia@{avalia}!ic::populacional::Ambiente< G extends Number, S extends Ser< G > >@{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{avalia}]{\setlength{\rightskip}{0pt plus 5cm}void ic.\-populacional.\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$.avalia (
+\begin{DoxyParamCaption}
+\item[{Collection$<$ S $>$}]{seres}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_af55eb2495ac299158dd94fd3bb12bb8b}
+\hypertarget{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_ac655429478451f27f8140ac57f1e64fe}{\index{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$}!compara@{compara}}
+\index{compara@{compara}!ic::populacional::Ambiente< G extends Number, S extends Ser< G > >@{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{compara}]{\setlength{\rightskip}{0pt plus 5cm}int ic.\-populacional.\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$.compara (
+\begin{DoxyParamCaption}
+\item[{S}]{ser1, }
+\item[{S}]{ser2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_ac655429478451f27f8140ac57f1e64fe}
+\hypertarget{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_af5f2d9cb2f272b57dc9df40fe28eaa23}{\index{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$}!comparador\-Inverso@{comparador\-Inverso}}
+\index{comparador\-Inverso@{comparador\-Inverso}!ic::populacional::Ambiente< G extends Number, S extends Ser< G > >@{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{comparador\-Inverso}]{\setlength{\rightskip}{0pt plus 5cm}Comparator$<$S$>$ ic.\-populacional.\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$.comparador\-Inverso (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_af5f2d9cb2f272b57dc9df40fe28eaa23}
+\hypertarget{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_a6c2cb1321f4b8193c73795a63dd7b6b6}{\index{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$}!compare@{compare}}
+\index{compare@{compare}!ic::populacional::Ambiente< G extends Number, S extends Ser< G > >@{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{compare}]{\setlength{\rightskip}{0pt plus 5cm}int ic.\-populacional.\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$.compare (
+\begin{DoxyParamCaption}
+\item[{S}]{ser1, }
+\item[{S}]{ser2}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_a6c2cb1321f4b8193c73795a63dd7b6b6}
+
+
+Compara graus de adaptação. 
+
+Compara dois {\ttfamily seres}, possibilitando sua ordenação quanto a adaptação.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em ser1} & {\ttfamily Ser} a ser comparado pelo {\ttfamily ambiente}. \\
+\hline
+{\em ser2} & Segundo {\ttfamily Ser} a ser comparado pelo {\ttfamily ambiente}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\begin{DoxyItemize}
+\item 1 se {\ttfamily ser1} for melhor adptado. 
+\item -\/1 se {\ttfamily ser2} for melhor adptado. 
+\item 0 se forem igualmente adaptados. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\hypertarget{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_a983291994cef2fc984dc1ccd5a1e216a}{\index{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$}!to\-String@{to\-String}}
+\index{to\-String@{to\-String}!ic::populacional::Ambiente< G extends Number, S extends Ser< G > >@{ic\-::populacional\-::\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{to\-String}]{\setlength{\rightskip}{0pt plus 5cm}String ic.\-populacional.\-Ambiente$<$ G extends Number, S extends Ser$<$ G $>$ $>$.to\-String (
+\begin{DoxyParamCaption}
+\item[{Populacao}]{populacao}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_00_01_s_01extends_01_ser_3_01_g_01_4_01_4_a983291994cef2fc984dc1ccd5a1e216a}
+
+
+A documentação para esta classe foi gerada a partir do seguinte arquivo\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Victor/workplace/\-Net\-Beans\-Projects/\-Inteligencia Computacional/src/ic/populacional/\hyperlink{_ambiente_8java}{Ambiente.\-java}\end{DoxyCompactItemize}

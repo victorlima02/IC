@@ -1,0 +1,6 @@
+var classic_1_1populacional_1_1seres_1_1permutacoes_1_1_ser_permutacao_3_01_gextends_01_number_01_6_comparable_3_01_g_01_4_01_4 =
+[
+    [ "SerPermutacao", "classic_1_1populacional_1_1seres_1_1permutacoes_1_1_ser_permutacao_3_01_gextends_01_number_01_6_comparable_3_01_g_01_4_01_4.html#a42d4a7c8d5b7b4c45e4ab6a42d54da8b", null ],
+    [ "SerPermutacao", "classic_1_1populacional_1_1seres_1_1permutacoes_1_1_ser_permutacao_3_01_gextends_01_number_01_6_comparable_3_01_g_01_4_01_4.html#a8499e717fb33b65f1f121ea8e82817e1", null ],
+    [ "integerListToLocusList", "classic_1_1populacional_1_1seres_1_1permutacoes_1_1_ser_permutacao_3_01_gextends_01_number_01_6_comparable_3_01_g_01_4_01_4.html#ad9d44a3ff50b54b535609995f2e25720", null ]
+];

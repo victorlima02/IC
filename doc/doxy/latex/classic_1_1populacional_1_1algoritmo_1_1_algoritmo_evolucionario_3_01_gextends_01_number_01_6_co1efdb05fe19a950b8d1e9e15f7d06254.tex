@@ -1,0 +1,796 @@
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254}{\section{Referência da Classe ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}
+\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254}\index{ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+}
+
+
+Classe base para os Algoritmo Evolucionários.  
+
+
+
+
+Diagrama de Hierarquia para ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co4c08ad55e259f326d7979b430087ff12}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboração para ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_coe0d94f23744d6c3f49b08c61bc2225e5}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a44bcf88506c92fbaf65cb3b223015004}{Algoritmo\-Evolucionario} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão. \end{DoxyCompactList}\item 
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a5a2ad6905fc5f843bdc02d17ac9245e6}{Algoritmo\-Evolucionario} (Ambiente$<$ G, S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a7ccec051269f59db009703ae09400f54}{ambiente}, Populacao$<$ G, S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ac925832558d94f84dc90252371f8cb32}{populacao})
+\begin{DoxyCompactList}\small\item\em Construtor. \end{DoxyCompactList}\item 
+abstract void \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a1f67fd61bb31bc952dd7a8afd03ad1af}{iteracao} ()
+\begin{DoxyCompactList}\small\item\em Define uma iteração. \end{DoxyCompactList}\item 
+abstract boolean \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a81f74bfb66080cfc85593d997d4f973c}{terminou} ()
+\begin{DoxyCompactList}\small\item\em Condição de parada. \end{DoxyCompactList}\item 
+void \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a0fd82664e0e022b2e965923560830f9a}{run} ()
+\begin{DoxyCompactList}\small\item\em Executa o algoritmo. \end{DoxyCompactList}\item 
+long \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_af9da640a882ddb1eb17ad360c109b530}{get\-Tempo\-De\-Execucao\-Nano} ()
+\begin{DoxyCompactList}\small\item\em Retorna Tempo de execução (n\-Seg). \end{DoxyCompactList}\item 
+Double \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a9ccb62ffa2361974547cc763de474fc2}{get\-Tempo\-De\-Execucao\-Seg} ()
+\begin{DoxyCompactList}\small\item\em Retorna Tempo de execução (Seg). \end{DoxyCompactList}\item 
+S \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ae50ff320a0f435c5e2d2eaaf58129680}{get\-Melhor\-Ser} ()
+\begin{DoxyCompactList}\small\item\em Retorna o melhor ser encontrado em todas as iterações. \end{DoxyCompactList}\item 
+int \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_adec275a30d0db288c2408b58370a8ae3}{get\-Contador\-De\-Iteracoes} ()
+\begin{DoxyCompactList}\small\item\em Retorna o valor do contador de iterações. \end{DoxyCompactList}\item 
+int \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a60040842d3e086afaac59479914f2d4c}{get\-Contador\-Sem\-Melhoras} ()
+\begin{DoxyCompactList}\small\item\em Retorna o valor do contador de iterações sem melhoras. \end{DoxyCompactList}\item 
+Gerador$<$ S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_afe7d44c986de2ed75fc4d0dc1e279715}{get\-Gerador} ()
+\begin{DoxyCompactList}\small\item\em Retorna o operador de geração utilizado. \end{DoxyCompactList}\item 
+void \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ad98dea12ac5aa49c3aedd64731277590}{set\-Gerador} (Gerador$<$ S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a2154470c0a2b1ae8fd1728d82217b40d}{gerador})
+\begin{DoxyCompactList}\small\item\em Atribui um novo operador de geração ao algoritmo. \end{DoxyCompactList}\item 
+Mutador$<$ S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a49c46ab9b5bfaab7199ab4ab996fc66c}{get\-Mutador} ()
+\begin{DoxyCompactList}\small\item\em Retorna o operador de mutação utilizado. \end{DoxyCompactList}\item 
+void \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_aa29043d9ec8f15f5c12146ef87f74e75}{set\-Mutador} (Mutador$<$ S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a87cb55bc36af5a64c095d7030449eab2}{mutador})
+\begin{DoxyCompactList}\small\item\em Atribui um novo operador de mutação ao algoritmo. \end{DoxyCompactList}\item 
+Recombinador$<$ S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a1dc1bba750535e8c0332be177fad63fa}{get\-Recombinador} ()
+\begin{DoxyCompactList}\small\item\em Retorna o operador de recombinação utilizado. \end{DoxyCompactList}\item 
+void \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ae2ec6e66337c0c1075767f9222ecaa20}{set\-Recombinador} (Recombinador$<$ S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a5ca76dcf5ea537ba8af6e1b66559de43}{recombinador})
+\begin{DoxyCompactList}\small\item\em Atribui um novo operador de recombinação ao algoritmo. \end{DoxyCompactList}\item 
+Seletor$<$ G, S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_abf133c60cd2d87d98243c232df8a57f9}{get\-Seletor} ()
+\begin{DoxyCompactList}\small\item\em Retorna o operador de seleção utilizado. \end{DoxyCompactList}\item 
+void \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a359a39d12caae7697213b535e4c60b74}{set\-Seletor} (Seletor$<$ G, S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ab55978264aecc3e7faa54575dcb3c95b}{seletor})
+\begin{DoxyCompactList}\small\item\em Atribui um novo operador de seleção ao algoritmo. \end{DoxyCompactList}\item 
+Ambiente$<$ G, S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a998385f45e2ac36c869623a549e26898}{get\-Ambiente} ()
+\begin{DoxyCompactList}\small\item\em Retorna o ambiente do algoritmo. \end{DoxyCompactList}\item 
+void \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a68db18fec4322f9ec81e1b958162b655}{set\-Ambiente} (Ambiente$<$ G, S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a7ccec051269f59db009703ae09400f54}{ambiente})
+\begin{DoxyCompactList}\small\item\em Atribui um novo ambiente ao algoritmo, sem avaliação dos seres. \end{DoxyCompactList}\item 
+void \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a85180b600cd1b09c637cd7be58509a7e}{switch\-Ambiente} (Ambiente$<$ G, S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a7ccec051269f59db009703ae09400f54}{ambiente})
+\begin{DoxyCompactList}\small\item\em Atribui um novo ambiente ao algoritmo, com reavaliação. \end{DoxyCompactList}\item 
+Populacao$<$ G, S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a88c00c7d51d16c559ccb8392f6892d90}{get\-Populacao} ()
+\begin{DoxyCompactList}\small\item\em Retorna a população do algoritmo. \end{DoxyCompactList}\item 
+void \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_aaf17db98cce445b6f757b9c37810327a}{set\-Populacao} (Populacao$<$ G, S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ac925832558d94f84dc90252371f8cb32}{populacao})
+\begin{DoxyCompactList}\small\item\em Atribui uma nova população ao algoritmo, sem avaliação dos seres. \end{DoxyCompactList}\item 
+void \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a8fc2d9d6a132efd494cf3a8cd44d5446}{switch\-Populacao} (Populacao$<$ G, S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ac925832558d94f84dc90252371f8cb32}{populacao})
+\begin{DoxyCompactList}\small\item\em Atribui uma nova população ao algoritmo, com avaliação. \end{DoxyCompactList}\item 
+String \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a962b55611f2dc3366b6a67328053eaa6}{relatorio} ()
+\begin{DoxyCompactList}\small\item\em Realiza a compilação dos dados coletados durante a execução do algoritmo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Métodos Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a5011151c232024dcf10891066b3b47b9}{verificacao\-Inicial} ()  throws Illegal\-State\-Exception 
+\begin{DoxyCompactList}\small\item\em Verifica as condições necessárias para execução do algoritmo. \end{DoxyCompactList}\item 
+void \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a73a87fc597bdd4c7c583514062171f7d}{finaliza} ()
+\begin{DoxyCompactList}\small\item\em Função a ser executada após o termino das iterações. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+String \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a551c112a0f4ce635cc81478ce2fd13e0}{nome}
+\item 
+Gerador$<$ S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a2154470c0a2b1ae8fd1728d82217b40d}{gerador}
+\item 
+Mutador$<$ S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a87cb55bc36af5a64c095d7030449eab2}{mutador}
+\item 
+Recombinador$<$ S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a5ca76dcf5ea537ba8af6e1b66559de43}{recombinador}
+\item 
+Seletor$<$ G, S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ab55978264aecc3e7faa54575dcb3c95b}{seletor}
+\item 
+Ambiente$<$ G, S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a7ccec051269f59db009703ae09400f54}{ambiente}
+\item 
+Populacao$<$ G, S $>$ \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ac925832558d94f84dc90252371f8cb32}{populacao}
+\item 
+S \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a8a0306073891705183ac1cf667280589}{melhor\-Ser}
+\item 
+long \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a8068592ee1b2603c5dbf52b399fb5bcf}{tempo\-De\-Execucao}
+\item 
+int \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a68e92a3567c0973b579a70a9608d41d2}{contador\-De\-Iteracoes} = 0
+\item 
+int \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_adc778b6504cca0e8e4c346498dab8cc9}{contador\-Sem\-Melhoras} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição Detalhada}
+Classe base para os Algoritmo Evolucionários. 
+
+\begin{DoxyAuthor}{Autor}
+Victor de Lima Soares 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versão}
+1.\-0
+\end{DoxyVersion}
+
+\begin{DoxyParams}{Parâmetros}
+{\em $<$\-G$>$} & Classe do retorno da função objetivo (Grau de adaptação)\-: Atomic\-Integer, Atomic\-Long, Big\-Decimal, Big\-Integer, Byte, Double, Float, Integer, Long, Short. \\
+\hline
+{\em $<$\-S$>$} & Classe dos Seres. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Construtores \& Destrutores}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a44bcf88506c92fbaf65cb3b223015004}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!Algoritmo\-Evolucionario@{Algoritmo\-Evolucionario}}
+\index{Algoritmo\-Evolucionario@{Algoritmo\-Evolucionario}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{Algoritmo\-Evolucionario}]{\setlength{\rightskip}{0pt plus 5cm}ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.Algoritmo\-Evolucionario (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a44bcf88506c92fbaf65cb3b223015004}
+
+
+Construtor padrão. 
+
+Construtor padrão, para montagem do algoritmo por estágios – através do uso das funções {\itshape set}.
+
+Cada componente do algoritmo deve ser atribuído antes da execução do mesmo, sendo obrigatórios uma população inicial e um ambiente. Os demais componentes (operadores), devem ser incluídos se exigidos pela função \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a1f67fd61bb31bc952dd7a8afd03ad1af}{iteracao()}. 
+
+\begin{DoxySince}{Desde}
+1.\-0
+\end{DoxySince}
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_aaf17db98cce445b6f757b9c37810327a}{set\-Populacao}(inteligencia\-Computacional.\-evolucioria.\-Populacao) 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a68db18fec4322f9ec81e1b958162b655}{set\-Ambiente}(inteligencia\-Computacional.\-evolucioria.\-Ambiente) 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ad98dea12ac5aa49c3aedd64731277590}{set\-Gerador}(inteligencia\-Computacional.\-evolucioria.\-algoritmo.\-operadores.\-Gerador) 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ae2ec6e66337c0c1075767f9222ecaa20}{set\-Recombinador}(inteligencia\-Computacional.\-evolucioria.\-algoritmo.\-operadores.\-Recombinador) 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_aa29043d9ec8f15f5c12146ef87f74e75}{set\-Mutador}(inteligencia\-Computacional.\-evolucioria.\-algoritmo.\-operadores.\-Mutador) 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a359a39d12caae7697213b535e4c60b74}{set\-Seletor}(inteligencia\-Computacional.\-evolucioria.\-algoritmo.\-operadores.\-Seletor) 
+\end{DoxySeeAlso}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a5a2ad6905fc5f843bdc02d17ac9245e6}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!Algoritmo\-Evolucionario@{Algoritmo\-Evolucionario}}
+\index{Algoritmo\-Evolucionario@{Algoritmo\-Evolucionario}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{Algoritmo\-Evolucionario}]{\setlength{\rightskip}{0pt plus 5cm}ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.Algoritmo\-Evolucionario (
+\begin{DoxyParamCaption}
+\item[{Ambiente$<$ G, S $>$}]{ambiente, }
+\item[{Populacao$<$ G, S $>$}]{populacao}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a5a2ad6905fc5f843bdc02d17ac9245e6}
+
+
+Construtor. 
+
+Construtor para fazer a atribuição inicial do ambiente e da população. 
+
+Cada componente do algoritmo deve ser atribuído antes da execução do mesmo, sendo obrigatórios uma população inicial e um ambiente. Os demais componentes (operadores), devem ser incluídos se exigidos pela função \hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a1f67fd61bb31bc952dd7a8afd03ad1af}{iteracao()}. 
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+
+\begin{DoxyParams}{Parâmetros}
+{\em ambiente} & Ambiente para o algoritmo. \\
+\hline
+{\em populacao} & População inicial.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_aaf17db98cce445b6f757b9c37810327a}{set\-Populacao}(inteligencia\-Computacional.\-evolucioria.\-Populacao) 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a68db18fec4322f9ec81e1b958162b655}{set\-Ambiente}(inteligencia\-Computacional.\-evolucioria.\-Ambiente) 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ad98dea12ac5aa49c3aedd64731277590}{set\-Gerador}(inteligencia\-Computacional.\-evolucioria.\-algoritmo.\-operadores.\-Gerador) 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ae2ec6e66337c0c1075767f9222ecaa20}{set\-Recombinador}(inteligencia\-Computacional.\-evolucioria.\-algoritmo.\-operadores.\-Recombinador) 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_aa29043d9ec8f15f5c12146ef87f74e75}{set\-Mutador}(inteligencia\-Computacional.\-evolucioria.\-algoritmo.\-operadores.\-Mutador) 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a359a39d12caae7697213b535e4c60b74}{set\-Seletor}(inteligencia\-Computacional.\-evolucioria.\-algoritmo.\-operadores.\-Seletor) 
+\end{DoxySeeAlso}
+
+
+\subsection{Métodos}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a73a87fc597bdd4c7c583514062171f7d}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!finaliza@{finaliza}}
+\index{finaliza@{finaliza}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{finaliza}]{\setlength{\rightskip}{0pt plus 5cm}void ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.finaliza (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a73a87fc597bdd4c7c583514062171f7d}
+
+
+Função a ser executada após o termino das iterações. 
+
+A realização de uma busca local pode ser um exemplo de aplicação. 
+
+Essa função é considerada no calculo do tempo de execução. 
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a998385f45e2ac36c869623a549e26898}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!get\-Ambiente@{get\-Ambiente}}
+\index{get\-Ambiente@{get\-Ambiente}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{get\-Ambiente}]{\setlength{\rightskip}{0pt plus 5cm}Ambiente$<$G, S$>$ ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.get\-Ambiente (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a998385f45e2ac36c869623a549e26898}
+
+
+Retorna o ambiente do algoritmo. 
+
+Operadores podem ser trocados no decorrer das operações.
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\begin{DoxyReturn}{Retorna}
+Ambiente. 
+\end{DoxyReturn}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_adec275a30d0db288c2408b58370a8ae3}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!get\-Contador\-De\-Iteracoes@{get\-Contador\-De\-Iteracoes}}
+\index{get\-Contador\-De\-Iteracoes@{get\-Contador\-De\-Iteracoes}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{get\-Contador\-De\-Iteracoes}]{\setlength{\rightskip}{0pt plus 5cm}int ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.get\-Contador\-De\-Iteracoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_adec275a30d0db288c2408b58370a8ae3}
+
+
+Retorna o valor do contador de iterações. 
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\begin{DoxyReturn}{Retorna}
+Número de iterações executadas. 
+\end{DoxyReturn}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a60040842d3e086afaac59479914f2d4c}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!get\-Contador\-Sem\-Melhoras@{get\-Contador\-Sem\-Melhoras}}
+\index{get\-Contador\-Sem\-Melhoras@{get\-Contador\-Sem\-Melhoras}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{get\-Contador\-Sem\-Melhoras}]{\setlength{\rightskip}{0pt plus 5cm}int ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.get\-Contador\-Sem\-Melhoras (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a60040842d3e086afaac59479914f2d4c}
+
+
+Retorna o valor do contador de iterações sem melhoras. 
+
+Durante a execução o algoritmo mantém o controle do número de iterações realizadas desde a última melhoria. 
+
+O contador é incrementado a cada iteração em que o melhor ser que compõe a população não possuir um grau de adaptação superior ao do melhor ser da geração passada. Sendo zerado, caso contrário. 
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\begin{DoxyReturn}{Retorna}
+Número de iterações executadas sem melhorias. 
+\end{DoxyReturn}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_afe7d44c986de2ed75fc4d0dc1e279715}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!get\-Gerador@{get\-Gerador}}
+\index{get\-Gerador@{get\-Gerador}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{get\-Gerador}]{\setlength{\rightskip}{0pt plus 5cm}Gerador$<$S$>$ ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.get\-Gerador (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_afe7d44c986de2ed75fc4d0dc1e279715}
+
+
+Retorna o operador de geração utilizado. 
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\begin{DoxyReturn}{Retorna}
+O operador de geração do algoritmo. 
+\end{DoxyReturn}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ae50ff320a0f435c5e2d2eaaf58129680}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!get\-Melhor\-Ser@{get\-Melhor\-Ser}}
+\index{get\-Melhor\-Ser@{get\-Melhor\-Ser}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{get\-Melhor\-Ser}]{\setlength{\rightskip}{0pt plus 5cm}S ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.get\-Melhor\-Ser (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ae50ff320a0f435c5e2d2eaaf58129680}
+
+
+Retorna o melhor ser encontrado em todas as iterações. 
+
+Ao executar o algoritmo manterá o controle do melhor ser desde a primeira iteração até que a condição de parada seja satisfeita.
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\begin{DoxyReturn}{Retorna}
+Ser mais adaptado. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a0fd82664e0e022b2e965923560830f9a}{run()} 
+\end{DoxySeeAlso}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a49c46ab9b5bfaab7199ab4ab996fc66c}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!get\-Mutador@{get\-Mutador}}
+\index{get\-Mutador@{get\-Mutador}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{get\-Mutador}]{\setlength{\rightskip}{0pt plus 5cm}Mutador$<$S$>$ ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.get\-Mutador (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a49c46ab9b5bfaab7199ab4ab996fc66c}
+
+
+Retorna o operador de mutação utilizado. 
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\begin{DoxyReturn}{Retorna}
+O operador de mutação do algoritmo. 
+\end{DoxyReturn}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a88c00c7d51d16c559ccb8392f6892d90}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!get\-Populacao@{get\-Populacao}}
+\index{get\-Populacao@{get\-Populacao}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{get\-Populacao}]{\setlength{\rightskip}{0pt plus 5cm}Populacao$<$G, S$>$ ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.get\-Populacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a88c00c7d51d16c559ccb8392f6892d90}
+
+
+Retorna a população do algoritmo. 
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\begin{DoxyReturn}{Retorna}
+População do algoritmo. 
+\end{DoxyReturn}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a1dc1bba750535e8c0332be177fad63fa}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!get\-Recombinador@{get\-Recombinador}}
+\index{get\-Recombinador@{get\-Recombinador}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{get\-Recombinador}]{\setlength{\rightskip}{0pt plus 5cm}Recombinador$<$S$>$ ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.get\-Recombinador (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a1dc1bba750535e8c0332be177fad63fa}
+
+
+Retorna o operador de recombinação utilizado. 
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\begin{DoxyReturn}{Retorna}
+O operador de recombinação do algoritmo. 
+\end{DoxyReturn}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_abf133c60cd2d87d98243c232df8a57f9}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!get\-Seletor@{get\-Seletor}}
+\index{get\-Seletor@{get\-Seletor}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{get\-Seletor}]{\setlength{\rightskip}{0pt plus 5cm}Seletor$<$G, S$>$ ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.get\-Seletor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_abf133c60cd2d87d98243c232df8a57f9}
+
+
+Retorna o operador de seleção utilizado. 
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\begin{DoxyReturn}{Retorna}
+O operador de seleção do algoritmo. 
+\end{DoxyReturn}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_af9da640a882ddb1eb17ad360c109b530}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!get\-Tempo\-De\-Execucao\-Nano@{get\-Tempo\-De\-Execucao\-Nano}}
+\index{get\-Tempo\-De\-Execucao\-Nano@{get\-Tempo\-De\-Execucao\-Nano}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{get\-Tempo\-De\-Execucao\-Nano}]{\setlength{\rightskip}{0pt plus 5cm}long ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.get\-Tempo\-De\-Execucao\-Nano (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_af9da640a882ddb1eb17ad360c109b530}
+
+
+Retorna Tempo de execução (n\-Seg). 
+
+Ao executar o algoritmo manterá o controle do tempo decorrido desde a primeira iteração até que a condição de parada seja satisfeita.
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\begin{DoxyReturn}{Retorna}
+Tempo de execução em nano segundos.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a0fd82664e0e022b2e965923560830f9a}{run()} 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a1f67fd61bb31bc952dd7a8afd03ad1af}{iteracao()} 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a81f74bfb66080cfc85593d997d4f973c}{terminou()} 
+\end{DoxySeeAlso}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a9ccb62ffa2361974547cc763de474fc2}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!get\-Tempo\-De\-Execucao\-Seg@{get\-Tempo\-De\-Execucao\-Seg}}
+\index{get\-Tempo\-De\-Execucao\-Seg@{get\-Tempo\-De\-Execucao\-Seg}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{get\-Tempo\-De\-Execucao\-Seg}]{\setlength{\rightskip}{0pt plus 5cm}Double ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.get\-Tempo\-De\-Execucao\-Seg (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a9ccb62ffa2361974547cc763de474fc2}
+
+
+Retorna Tempo de execução (Seg). 
+
+Ao executar o algoritmo manterá o controle do tempo decorrido desde a primeira iteração até que a condição de parada seja satisfeita.
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\begin{DoxyReturn}{Retorna}
+Tempo de execução em segundos.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a0fd82664e0e022b2e965923560830f9a}{run()} 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a1f67fd61bb31bc952dd7a8afd03ad1af}{iteracao()} 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a81f74bfb66080cfc85593d997d4f973c}{terminou()} 
+\end{DoxySeeAlso}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a1f67fd61bb31bc952dd7a8afd03ad1af}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!iteracao@{iteracao}}
+\index{iteracao@{iteracao}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{iteracao}]{\setlength{\rightskip}{0pt plus 5cm}abstract void ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.iteracao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a1f67fd61bb31bc952dd7a8afd03ad1af}
+
+
+Define uma iteração. 
+
+Algoritmos serão baseados em iterações, executando-\/as até que a condição de parada seja atingida. 
+
+Dessa forma, para cada algoritmo a ser definido, essa função deve ser implementada, pois nela será descrito o comportamento esperado, bem como o uso e relacionamento entre os operadores. 
+
+\begin{DoxySince}{Desde}
+1.\-0
+\end{DoxySince}
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a0fd82664e0e022b2e965923560830f9a}{run()} 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a81f74bfb66080cfc85593d997d4f973c}{terminou()} 
+\end{DoxySeeAlso}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a962b55611f2dc3366b6a67328053eaa6}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!relatorio@{relatorio}}
+\index{relatorio@{relatorio}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{relatorio}]{\setlength{\rightskip}{0pt plus 5cm}String ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.relatorio (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a962b55611f2dc3366b6a67328053eaa6}
+
+
+Realiza a compilação dos dados coletados durante a execução do algoritmo. 
+
+Nessa coletânea serão retornados os seguintes dados(em formato textual)\-: 
+\begin{DoxyItemize}
+\item Nome do algoritmo. 
+\item Numero de indivíduos na população. 
+\item Probabilidade de Mutação. 
+\item Probabilidade de Recombinação. 
+\item Tempo de execução, em segundos. 
+\item Número de Iterações. 
+\item Número de Iterações sem melhora. 
+\item Melhor solução. 
+\end{DoxyItemize}
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\begin{DoxyReturn}{Retorna}
+Relatório básico de execução. 
+\end{DoxyReturn}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a0fd82664e0e022b2e965923560830f9a}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!run@{run}}
+\index{run@{run}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a0fd82664e0e022b2e965923560830f9a}
+
+
+Executa o algoritmo. 
+
+Realiza o processamento do algoritmo, verificando a condição de parada e realizando a coleta dos dados fornecidos pelos métodos de acesso e geração de relatórios. 
+
+Devido a coleta de dados, esse método implica em um tempo de execução adicional, possivelmente significativo. Especialmente, no controle do número de iterações sem melhora e memorização do melhor ser encontrado. 
+
+Tais informações dependem fortemente da estrutura de dados usada na implementação da população – pela exigência de buscas pelo mais adapto. O que pode ser insignificante em casos de estruturas ordenadas, como arvores, tamanho reduzido da população e/ou custo elevado de avaliação. 
+
+\begin{DoxySince}{Desde}
+1.\-0
+\end{DoxySince}
+\begin{DoxySeeAlso}{Veja também}
+inteligencia\-Computacional.\-evolucioria.\-Populacao\-::get\-Melhor() 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a1f67fd61bb31bc952dd7a8afd03ad1af}{iteracao()} 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a81f74bfb66080cfc85593d997d4f973c}{terminou()} 
+
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a962b55611f2dc3366b6a67328053eaa6}{relatorio()} 
+\end{DoxySeeAlso}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a68db18fec4322f9ec81e1b958162b655}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!set\-Ambiente@{set\-Ambiente}}
+\index{set\-Ambiente@{set\-Ambiente}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{set\-Ambiente}]{\setlength{\rightskip}{0pt plus 5cm}void ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.set\-Ambiente (
+\begin{DoxyParamCaption}
+\item[{Ambiente$<$ G, S $>$}]{ambiente}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a68db18fec4322f9ec81e1b958162b655}
+
+
+Atribui um novo ambiente ao algoritmo, sem avaliação dos seres. 
+
+Método deve ser usado apenas para atribuição inicial do ambiente. Para troca de ambientes use\-: \hyperlink{}{switch\-Ambiente(inteligencia\-Computacional.\-evolucioria.\-Ambiente)}
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+
+\begin{DoxyParams}{Parâmetros}
+{\em ambiente} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em Illegal\-State\-Exception} & Caso um ambiente já esteja definido.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a85180b600cd1b09c637cd7be58509a7e}{switch\-Ambiente}(inteligencia\-Computacional.\-evolucioria.\-Ambiente) 
+\end{DoxySeeAlso}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ad98dea12ac5aa49c3aedd64731277590}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!set\-Gerador@{set\-Gerador}}
+\index{set\-Gerador@{set\-Gerador}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{set\-Gerador}]{\setlength{\rightskip}{0pt plus 5cm}void ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.set\-Gerador (
+\begin{DoxyParamCaption}
+\item[{Gerador$<$ S $>$}]{gerador}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ad98dea12ac5aa49c3aedd64731277590}
+
+
+Atribui um novo operador de geração ao algoritmo. 
+
+Operadores podem ser trocados no decorrer das iterações.
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+
+\begin{DoxyParams}{Parâmetros}
+{\em gerador} & Operador a ser atribuído. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_aa29043d9ec8f15f5c12146ef87f74e75}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!set\-Mutador@{set\-Mutador}}
+\index{set\-Mutador@{set\-Mutador}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{set\-Mutador}]{\setlength{\rightskip}{0pt plus 5cm}void ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.set\-Mutador (
+\begin{DoxyParamCaption}
+\item[{Mutador$<$ S $>$}]{mutador}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_aa29043d9ec8f15f5c12146ef87f74e75}
+
+
+Atribui um novo operador de mutação ao algoritmo. 
+
+Operadores podem ser trocados no decorrer das iterações.
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+
+\begin{DoxyParams}{Parâmetros}
+{\em mutador} & Operador a ser atribuído. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_aaf17db98cce445b6f757b9c37810327a}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!set\-Populacao@{set\-Populacao}}
+\index{set\-Populacao@{set\-Populacao}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{set\-Populacao}]{\setlength{\rightskip}{0pt plus 5cm}void ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.set\-Populacao (
+\begin{DoxyParamCaption}
+\item[{Populacao$<$ G, S $>$}]{populacao}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_aaf17db98cce445b6f757b9c37810327a}
+
+
+Atribui uma nova população ao algoritmo, sem avaliação dos seres. 
+
+Método deve ser usado apenas para atribuição inicial da população. Para troca de populações use\-: \hyperlink{}{switch\-Populacao(inteligencia\-Computacional.\-evolucioria.\-Populacao)}
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+
+\begin{DoxyParams}{Parâmetros}
+{\em populacao} & População a ser atribuída.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em Illegal\-State\-Exception} & Caso uma população já esteja definida.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a8fc2d9d6a132efd494cf3a8cd44d5446}{switch\-Populacao}(inteligencia\-Computacional.\-evolucioria.\-Populacao) 
+\end{DoxySeeAlso}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ae2ec6e66337c0c1075767f9222ecaa20}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!set\-Recombinador@{set\-Recombinador}}
+\index{set\-Recombinador@{set\-Recombinador}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{set\-Recombinador}]{\setlength{\rightskip}{0pt plus 5cm}void ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.set\-Recombinador (
+\begin{DoxyParamCaption}
+\item[{Recombinador$<$ S $>$}]{recombinador}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ae2ec6e66337c0c1075767f9222ecaa20}
+
+
+Atribui um novo operador de recombinação ao algoritmo. 
+
+Operadores podem ser trocados no decorrer das iterações.
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+
+\begin{DoxyParams}{Parâmetros}
+{\em recombinador} & Operador a ser atribuído. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a359a39d12caae7697213b535e4c60b74}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!set\-Seletor@{set\-Seletor}}
+\index{set\-Seletor@{set\-Seletor}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{set\-Seletor}]{\setlength{\rightskip}{0pt plus 5cm}void ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.set\-Seletor (
+\begin{DoxyParamCaption}
+\item[{Seletor$<$ G, S $>$}]{seletor}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a359a39d12caae7697213b535e4c60b74}
+
+
+Atribui um novo operador de seleção ao algoritmo. 
+
+Operadores podem ser trocados no decorrer das iterações.
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+
+\begin{DoxyParams}{Parâmetros}
+{\em seletor} & Operador a ser atribuído. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a85180b600cd1b09c637cd7be58509a7e}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!switch\-Ambiente@{switch\-Ambiente}}
+\index{switch\-Ambiente@{switch\-Ambiente}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{switch\-Ambiente}]{\setlength{\rightskip}{0pt plus 5cm}void ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.switch\-Ambiente (
+\begin{DoxyParamCaption}
+\item[{Ambiente$<$ G, S $>$}]{ambiente}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a85180b600cd1b09c637cd7be58509a7e}
+
+
+Atribui um novo ambiente ao algoritmo, com reavaliação. 
+
+O ambiente pode ser trocado no decorrer das iterações. Quando tal troca ocorre, por esse método, todos os seres da população serão avaliados pelo novo ambiente.
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+
+\begin{DoxyParams}{Parâmetros}
+{\em ambiente} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a68db18fec4322f9ec81e1b958162b655}{set\-Ambiente}(inteligencia\-Computacional.\-evolucioria.\-Ambiente) 
+\end{DoxySeeAlso}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a8fc2d9d6a132efd494cf3a8cd44d5446}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!switch\-Populacao@{switch\-Populacao}}
+\index{switch\-Populacao@{switch\-Populacao}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{switch\-Populacao}]{\setlength{\rightskip}{0pt plus 5cm}void ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.switch\-Populacao (
+\begin{DoxyParamCaption}
+\item[{Populacao$<$ G, S $>$}]{populacao}
+\end{DoxyParamCaption}
+)}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a8fc2d9d6a132efd494cf3a8cd44d5446}
+
+
+Atribui uma nova população ao algoritmo, com avaliação. 
+
+A nova população é inserida no algoritmo, sendo submetida a avaliação do ambiente.
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+
+\begin{DoxyParams}{Parâmetros}
+{\em populacao} & População a ser atribuída.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_aaf17db98cce445b6f757b9c37810327a}{set\-Populacao}(inteligencia\-Computacional.\-evolucioria.\-Populacao) 
+\end{DoxySeeAlso}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a81f74bfb66080cfc85593d997d4f973c}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!terminou@{terminou}}
+\index{terminou@{terminou}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{terminou}]{\setlength{\rightskip}{0pt plus 5cm}abstract boolean ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.terminou (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a81f74bfb66080cfc85593d997d4f973c}
+
+
+Condição de parada. 
+
+Determina quando o algoritmo atinge sua iteração final, devendo tal condição ser definida para cada algoritmo que se pretende implementar.
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+\begin{DoxyReturn}{Retorna}
+
+\begin{DoxyItemize}
+\item true\-: se o algoritmo atingiu a condição de parada; 
+\item false\-: caso contrário. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a5011151c232024dcf10891066b3b47b9}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!verificacao\-Inicial@{verificacao\-Inicial}}
+\index{verificacao\-Inicial@{verificacao\-Inicial}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{verificacao\-Inicial}]{\setlength{\rightskip}{0pt plus 5cm}void ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.verificacao\-Inicial (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws Illegal\-State\-Exception\hspace{0.3cm}{\ttfamily [protected]}}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a5011151c232024dcf10891066b3b47b9}
+
+
+Verifica as condições necessárias para execução do algoritmo. 
+
+\paragraph*{Condições\-:}
+
+
+\begin{DoxyItemize}
+\item Ambiente definido; 
+\item População definida. 
+\end{DoxyItemize}
+
+\begin{DoxySince}{Desde}
+1.\-0 
+\end{DoxySince}
+
+
+\subsection{Atributos}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a7ccec051269f59db009703ae09400f54}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!ambiente@{ambiente}}
+\index{ambiente@{ambiente}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{ambiente}]{\setlength{\rightskip}{0pt plus 5cm}Ambiente$<$G, S$>$ ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.ambiente\hspace{0.3cm}{\ttfamily [protected]}}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a7ccec051269f59db009703ae09400f54}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a68e92a3567c0973b579a70a9608d41d2}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!contador\-De\-Iteracoes@{contador\-De\-Iteracoes}}
+\index{contador\-De\-Iteracoes@{contador\-De\-Iteracoes}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{contador\-De\-Iteracoes}]{\setlength{\rightskip}{0pt plus 5cm}int ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.contador\-De\-Iteracoes = 0\hspace{0.3cm}{\ttfamily [protected]}}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a68e92a3567c0973b579a70a9608d41d2}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_adc778b6504cca0e8e4c346498dab8cc9}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!contador\-Sem\-Melhoras@{contador\-Sem\-Melhoras}}
+\index{contador\-Sem\-Melhoras@{contador\-Sem\-Melhoras}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{contador\-Sem\-Melhoras}]{\setlength{\rightskip}{0pt plus 5cm}int ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.contador\-Sem\-Melhoras = 0\hspace{0.3cm}{\ttfamily [protected]}}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_adc778b6504cca0e8e4c346498dab8cc9}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a2154470c0a2b1ae8fd1728d82217b40d}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!gerador@{gerador}}
+\index{gerador@{gerador}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{gerador}]{\setlength{\rightskip}{0pt plus 5cm}Gerador$<$S$>$ ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.gerador\hspace{0.3cm}{\ttfamily [protected]}}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a2154470c0a2b1ae8fd1728d82217b40d}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a8a0306073891705183ac1cf667280589}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!melhor\-Ser@{melhor\-Ser}}
+\index{melhor\-Ser@{melhor\-Ser}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{melhor\-Ser}]{\setlength{\rightskip}{0pt plus 5cm}S ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.melhor\-Ser\hspace{0.3cm}{\ttfamily [protected]}}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a8a0306073891705183ac1cf667280589}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a87cb55bc36af5a64c095d7030449eab2}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!mutador@{mutador}}
+\index{mutador@{mutador}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{mutador}]{\setlength{\rightskip}{0pt plus 5cm}Mutador$<$S$>$ ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.mutador\hspace{0.3cm}{\ttfamily [protected]}}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a87cb55bc36af5a64c095d7030449eab2}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a551c112a0f4ce635cc81478ce2fd13e0}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!nome@{nome}}
+\index{nome@{nome}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{nome}]{\setlength{\rightskip}{0pt plus 5cm}String ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.nome\hspace{0.3cm}{\ttfamily [protected]}}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a551c112a0f4ce635cc81478ce2fd13e0}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ac925832558d94f84dc90252371f8cb32}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!populacao@{populacao}}
+\index{populacao@{populacao}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{populacao}]{\setlength{\rightskip}{0pt plus 5cm}Populacao$<$G, S$>$ ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.populacao\hspace{0.3cm}{\ttfamily [protected]}}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ac925832558d94f84dc90252371f8cb32}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a5ca76dcf5ea537ba8af6e1b66559de43}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!recombinador@{recombinador}}
+\index{recombinador@{recombinador}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{recombinador}]{\setlength{\rightskip}{0pt plus 5cm}Recombinador$<$S$>$ ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.recombinador\hspace{0.3cm}{\ttfamily [protected]}}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a5ca76dcf5ea537ba8af6e1b66559de43}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ab55978264aecc3e7faa54575dcb3c95b}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!seletor@{seletor}}
+\index{seletor@{seletor}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{seletor}]{\setlength{\rightskip}{0pt plus 5cm}Seletor$<$G, S$>$ ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.seletor\hspace{0.3cm}{\ttfamily [protected]}}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_ab55978264aecc3e7faa54575dcb3c95b}
+\hypertarget{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a8068592ee1b2603c5dbf52b399fb5bcf}{\index{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}!tempo\-De\-Execucao@{tempo\-De\-Execucao}}
+\index{tempo\-De\-Execucao@{tempo\-De\-Execucao}!ic::populacional::algoritmo::AlgoritmoEvolucionario< Gextends Number &Comparable< G >, S extends Ser< G > >@{ic\-::populacional\-::algoritmo\-::\-Algoritmo\-Evolucionario$<$ Gextends Number \&\-Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$}}
+\subsubsection[{tempo\-De\-Execucao}]{\setlength{\rightskip}{0pt plus 5cm}long ic.\-populacional.\-algoritmo.\-Algoritmo\-Evolucionario$<$ Gextends Number \&Comparable$<$ G $>$, S extends Ser$<$ G $>$ $>$.tempo\-De\-Execucao\hspace{0.3cm}{\ttfamily [protected]}}}\label{classic_1_1populacional_1_1algoritmo_1_1_algoritmo_evolucionario_3_01_gextends_01_number_01_6_co1efdb05fe19a950b8d1e9e15f7d06254_a8068592ee1b2603c5dbf52b399fb5bcf}
+
+
+A documentação para esta classe foi gerada a partir do seguinte arquivo\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Victor/workplace/\-Net\-Beans\-Projects/\-Inteligencia Computacional/src/ic/populacional/algoritmo/\hyperlink{_algoritmo_evolucionario_8java}{Algoritmo\-Evolucionario.\-java}\end{DoxyCompactItemize}

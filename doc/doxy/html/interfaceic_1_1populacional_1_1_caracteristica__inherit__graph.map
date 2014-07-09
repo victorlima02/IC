@@ -1,0 +1,4 @@
+<map id="ic.populacional.Caracteristica" name="ic.populacional.Caracteristica">
+<area shape="rect" id="node3" href="$classic_1_1populacional_1_1seres_1_1binarios_1_1_caracteristica_binaria.html" title="{ic.populacional.seres.binarios.\lCaracteristicaBinaria\n|&#45; set\l|+ CaracteristicaBinaria()\l+ CaracteristicaBinaria()\l+ getRepresentacaoNumerica()\l+ getBit()\l+ setBit()\l+ setRepresentacaoNumerica()\l}" alt="" coords="5,293,208,459"/>
+<area shape="rect" id="node4" href="$classic_1_1populacional_1_1seres_1_1permutacao_1_1_locus_permutacao.html" title="{ic.populacional.seres.permutacao.\lLocusPermutacao\n|~ locus\l|+ LocusPermutacao()\l+ getRepresentacaoNumerica()\l+ setRepresentacaoNumerica()\l+ copia()\l+ equals()\l+ toString()\l+ compareTo()\l}" alt="" coords="233,286,452,466"/>
+</map>

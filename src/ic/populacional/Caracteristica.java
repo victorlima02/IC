@@ -64,7 +64,7 @@ public abstract class Caracteristica<V extends Number> {
      * <li>Se a característica já estiver atribuída a outro ser.</li>
      * </ul>
      *
-     * @see Ser#setCaracteristica(int, ic.populacional.Caracteristica)
+     * @see Ser#setCaracteristica(java.lang.Integer, ic.populacional.Caracteristica) 
      */
     public void setSer(Ser dono) {
         if (this.dono != null && this.dono != dono) {

@@ -58,7 +58,7 @@ import java.util.function.Function;
  *
  * #TODO função sorteio.
  */
-public abstract class Recombinador<G extends Number & Comparable<G>, S extends Ser<G>> extends Operador<G,S> implements Function<List<S>, List<S>> {
+public abstract class Recombinador<G extends Number & Comparable<G>, S extends Ser<G>> extends Operador<G, S> implements Function<List<S>, List<S>> {
 
     private double probabilidadeDeRecombinacao;
     private int nParceiros;
@@ -67,7 +67,7 @@ public abstract class Recombinador<G extends Number & Comparable<G>, S extends S
      * Construtor.
      *
      * @since 1.0
-     * 
+     *
      * @param probabilidadeDeRecombinacao Probabilidade de recombinação, entre
      * [0-1].
      * @param nParceiros Número de parceiros necessários para cada operação de
@@ -79,7 +79,7 @@ public abstract class Recombinador<G extends Number & Comparable<G>, S extends S
      * <li>Caso o número de parceiros for menor ou igual a 0.</li>
      * </ul>
      */
-    public Recombinador( double probabilidadeDeRecombinacao, int nParceiros) {
+    public Recombinador(double probabilidadeDeRecombinacao, int nParceiros) {
         setNParceiros(nParceiros);
         setProbabilidadeDeRecombinacao(probabilidadeDeRecombinacao);
     }
@@ -133,7 +133,7 @@ public abstract class Recombinador<G extends Number & Comparable<G>, S extends S
      * }.
      * </p>
      * <p>
-     * Para cada sub conjunto, um sorteio será realizado pela função {@link #sorteiaSeMuta(ic.populacional.Ser)
+     * Para cada sub conjunto, um sorteio será realizado pela função {@link #sorteiaSeRecombina()
      * },em caso de valor verdadeiro, a operação de reprodução é aplicada.
      * </p>
      *
@@ -158,7 +158,7 @@ public abstract class Recombinador<G extends Number & Comparable<G>, S extends S
         List<S> filhos = new ArrayList<>(pares.size());
 
         for (int i = 0; i < pares.size(); i += nPais) {
-            if (Aleatorios.sorteioUniforme(getProbabilidadeDeRecombinacao())) {
+            if (sorteiaSeRecombina()) {
                 filhos.addAll(recombina(pares.subList(i, i + nPais)));
             }
         }
@@ -166,11 +166,88 @@ public abstract class Recombinador<G extends Number & Comparable<G>, S extends S
     }
 
     /**
+     * Sorteia se aplica a recombinação.
+     *
+     * <p>
+     * Esse método deve ser usado antes da aplicação da operação de
+     * recombinação, {@link #recombina(java.util.List)
+     * }. Desse modo, um sorteio será realizado para decidir se a mesma deve ou
+     * não ocorrer.
+     * </p>
+     * <p>
+     * Por padrão, essa função utiliza de uma distribuição uniforme, onde a
+     * probabilidade de sucesso é definida pelo construtor ou pelo método {@link #setProbabilidadeDeRecombinacao(double)
+     * }.
+     * </p>
+     *
+     * <p>
+     * Se sobrescrito, deve usar um gerador de números aleatórios seguro para
+     * múltiplas Threads.
+     * </p>
+     *
+     * <p>
+     * O ser recebido como parâmetro, não é utilizado - por padrão, sendo essa
+     * sobrecarga implementada para utilização em streams.
+     * </p>
+     *
+     * @since 1.0
+     * @param ser Ser a ser recombinado.
+     * @return
+     * <ul>
+     * <li>true: se deve recombinar;</li>
+     * <li>false: caso contrario;</li>
+     * </ul>
+     *
+     * @see #Recombinador(double, int)
+     * @see #setProbabilidadeDeRecombinacao(double)
+     * @see Aleatorios#sorteioUniforme(double) 
+     */
+    public Boolean sorteiaSeRecombina(Ser ser) {
+        return sorteiaSeRecombina();
+    }
+
+    /**
+     * Sorteia se aplica a recombinação.
+     *
+     * <p>
+     * Esse método deve ser usado antes da aplicação da operação de
+     * recombinação, {@link #recombina(java.util.List)
+     * }. Desse modo, um sorteio será realizado para decidir se a mesma deve ou
+     * não ocorrer.
+     * </p>
+     * <p>
+     * Por padrão, essa função utiliza de uma distribuição uniforme, onde a
+     * probabilidade de sucesso é definida pelo construtor ou pelo método {@link #setProbabilidadeDeRecombinacao(double)
+     * }.
+     * </p>
+     *
+     * <p>
+     * Se sobrescrito, deve usar um gerador de números aleatórios seguro para
+     * múltiplas Threads.
+     * </p>
+     *
+     *
+     * @since 1.0
+     * @return
+     * <ul>
+     * <li>true: se deve recombinar;</li>
+     * <li>false: caso contrario;</li>
+     * </ul>
+     *
+     * @see #Recombinador(double, int)
+     * @see #setProbabilidadeDeRecombinacao(double)
+     * @see Aleatorios#sorteioUniforme(double) 
+     */
+    public Boolean sorteiaSeRecombina() {
+        return Aleatorios.sorteioUniforme(getProbabilidadeDeRecombinacao());
+    }
+
+    /**
      * Atribui a probabilidade de reprodução.
      *
      * Atribui uma probabilidade para a ocorrência de cada operação de
      * recombinação invocada por {@link #recombinaTodos(java.util.List) }.
-     * 
+     *
      * @since 1.0
      * @param probabilidadeDeRecombinacao Probabilidade de recombinação, entre
      * [0-1].
@@ -179,9 +256,9 @@ public abstract class Recombinador<G extends Number & Comparable<G>, S extends S
      * <ul>
      * <li>Caso a probabilidade de recombinação não esteja em [0,1].</li>
      * </ul>
-     * 
-     * @see #recombinaTodos(java.util.List) 
-     * @see #apply(java.util.List) 
+     *
+     * @see #recombinaTodos(java.util.List)
+     * @see #apply(java.util.List)
      */
     public final void setProbabilidadeDeRecombinacao(double probabilidadeDeRecombinacao) {
 
@@ -509,8 +586,7 @@ public abstract class Recombinador<G extends Number & Comparable<G>, S extends S
      * @param par2 Parceiro para cruzamento.
      * @return Lista contendo os dois elementos filhos.
      *
-     * @see #discriteRecombination(ic.populacional.Ser, ic.populacional.Ser,
-     * java.lang.Double)
+     * @see #discriteRecombination(ic.populacional.Ser, ic.populacional.Ser, java.lang.Integer, java.lang.Double) 
      */
     public final List<S> uniformCrossover(S par1, S par2) {
         return discriteRecombination(par1, par2, 2, 0.5);

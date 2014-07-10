@@ -533,16 +533,13 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
     /**
      * Atribui uma nova população ao algoritmo, sem avaliação dos seres.
      *
-     * Método deve ser usado apenas para atribuição inicial da população. Para
-     * troca de populações use:
-     * {@link #switchPopulacao(inteligenciaComputacional.evolucioria.Populacao)}
+     * Método deve ser usado apenas para atribuição inicial da população.
      *
      * @since 1.0
      * @param populacao População a ser atribuída.
      *
      * @throws IllegalStateException Caso uma população já esteja definida.
      *
-     * @see #switchPopulacao(inteligenciaComputacional.evolucioria.Populacao)
      */
     public void setPopulacao(Populacao<G, S> populacao) {
         if (this.populacao != null) {

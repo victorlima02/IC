@@ -158,7 +158,7 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
      *
      * <p>
      * Essa função <b>deve chamar</b>
-     * {@link Ser#setGrauDeAdaptacao(java.lang.Number) }
+     * {@link Ser#setGrauDeAdaptacao(ic.populacional.Ambiente)  }
      * uma vez que seu valor de retorno for calculado para que o mesmo seja
      * retido - se essa for a intenção. Essa pode ser chamada após o
      * retorno,contudo.
@@ -168,7 +168,7 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
      * @param individuo Ser a ser avaliado.
      * @return Grau de adaptação.
      *
-     * @see Ser#setGrauDeAdaptacao(java.lang.Number)
+     * @see Ser#setGrauDeAdaptacao(ic.populacional.Ambiente) 
      *
      */
     public abstract G avalia(S individuo);
@@ -190,14 +190,14 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
      *
      * <p>
      * Essa função atribui a cada ser na coleção um grau de adaptação por meio
-     * da função: {@link Ser#setGrauDeAdaptacao(java.lang.Number)}
+     * da função: {@link Ser#setGrauDeAdaptacao(ic.populacional.Ambiente) }
      * </p>
      *
      * @since 1.0
      * @param seres Coleção a ser avaliada.
      *
      * @see #avalia(ic.populacional.Ser)
-     * @see Ser#setGrauDeAdaptacao(java.lang.Number)
+     * @see Ser#setGrauDeAdaptacao(ic.populacional.Ambiente) 
      */
     public void avalia(Collection<? extends S> seres) {
         seres.parallelStream().filter(ser -> !ser.isAvaliadoPor(this)).forEach((ser) -> ser.setGrauDeAdaptacao(this));

@@ -157,7 +157,7 @@ public abstract class Mutador<S extends Ser> extends Operador implements Consume
      *
      * @see #Mutador(Double)
      * @see #setProbabilidadeMutacao(Double)
-     * @see Aleatorios#sorteioUniforme(Double)
+     * @see Aleatorios#sorteioUniforme(double) 
      */
     public boolean sorteiaSeMuta(Ser ser) {
         return Aleatorios.sorteioUniforme(getProbabilidadeMutacao());

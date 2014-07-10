@@ -30,7 +30,7 @@ import ic.populacional.seres.reais.mutadores.MutadorReal;
  * Operador de mutação DE.
  * 
  * @author Victor de Lima Soares
- * @versio 1.0
+ * @version 1.0
  */
 public abstract class MutadorDE extends MutadorReal<SerReal>  {
 

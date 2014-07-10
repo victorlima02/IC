@@ -31,21 +31,21 @@ import ic.populacional.seres.reais.recombinadores.RecombinadorReal;
 
 /**
  * Operador de recombinação para DE.
- * 
+ *
  * @author Victor de Lima Soares
  * @version 1.0
- * 
+ *
  * @param <G> Classe do retorno da função objetivo (Grau de adaptação):
  * AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, Float,
  * Integer, Long, Short.
  * @param <S> Classe dos Seres.
  */
-public abstract class RecombinadorDE<G extends Number & Comparable<G>,S extends SerReal<G>> extends RecombinadorReal<G,S> {
+public abstract class RecombinadorDE<G extends Number & Comparable<G>, S extends SerReal<G>> extends RecombinadorReal<G, S> {
 
     private Double probabilidadeDeCrossover;
 
     public RecombinadorDE(Double probabilidadeDeCrossover) {
-        super( 1d, 1);
+        super(1d, 1);
         setProbabilidadeDeCrossover(probabilidadeDeCrossover);
     }
 
@@ -59,8 +59,8 @@ public abstract class RecombinadorDE<G extends Number & Comparable<G>,S extends 
      *
      * @since 1.0
      * @return A probabilidade de crossover atual.
-     * 
-     * @see #getProbabilidadeDeRecombinacao() 
+     *
+     * @see #getProbabilidadeDeRecombinacao()
      */
     public final Double getProbabilidadeDeCrossover() {
         return probabilidadeDeCrossover;
@@ -71,7 +71,8 @@ public abstract class RecombinadorDE<G extends Number & Comparable<G>,S extends 
      *
      * <p>
      * Essa probabilidade impactará nas operações de recombinação, ditando a
-     * origem dos genes providos ao "Vetor experimental", nos algoritmos DE. </p
+     * origem dos genes providos ao "Vetor experimental", nos algoritmos DE.
+     * </p>
      *
      * <p>
      * OBS: A probabilidade que define se a operação de recombinação ocorre ou

@@ -521,14 +521,14 @@ public abstract class Ser<G extends Number & Comparable<G>> implements Iterable<
      * Deve ser consistente com o <code>comparator</code> se usado em coleções
      * ordenadas. E em caso de uso dos seres em <i>Sets</i>, se a intenção for
      * não permitir que uma mesma instância seja adicionada multiplas vezes,
-     * usar {@link Object.equals(Object)}, se for impedir seres iguais, como com
+     * usar {@link Object#equals(java.lang.Object) }, se for impedir seres iguais, como com
      * mesmo grau de aptidão, esse método deve ser implementado de acordo.
      * </p>
      * <p>
-     * Padrão: {@link Object.equals(Object)}
+     * Padrão: {@link Object#equals(java.lang.Object) }
      * </p>
      *
-     * @param o
+     * @param ser Ser para comparação.
      * @return
      * <ul>
      * <li>true: se as referências apontam para o mesmo objeto;</li>
@@ -537,8 +537,8 @@ public abstract class Ser<G extends Number & Comparable<G>> implements Iterable<
      */
     @Override
     @SuppressWarnings("EqualsWhichDoesntCheckParameterClass")
-    public final boolean equals(Object o) {
-        return this==o;
+    public final boolean equals(Object ser) {
+        return this==ser;
     }
 
     @Override

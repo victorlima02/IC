@@ -42,7 +42,6 @@ public abstract class RecombinadorPermutacao<G extends Number & Comparable<G>,S 
      * Construtor.
      *
      * @since 1.0
-     * @param gerador Gerador para instanciação de novos seres.
      * @param probabilidadeDeRecombinacao Probabilidade de recombinação, entre
      * [0-1].
      * @param nParceiros Número de parceiros necessários para cada operação de

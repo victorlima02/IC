@@ -21,6 +21,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+/**
+ * @author Victor de Lima Soares
+ */
 package ic.populacional.algoritmo;
 
 import ic.populacional.Ambiente;
@@ -213,7 +216,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
             melhorSer = populacao.getMelhor();
             melhorDaIteracaoPassada = melhorSer;
 
-            while (!terminou() && getContadorDeIteracoes() <= getMaxIteracoes()) {
+            while (!terminou() && getContadorDeIteracoes() < getMaxIteracoes()) {
                 ++contadorDeIteracoes;
                 iteracao();
 

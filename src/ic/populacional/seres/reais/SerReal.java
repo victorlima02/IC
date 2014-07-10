@@ -21,6 +21,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+/**
+ * @author Victor de Lima Soares
+ */
 package ic.populacional.seres.reais;
 
 import ic.populacional.Caracteristica;

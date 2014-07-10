@@ -38,11 +38,11 @@ import java.util.concurrent.ThreadLocalRandom;
  * @param <S> Classe dos Seres.
  */
 public class MutadorInteiro<S extends SerInteiro> extends Mutador<S> {
-    
+
     public MutadorInteiro(double probabilidadeDeMutacao) {
         super(probabilidadeDeMutacao);
     }
-    
+
     @Override
     public void muta(S ser) {
         randomResetting(ser, 1.0 / ser.getSize());
@@ -70,17 +70,12 @@ public class MutadorInteiro<S extends SerInteiro> extends Mutador<S> {
      * @param ser para mutação
      * @param probabilidadeDeReset Probabilidade do locus sofrer mutação.
      */
-    public final static void randomResetting(SerInteiro ser, double probabilidadeDeReset) {
-//        ser.getCaracteristicas().stream().filter((caracteristica) -> Aleatorios.sorteioUniforme(probabilidadeDeReset)).forEach((caracteristica) -> {
-//            ((LocusInteiro) caracteristica).setRepresentacaoNumerica(ThreadLocalRandom.current().nextInt(ser.getLimiteInferior(), ser.getLimiteSuperior() + 1));
-//        });
-        for (int i = 0; i < ser.getCaracteristicas().size(); i++) {
-            LocusInteiro locus = (LocusInteiro) ser.getCaracteristica(i);
-            if (Aleatorios.sorteioUniforme(probabilidadeDeReset)) {
-                Integer novoLocus = ThreadLocalRandom.current().nextInt(ser.getLimiteInferior(), ser.getLimiteSuperior() + 1);
-                locus.setRepresentacaoNumerica(novoLocus);
-            }
-        }
+    public final static void randomResetting(SerInteiro ser, Double probabilidadeDeReset) {
+        ser.getCaracteristicas().parallelStream()
+                .filter(caracteristica -> Aleatorios.sorteioUniforme(probabilidadeDeReset))
+                .forEach((caracteristica) -> {
+                    ((LocusInteiro) caracteristica).setRepresentacaoNumerica(ThreadLocalRandom.current().nextInt(ser.getLimiteInferior(), ser.getLimiteSuperior() + 1));
+                });
     }
-    
+
 }

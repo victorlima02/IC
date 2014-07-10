@@ -31,6 +31,7 @@ import java.util.List;
 /**
  *
  * @author Victor de Lima Soares
+ * @version 1.0
  * 
  * @param <G> Classe do retorno da função objetivo (Grau de adaptação):
  * AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, Float,
@@ -38,13 +39,14 @@ import java.util.List;
  */
 public class SerInteiro<G extends Number & Comparable<G>> extends SerFixo<G> {
 
-    protected final int limiteInferior;
-    protected final int limiteSuperior;
+    protected final Integer limiteInferior;
+    protected final Integer limiteSuperior;
 
     /**
      * Construtor.
      *
      * @since 1.0
+     * @param ncaracteristicas Número de características.
      * @param limiteInferior Limite inferior, inclusive.
      * @param limiteSuperior Limite superior, exclusive.
      *

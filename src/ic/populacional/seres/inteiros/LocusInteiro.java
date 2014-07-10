@@ -29,6 +29,7 @@ import java.util.Objects;
 /**
  *
  * @author Victor de Lima Soares
+ * @version 1.0
  */
 public class LocusInteiro extends Caracteristica<Integer> implements Comparable<LocusInteiro> {
 

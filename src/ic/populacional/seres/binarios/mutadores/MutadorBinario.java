@@ -29,8 +29,11 @@ import ic.populacional.seres.binarios.SerBinario;
 import ic.populacional.utilidades.Aleatorios;
 
 /**
- *
+ * Mutador para seres binários.
+ * 
  * @author Victor de Lima Soares
+ * @version 1.0
+ * 
  * @param <S> Classe dos Seres.
  */
 public class MutadorBinario<S extends SerBinario> extends Mutador<S> {

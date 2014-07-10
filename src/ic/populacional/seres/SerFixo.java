@@ -21,6 +21,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+/**
+ * @author Victor de Lima Soares
+ */
 package ic.populacional.seres;
 
 import ic.populacional.Caracteristica;
@@ -65,7 +68,7 @@ public abstract class SerFixo<G  extends Number & Comparable<G>> extends Ser<G> 
      * </p>
      *
      * <p>
-     * <code>Características</code> não serão copiadas de forma a criar novas
+     * Características não serão copiadas de forma a criar novas
      * instâncias.
      * </p>
      *
@@ -73,7 +76,7 @@ public abstract class SerFixo<G  extends Number & Comparable<G>> extends Ser<G> 
      * ser.
      * @since 1.0
      */
-    public SerFixo(int ncaracteristicas, List<? extends Caracteristica> caracteristicas) {
+    public SerFixo(List<? extends Caracteristica> caracteristicas) {
         this.caracteristicas = Arrays.asList(new Caracteristica[caracteristicas.size()]);
         setCaracteristicas(caracteristicas);
     }

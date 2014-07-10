@@ -33,6 +33,8 @@ import ic.populacional.algoritmo.operadores.Gerador;
 import ic.populacional.algoritmo.operadores.Mutador;
 import ic.populacional.algoritmo.operadores.Recombinador;
 import ic.populacional.algoritmo.operadores.Seletor;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Classe base para os Algoritmo Evolucionários.
@@ -599,16 +601,19 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
         StringBuilder relatorio = new StringBuilder();
 
         relatorio.append("Algoritmo:\t" + this.nome + "\n");
-        relatorio.append("População:\t" + populacao.size() + "\n");
-        relatorio.append("Probabilidade de Mutação:\t" + getMutador().getProbabilidadeMutacao() + "\n");
-        relatorio.append("Probabilidade de Recombinação:\t" + getRecombinador().getProbabilidadeDeRecombinacao() + "\n");
+        relatorio.append("\tProbabilidade de Mutação:\t" + getMutador().getProbabilidadeMutacao() + "\n");
+        relatorio.append("\tProbabilidade de Recombinação:\t" + getRecombinador().getProbabilidadeDeRecombinacao() + "\n");
 
-        relatorio.append("Tempo (seg):\t" + getTempoDeExecucaoSeg() + "\n");
-        relatorio.append("Iterações:\t" + getContadorDeIteracoes() + "\n");
-        relatorio.append("Iterações sem melhora:\t" + getContadorSemMelhoras() + "\n");
+        relatorio.append("\tTempo (seg):\t" + getTempoDeExecucaoSeg() + "\n");
+        relatorio.append("\tIterações:\t" + getContadorDeIteracoes() + "\n");
+        relatorio.append("\tIterações sem melhora:\t" + getContadorSemMelhoras() + "\n");
 
-        relatorio.append("Média dos graus de adaptação:\t" + populacao.getMediaGraus() + "\n");
-        relatorio.append("Número de seres distintos:\t" + populacao.getNdistintos() + "\n");
+        /* Padrão = Inicio da linha = modo (?m) */
+        Pattern pattern = Pattern.compile("(?m)(^)");
+        Matcher matcher = pattern.matcher(getPopulacao().estatisticas());
+        
+        relatorio.append("População:\n");
+        relatorio.append(matcher.replaceAll("\t"));
 
         relatorio.append("Melhor Solução:\t" + getMelhorSer() + "\n");
 

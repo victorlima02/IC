@@ -23,6 +23,7 @@
  */
 package ic.populacional;
 
+import static java.lang.Math.pow;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -382,9 +383,9 @@ public abstract class Populacao<G extends Number & Comparable<G>, S extends Ser<
      * Recupera a soma dos graus de adaptação.
      *
      * @since 1.0
-     * @return Soma dos graus de adaptação
+     * @return Soma dos graus de adaptação.
      */
-    public double getSomaGraus() {
+    public Double getSomaGraus() {
         return seres.stream().mapToDouble((ser) -> ser.getGrauDeAdaptacao().doubleValue()).sum();
     }
 
@@ -392,10 +393,30 @@ public abstract class Populacao<G extends Number & Comparable<G>, S extends Ser<
      * Recupera a média dos graus de adaptação.
      *
      * @since 1.0
-     * @return Média dos graus de adaptação
+     * @return Média dos graus de adaptação.
      */
-    public double getMediaGraus() {
+    public Double getMediaGraus() {
         return seres.stream().mapToDouble((ser) -> ser.getGrauDeAdaptacao().doubleValue()).average().getAsDouble();
+    }
+
+    /**
+     * Recupera o desvio padrão amostral dos graus de adaptação.
+     *
+     * @since 1.0
+     * @return Desvio padrão amostral.
+     */
+    public Double getDesvioPadraoGraus() {
+        Integer n = size();
+        Double media = getMediaGraus();
+        Double desvio;
+
+        Double sq = seres.stream().mapToDouble((ser) -> ser.getGrauDeAdaptacao().doubleValue())
+                .reduce(0, (x, y) -> {
+                    return x + pow((y - media), 2);
+                });
+
+        desvio = Math.sqrt(sq / (n - 1));
+        return desvio;
     }
 
     /**
@@ -725,7 +746,6 @@ public abstract class Populacao<G extends Number & Comparable<G>, S extends Ser<
         return seres.parallelStream();
     }
 
-    
     @Override
     public String toString() {
         StringBuilder print = new StringBuilder();
@@ -740,5 +760,32 @@ public abstract class Populacao<G extends Number & Comparable<G>, S extends Ser<
         print.append("\n]\n");
 
         return print.toString();
+    }
+
+    /**
+     * Recupera uma string contendo os dados estatísticos da população.
+     * 
+     * <ul>
+     * <li>Contagem de elementos;</li>
+     * <li>Contagem de elementos distintos;</li>
+     * <li>Máximo grau de adaptação;</li>
+     * <li>Média dos graus de adaptação;</li>
+     * <li>Desvio padrão amostral dos graus de adaptação;</li>
+     * <li>Soma total dos graus de adaptação.</li>
+     * </ul>
+     * @since 1.0
+     * @return Dados estatísticos em uma string.
+     */
+    public String estatisticas() {
+        StringBuilder dados = new StringBuilder();
+
+        dados.append(String.format("Contagem:\t%d\n", size()));
+        dados.append(String.format("Distintos:\t%d\n", getNdistintos()));
+        dados.append(String.format("Máximo:\t%.2f\n", getMelhorGrau().doubleValue()));
+        dados.append(String.format("Média:\t%.2f\n", getMediaGraus()));
+        dados.append(String.format("Desvio padrão amostral:\t%.2f\n", getDesvioPadraoGraus()));
+        dados.append(String.format("Soma total:\t%.2f\n", getSomaGraus()));
+        
+        return dados.toString();
     }
 }

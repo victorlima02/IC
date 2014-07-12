@@ -54,13 +54,13 @@ public class DE<G extends Number & Comparable<G>, S extends SerReal<G>> extends 
     @Override
     public void iteracao() {
         
-        List<S> novaGeracao = gerador.getN(populacao.size()); 
+        List<S> novaGeracao = getGerador().getN(getPopulacao().size()); 
         
-        mutador.muta(novaGeracao);
+        getMutador().muta(novaGeracao);
                 
-        List<S> filhos = recombinador.recombinaTodos(novaGeracao);
+        List<S> filhos = getRecombinador().recombinaTodos(novaGeracao);
     
-        populacao.setIndividuos(filhos);
+        getPopulacao().setIndividuos(filhos);
         
     }
     

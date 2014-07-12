@@ -396,28 +396,17 @@ public abstract class Ser<G extends Number & Comparable<G>> implements Iterable<
     /**
      * Atribui um grau de adaptação ao ser.
      *
-     * @param grauDeAdaptacao O grau de adaptação para atribuição.
-     * @param avaliadoPor Ambiente que avaliou o ser.
      * @since 1.0
+     * @param avaliador Ambiente que avaliou o ser.
+     * @return Grau de avaliação atribuído.
      *
      * @see Ambiente#avalia(ic.populacional.Ser)
      */
-    public final void setGrauDeAdaptacao(G grauDeAdaptacao, Ambiente avaliadoPor) {
-        this.grauDeAdaptacao = grauDeAdaptacao;
-        setAvaliadoPor(avaliadoPor);
-    }
-
-    /**
-     * Atribui um grau de adaptação ao ser.
-     *
-     * @param avaliadoPor Ambiente que avaliou o ser.
-     * @since 1.0
-     *
-     * @see Ambiente#avalia(ic.populacional.Ser)
-     */
-    public final void setGrauDeAdaptacao(Ambiente avaliadoPor) {
-        this.grauDeAdaptacao = (G) avaliadoPor.avalia(this);
-        setAvaliadoPor(avaliadoPor);
+    public final G setGrauDeAdaptacao(Ambiente avaliador) {
+        G grau = (G) avaliador.avalia(this);
+        this.grauDeAdaptacao = grau;
+        setAvaliadoPor(avaliador);
+        return grau;
     }
 
     /**

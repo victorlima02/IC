@@ -49,7 +49,7 @@ public class LocusPermutacao extends Caracteristica<Integer> implements Comparab
     }
 
     @Override
-    public Caracteristica copia() {
+    public LocusPermutacao copia() {
         return new LocusPermutacao(locus);
     }
 

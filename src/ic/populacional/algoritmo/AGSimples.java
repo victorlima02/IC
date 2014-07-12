@@ -54,11 +54,11 @@ public abstract class AGSimples<G  extends Number & Comparable<G>, S extends Ser
     @Override
     public void iteracao() {
 
-        List<S> pais = seletor.getPais();
-        List<S> filhos = recombinador.recombinaTodos(pais);
+        List<S> pais = getSeletor().getPais();
+        List<S> filhos = getRecombinador().recombinaTodos(pais);
 
-        mutador.muta(filhos);
+        getMutador().muta(filhos);
   
-        populacao.setIndividuos(filhos);
+        getPopulacao().setIndividuos(filhos);
     }
 }

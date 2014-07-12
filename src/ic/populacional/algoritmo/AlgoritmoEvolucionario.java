@@ -51,20 +51,20 @@ import java.util.regex.Pattern;
 public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S extends Ser<G>> implements Runnable {
 
     protected String nome;
-    protected Gerador<S> gerador;
-    protected Mutador<S> mutador;
-    protected Recombinador<G, S> recombinador;
-    protected Seletor<G, S> seletor;
+    private Gerador<S> gerador;
+    private Mutador<S> mutador;
+    private Recombinador<G, S> recombinador;
+    private Seletor<G, S> seletor;
 
-    protected Ambiente<G, S> ambiente;
-    protected Populacao<G, S> populacao;
+    private Ambiente<G, S> ambiente;
+    private Populacao<G, S> populacao;
 
-    protected S melhorSer;
+    private S melhorSer;
 
-    protected Long tempoDeExecucao;
+    private Long tempoDeExecucao;
 
-    protected Integer contadorDeIteracoes = 0;
-    protected Integer contadorSemMelhoras = 0;
+    private Integer contadorDeIteracoes = 0;
+    private Integer contadorSemMelhoras = 0;
     private Integer maxIteracoes;
 
     /**

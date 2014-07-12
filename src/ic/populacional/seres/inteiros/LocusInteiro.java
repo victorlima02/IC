@@ -49,7 +49,7 @@ public class LocusInteiro extends Caracteristica<Integer> implements Comparable<
     }
 
     @Override
-    public Caracteristica copia() {
+    public LocusInteiro copia() {
         return new LocusInteiro(locus);
     }
 

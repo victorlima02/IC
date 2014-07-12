@@ -29,8 +29,6 @@ package ic.populacional;
 
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * <p>
@@ -153,7 +151,7 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
     };
 
     /**
-     * Função de Fitness: Avalia um ser atribuindo um grau de adaptação.
+     * Função de Fitness: Avalia um ser, retornando o grau de adaptação.
      *
      * <p>
      * Atua como função objetivo em algoritmos de otimização e permite que seres
@@ -161,11 +159,11 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
      * </p>
      *
      * <p>
-     * Essa função <b>deve chamar</b> null null null null     {@link Ser#setGrauDeAdaptacao(ic.populacional.Ambiente)
-     * }
-     * uma vez que seu valor de retorno for calculado para que o mesmo seja
-     * retido - se essa for a intenção. Essa pode ser chamada após o
-     * retorno,contudo.
+     * Essa função realiza o cálculo do grau de adaptação, sem persisti-lo no ser.
+     * Para realizar a avaliação e gravação utilize:<br>
+     * {@link Ser#setGrauDeAdaptacao(ic.populacional.Ambiente) } <br>
+     * ou, para coleções:<br>
+     * {@link #avalia(java.util.Collection) }
      * </p>
      *
      * @since 1.0
@@ -173,6 +171,7 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
      * @return Grau de adaptação.
      *
      * @see Ser#setGrauDeAdaptacao(ic.populacional.Ambiente)
+     * @see #avalia(java.util.Collection) 
      *
      */
     public abstract G avalia(S individuo);
@@ -340,36 +339,5 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
      */
     public Modo getModo() {
         return modo;
-    }
-
-    /**
-     * Método de para compilação de dados de uma população em formato de string.
-     *
-     * @since 1.0
-     * @param populacao
-     * @return String com dados da população.
-     *
-     * @deprecated
-     * @see Populacao#toString()
-     */
-    @Deprecated
-    public String toString(Populacao populacao) {
-
-        StringBuilder ambiente = new StringBuilder();
-
-        /* Padrão = Inicio da linha = modo (?m) */
-        Pattern pattern = Pattern.compile("(?m)(^)");
-
-        Matcher matcher = pattern.matcher(populacao.toString());
-
-        ambiente.append("Ambiente: [\n");
-
-        /* Substitui todo "inicio de linha" por uma tabulação. */
-        ambiente.append(matcher.replaceAll("\t"));
-
-        ambiente.append("]\n");
-
-        return ambiente.toString();
-
     }
 }

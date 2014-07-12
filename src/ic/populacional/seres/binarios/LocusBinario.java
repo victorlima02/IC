@@ -61,7 +61,7 @@ public class LocusBinario extends Caracteristica<Integer> {
     }
 
     @Override
-    public Caracteristica copia() {
+    public LocusBinario copia() {
         return new LocusBinario(this.getBit());
     }
 

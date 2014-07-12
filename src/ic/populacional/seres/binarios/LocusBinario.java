@@ -36,14 +36,14 @@ public class LocusBinario extends Caracteristica<Integer> {
     private Boolean set;
 
     public LocusBinario() {
-        this.set = false;
+        this.set = null;
     }
 
     public LocusBinario(Boolean set) {
         this.set = set;
     }
 
-    public final boolean getBit() {
+    public final Boolean getBit() {
         return set;
     }
 

@@ -224,15 +224,14 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
 
                 melhorDaIteracao = populacao.getMelhor();
 
-                if (ambiente.compare(melhorDaIteracaoPassada, melhorDaIteracao) >= 0) {
+                if (ambiente.compare(melhorDaIteracaoPassada.getGrauDeAdaptacao(), melhorDaIteracao.getGrauDeAdaptacao()) >= 0) {
 
                     contadorSemMelhoras++;
-
                 } else {
 
                     contadorSemMelhoras = 0;
 
-                    if (ambiente.compare(melhorDaIteracao, melhorSer) == 1) {
+                    if (ambiente.compare(melhorDaIteracao.getGrauDeAdaptacao(), melhorSer.getGrauDeAdaptacao()) > 0) {
                         melhorSer = melhorDaIteracao;
                     }
                 }
@@ -608,9 +607,9 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
         /* Padrão = Inicio da linha = modo (?m) */
         Pattern pattern = Pattern.compile("(?m)(^)");
         Matcher matcher = pattern.matcher(getPopulacao().estatisticas());
-        
+
         relatorio.append("População:\n");
-        relatorio.append(matcher.replaceAll("\t"));
+        relatorio.append(matcher.replaceAll("\t") + "\n");
 
         relatorio.append("Melhor Solução:\t" + getMelhorSer() + "\n");
 

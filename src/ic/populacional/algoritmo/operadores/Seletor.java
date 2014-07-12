@@ -24,8 +24,6 @@
 package ic.populacional.algoritmo.operadores;
 
 import ic.populacional.utilidades.IndiceAleatorio;
-import ic.populacional.Ambiente;
-import ic.populacional.Populacao;
 import ic.populacional.Ser;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,15 +39,7 @@ import java.util.PriorityQueue;
  * Integer, Long, Short.
  * @param <S> Classe dos Seres.
  */
-public abstract class Seletor<G  extends Number & Comparable<G>, S extends Ser<G>> extends Operador {
-
-    protected Ambiente<G,S> ambiente;
-    protected Populacao<G,S> populacao;
-
-    public Seletor(Ambiente ambiente, Populacao populacao) {
-        this.ambiente = ambiente;
-        this.populacao = populacao;
-    }
+public abstract class Seletor<G  extends Number & Comparable<G>, S extends Ser<G>> extends Operador<G,S> {
 
     public abstract List<S> getPais();
 
@@ -73,12 +63,12 @@ public abstract class Seletor<G  extends Number & Comparable<G>, S extends Ser<G
 
         if(nMelhores > nAleatorios) throw new IllegalArgumentException("Número de seres para retorno deve ser menor ou igual ao número de seres por amostra.");
        
-        List<Integer> indices = IndiceAleatorio.getUniforme(populacao, nAleatorios);
-        PriorityQueue<S> melhores = new PriorityQueue<>(ambiente.comparadorInverso());
+        List<Integer> indices = IndiceAleatorio.getUniforme(getPopulacao(), nAleatorios);
+        PriorityQueue<S> melhores = new PriorityQueue<>(getAmbiente().comparadorInverso());
         List<S> selecionados = new ArrayList<>(nMelhores);
 
         for (Integer indice : indices) {
-            S individuo = populacao.get(indice);
+            S individuo = getPopulacao().get(indice);
             melhores.add(individuo);
         }
 

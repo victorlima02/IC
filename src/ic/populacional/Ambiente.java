@@ -96,6 +96,7 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
 
     private final Modo modo;
     private final Comparator<S> comparador;
+    private final Comparator<G> comparadorGraus;
     private final Comparator<S> comparadorInverso;
 
     /**
@@ -105,8 +106,9 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
      */
     public Ambiente() {
         modo = Modo.MAXIMIZACAO;
-        comparador = (S o1, S o2) -> compara(o1, o2);
-        comparadorInverso = (S o1, S o2) -> compara(o2, o1);
+        comparador = (S ser1, S ser2) -> compara(ser1, ser2);
+        comparadorGraus = (G grau1, G grau2) -> compara(grau1, grau2);
+        comparadorInverso = (S ser1, S ser2) -> compara(ser2, ser1);
     }
 
     /**
@@ -119,13 +121,15 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
         this.modo = modo;
         switch (modo) {
             case MINIMIZACAO:
-                comparador = (S o1, S o2) -> compara(o2, o1);
-                comparadorInverso = (S o1, S o2) -> compara(o1, o2);
+                comparador = (S ser1, S ser2) -> compara(ser2, ser1);
+                comparadorGraus = (G grau1, G grau2) -> compara(grau2, grau1);
+                comparadorInverso = (S ser1, S ser2) -> compara(ser1, ser2);
                 break;
             case MAXIMIZACAO:
             default:
-                comparador = (S o1, S o2) -> compara(o1, o2);
-                comparadorInverso = (S o1, S o2) -> compara(o2, o1);
+                comparador = (S ser1, S ser2) -> compara(ser1, ser2);
+                comparadorGraus = (G grau1, G grau2) -> compara(grau1, grau2);
+                comparadorInverso = (S ser1, S ser2) -> compara(ser2, ser1);
         }
     }
 
@@ -157,8 +161,8 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
      * </p>
      *
      * <p>
-     * Essa função <b>deve chamar</b>
-     * {@link Ser#setGrauDeAdaptacao(ic.populacional.Ambiente)  }
+     * Essa função <b>deve chamar</b> null null null null     {@link Ser#setGrauDeAdaptacao(ic.populacional.Ambiente)
+     * }
      * uma vez que seu valor de retorno for calculado para que o mesmo seja
      * retido - se essa for a intenção. Essa pode ser chamada após o
      * retorno,contudo.
@@ -168,7 +172,7 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
      * @param individuo Ser a ser avaliado.
      * @return Grau de adaptação.
      *
-     * @see Ser#setGrauDeAdaptacao(ic.populacional.Ambiente) 
+     * @see Ser#setGrauDeAdaptacao(ic.populacional.Ambiente)
      *
      */
     public abstract G avalia(S individuo);
@@ -197,35 +201,60 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
      * @param seres Coleção a ser avaliada.
      *
      * @see #avalia(ic.populacional.Ser)
-     * @see Ser#setGrauDeAdaptacao(ic.populacional.Ambiente) 
+     * @see Ser#setGrauDeAdaptacao(ic.populacional.Ambiente)
      */
     public void avalia(Collection<? extends S> seres) {
         seres.parallelStream().filter(ser -> !ser.isAvaliadoPor(this)).forEach((ser) -> ser.setGrauDeAdaptacao(this));
     }
 
     /**
-     * Compara graus de adaptação.
+     * Compara seres: na ordem crescente.
      *
      * <p>
      * Compara dois seres, possibilitando sua ordenação quanto a adaptação.
      * </p>
+     * <p>
+     * Em caso de empate, a ordem é determinada pelo ID do ser.
+     * </p>
      *
+     * @since 1.0
      * @param ser1 Ser a ser comparado pelo ambiente.
      * @param ser2 Segundo Ser a ser comparado pelo ambiente.
      *
      * @return <ul>
      * <li>Positivo se ser1 for melhor adptado.</li>
      * <li>Negativo se ser2 for melhor adptado.</li>
-     * <li>0 se forem igualmente adaptados.</li>
+     * <li>0 se forem a mesma instância.</li>
      * </ul>
-     *
-     * @since 1.0
      *
      * @see Comparable#compareTo(java.lang.Object)
      */
     @Override
     public int compare(S ser1, S ser2) {
         return comparador.compare(ser1, ser2);
+    }
+
+    /**
+     * Compara graus de adaptação: na ordem crescente.
+     *
+     * <p>
+     * Compara graus de adaptação.
+     * </p>
+     *
+     * @since 1.0
+     * @param grau1 Grau a ser comparado.
+     * @param grau2 Segundo grau comparado pelo ambiente.
+     *
+     * @return <ul>
+     * <li>Positivo se grau1 for melhor.</li>
+     * <li>Negativo se grau2 for melhor.</li>
+     * <li>0 se forem iguais.</li>
+     * </ul>
+     *
+     * @see Comparable#compareTo(java.lang.Object)
+     */
+    public int compare(G grau1, G grau2) {
+        return comparadorGraus.compare(grau1, grau2);
     }
 
     /**
@@ -241,22 +270,24 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
     }
 
     /**
-     * Compara graus de adaptação: na ordem crescente.
+     * Compara seres: na ordem crescente.
      *
      * <p>
      * Compara dois seres, possibilitando sua ordenação quanto a adaptação.
      * </p>
+     * <p>
+     * Em caso de empate, a ordem é determinada pelo ID do ser.
+     * </p>
      *
+     * @since 1.0
      * @param ser1 Ser a ser comparado pelo ambiente.
      * @param ser2 Segundo Ser a ser comparado pelo ambiente.
      *
      * @return <ul>
      * <li>Positivo se ser1 for melhor adptado.</li>
      * <li>Negativo se ser2 for melhor adptado.</li>
-     * <li>0 se forem igualmente adaptados.</li>
+     * <li>0 se forem a mesma instância.</li>
      * </ul>
-     *
-     * @since 1.0
      *
      * @see Comparable#compareTo(java.lang.Object)
      */
@@ -270,12 +301,35 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
         if (comparacao == 0) {
             if (ser1 == ser2) {
                 return 0;
-            } else {   
+            } else {
                 return ser1.getId().compareTo(ser2.getId());
             }
         }
-        
+
         return comparacao;
+    }
+
+    /**
+     * Compara graus de adaptação: na ordem crescente.
+     *
+     * <p>
+     * Compara graus de adaptação.
+     * </p>
+     *
+     * @since 1.0
+     * @param grau1 Grau a ser comparado.
+     * @param grau2 Segundo grau comparado pelo ambiente.
+     *
+     * @return <ul>
+     * <li>Positivo se grau1 for melhor.</li>
+     * <li>Negativo se grau2 for melhor.</li>
+     * <li>0 se forem iguais.</li>
+     * </ul>
+     *
+     * @see Comparable#compareTo(java.lang.Object)
+     */
+    private int compara(G grau1, G grau2) {
+        return grau1.compareTo(grau2);
     }
 
     /**

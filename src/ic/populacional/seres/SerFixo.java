@@ -32,8 +32,14 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- *
+ * Ser com número fixo de características.
+ * 
  * @author Victor de Lima Soares
+ * @version 1.0
+ * 
+ * @param <G> Classe do retorno da função objetivo (Grau de adaptação):
+ * AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, Float,
+ * Integer, Long, Short.
  */
 public abstract class SerFixo<G  extends Number & Comparable<G>> extends Ser<G> {
    

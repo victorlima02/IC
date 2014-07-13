@@ -395,6 +395,10 @@ public abstract class Ser<G extends Number & Comparable<G>> implements Iterable<
 
     /**
      * Atribui um grau de adaptação ao ser.
+     * 
+     * <p>
+     * Essa operação fará com que o ser se torne não modificável.
+     * </p>
      *
      * @since 1.0
      * @param avaliador Ambiente que avaliou o ser.
@@ -406,6 +410,7 @@ public abstract class Ser<G extends Number & Comparable<G>> implements Iterable<
         G grau = (G) avaliador.avalia(this);
         this.grauDeAdaptacao = grau;
         setAvaliadoPor(avaliador);
+        caracteristicas = Collections.unmodifiableList(caracteristicas);
         return grau;
     }
 
@@ -425,7 +430,7 @@ public abstract class Ser<G extends Number & Comparable<G>> implements Iterable<
      * @since 1.0
      * @return ambiente avaliador.
      */
-    public final Ambiente getAvaliadoPor() {
+    public final Ambiente getAvaliador() {
         return avaliadoPor;
     }
 
@@ -441,8 +446,8 @@ public abstract class Ser<G extends Number & Comparable<G>> implements Iterable<
      * </ul>
      */
     public final Boolean isAvaliadoPor(Ambiente ambiente) {
-        if(getAvaliadoPor()==null) return false;
-        return getAvaliadoPor().equals(ambiente);
+        if(getAvaliador()==null) return false;
+        return getAvaliador().equals(ambiente);
     }
 
     /**

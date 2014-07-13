@@ -51,7 +51,7 @@ public class SerBinario<G extends Number & Comparable<G>> extends SerFixo<G> {
         super(caracteristicas.size());
         setCaracteristicas(booleanListToLocusList(caracteristicas));
     }
-
+    
     public static List<Caracteristica<Integer>> booleanListToLocusList(List<Boolean> caracteristicas) {
 
         List<Caracteristica<Integer>> locus = new ArrayList(caracteristicas.size());
@@ -63,7 +63,7 @@ public class SerBinario<G extends Number & Comparable<G>> extends SerFixo<G> {
         return locus;
     }
 
-    public final static int bits2Int(List<Boolean> bits) {
+    public final static Integer bits2Int(List<Boolean> bits) {
 
         double valor = 0;
         for (int i = 0; i < bits.size(); i++) {
@@ -74,7 +74,7 @@ public class SerBinario<G extends Number & Comparable<G>> extends SerFixo<G> {
         return (int) valor;
     }
 
-    public final static int locusBinarios2Int(List<Caracteristica> bits) {
+    public final static Integer locusBinarios2Int(List<Caracteristica> bits) {
 
         double valor = 0;
         for (int i = 0; i < bits.size(); i++) {

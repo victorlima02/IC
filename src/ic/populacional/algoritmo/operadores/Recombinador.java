@@ -56,7 +56,6 @@ import java.util.function.Function;
  * Integer, Long, Short.
  * @param <S> Classe dos Seres.
  *
- * #TODO função sorteio.
  */
 public abstract class Recombinador<G extends Number & Comparable<G>, S extends Ser<G>> extends Operador<G, S> implements Function<List<S>, List<S>> {
 

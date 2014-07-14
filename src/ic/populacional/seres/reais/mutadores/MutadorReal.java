@@ -66,19 +66,18 @@ public class MutadorReal<S extends SerReal> extends Mutador<S> {
      * Geração segura para multithread.
      * </p>
      *
-     * #TODO paralelizar
      *
      * @since 1.0
      * @param ser para mutação
      * @param probabilidadeDeMutacao Probabilidade do locus sofrer mutação.
      */
     public final static void uniformMutation(SerReal ser, double probabilidadeDeMutacao) {
-        for (int i = 0; i < ser.getCaracteristicas().size(); i++) {
-            if (Aleatorios.sorteioUniforme(probabilidadeDeMutacao)) {
-                LocusReal locus = (LocusReal) ser.getCaracteristica(i);
-                locus.setValor(Aleatorios.getUniformeDouble(locus.getLimiteInferior(), locus.getLimiteSuperior()));
-            }
-        }
+        ser.getCaracteristicas().parallelStream()
+                .filter(c -> Aleatorios.sorteioUniforme(probabilidadeDeMutacao))
+                .forEach(locus -> {
+                    LocusReal locusReal = (LocusReal) locus;
+                    locusReal.setValor(Aleatorios.getUniformeDouble(locusReal.getLimiteInferior(), locusReal.getLimiteSuperior()));
+                }
+                );
     }
-
 }

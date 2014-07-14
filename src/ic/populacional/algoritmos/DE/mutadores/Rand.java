@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package ic.populacional.algoritmos.DE.motadores;
+package ic.populacional.algoritmos.DE.mutadores;
 
 import ic.populacional.seres.reais.LocusReal;
 import ic.populacional.seres.reais.SerReal;
@@ -29,10 +29,10 @@ import ic.populacional.utilidades.IndiceAleatorio;
 import java.util.List;
 
 /**
- * Operador de mutação DE: best.
+ * Operador de mutação DE: rand.
  *
  * <p>
- * DE/best/nDiferencas/?
+ * DE/rand/nDiferencas/?
  * </p>
  * <p>
  * O operador mutação permite a criação de novos seres, denominados vetores
@@ -43,21 +43,20 @@ import java.util.List;
  * @author Victor de Lima Soares
  * @version 1.0
  */
-public class Best extends MutadorDE {
+public class Rand extends MutadorDE {
 
-    public Best(Integer nDiferencas, Double fatorDePerturbação) {
+    public Rand(Integer nDiferencas, Double fatorDePerturbação) {
         super(nDiferencas, fatorDePerturbação);
     }
 
     @Override
-    public void muta(final SerReal ser) {
+    public void muta(SerReal ser) {
 
-        Integer nRand = getNDiferencas() * 2;
+        Integer nRand = getNDiferencas() * 2 + 1;
 
         List<Integer> indices = IndiceAleatorio.getUniforme(getPopulacao(), nRand);
-        SerReal base = (SerReal) getPopulacao().getMelhor();
+        SerReal base = (SerReal) getPopulacao().get(indices.get(indices.size() - 1));
 
-         
         for (int c = 0; c < ser.getSize(); c++) {
 
             Double valor = (Double) base.getCaracteristica(c).getValor();
@@ -69,7 +68,7 @@ public class Best extends MutadorDE {
                 valor += getFatorDePerturbação() * (valor1 - valor2);
             }
             LocusReal locus = (LocusReal) ser.getCaracteristica(c);
-
+            
             if (valor >= locus.getLimiteSuperior()) {
                 locus.maximixa();
             } else if (valor < locus.getLimiteInferior()) {
@@ -80,4 +79,5 @@ public class Best extends MutadorDE {
         }
 
     }
+
 }

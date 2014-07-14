@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package ic.populacional.algoritmos.DE.motadores;
+package ic.populacional.algoritmos.DE.mutadores;
 
 import ic.populacional.seres.reais.SerReal;
 import ic.populacional.seres.reais.mutadores.MutadorReal;

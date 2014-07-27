@@ -21,23 +21,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-/**
- * @author Victor de Lima Soares
- */
 package ic.populacional.algoritmo;
 
 import ic.populacional.Ambiente;
-import ic.populacional.Populacao;
 import ic.populacional.Ser;
 import ic.populacional.algoritmo.operadores.Gerador;
 import ic.populacional.algoritmo.operadores.Mutador;
-import ic.populacional.algoritmo.operadores.Recombinador;
-import ic.populacional.algoritmo.operadores.Seletor;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.time.Duration;
+import java.time.Instant;
 
 /**
- * Classe base para os Algoritmo Evolucionários.
+ * Classe base para Algoritmos Evolucionários.
  *
  * @author Victor de Lima Soares
  * @version 1.0
@@ -53,15 +47,12 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
     protected String nome;
     private Gerador<S> gerador;
     private Mutador<S> mutador;
-    private Recombinador<G, S> recombinador;
-    private Seletor<G, S> seletor;
 
     private Ambiente<G, S> ambiente;
-    private Populacao<G, S> populacao;
 
     private S melhorSer;
 
-    private Long tempoDeExecucao;
+    private Instant inicio, fim;
 
     private Integer contadorDeIteracoes = 0;
     private Integer contadorSemMelhoras = 0;
@@ -94,7 +85,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * #setSeletor(inteligenciaComputacional.evolucioria.algoritmo.operadores.Seletor)
      */
     public AlgoritmoEvolucionario() {
-        this.maxIteracoes = Integer.MAX_VALUE;
+        setMaxIteracoes(Integer.MAX_VALUE);
         this.nome = "Não atribuido";
     }
 
@@ -127,53 +118,9 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @see
      * #setSeletor(inteligenciaComputacional.evolucioria.algoritmo.operadores.Seletor)
      */
-    public AlgoritmoEvolucionario(Ambiente<G, S> ambiente, Populacao<G, S> populacao) {
-        this.maxIteracoes = Integer.MAX_VALUE;
-        this.nome = "Não atribuido";
-        this.ambiente = ambiente;
-        this.populacao = populacao;
-    }
-
-    /**
-     * Define uma iteração.
-     *
-     * <p>
-     * Algoritmos serão baseados em iterações, executando-as até que a condição
-     * de parada seja atingida.
-     * </p>
-     * <p>
-     * Dessa forma, para cada algoritmo a ser definido, essa função deve ser
-     * implementada, pois nela será descrito o comportamento esperado, bem como
-     * o uso e relacionamento entre os operadores.
-     * </p>
-     *
-     * @since 1.0
-     *
-     * @see #run()
-     * @see #terminou()
-     */
-    public abstract void iteracao();
-
-    /**
-     * Condição de parada.
-     *
-     * Determina quando o algoritmo atinge sua iteração final, devendo tal
-     * condição ser definida para cada algoritmo que se pretende implementar, se
-     * o número de iterações não for uma condição suficiente.
-     *
-     * O número máximo de iterações já é uma condição levada em conta, logo não
-     * precisa ser reavaliada aqui.
-     *
-     * @since 1.0
-     * @return
-     * <ul>
-     * <li>true: se o algoritmo atingiu a condição de parada;</li>
-     * <li>false: caso contrário.</li>
-     * </ul>
-     *
-     */
-    public Boolean terminou() {
-        return false;
+    public AlgoritmoEvolucionario(Ambiente<G, S> ambiente) {
+        super();
+        setAmbiente(ambiente);
     }
 
     /**
@@ -204,81 +151,88 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @see #relatorio()
      */
     @Override
-    public void run() {
+    public abstract void run();
 
-        S melhorDaIteracao;
-        S melhorDaIteracaoPassada;
-
-        verificacaoInicial();
-        ambiente.avalia(populacao);
-
-        tempoDeExecucao = System.nanoTime();
-        {
-            inicia();
-            melhorSer = populacao.getMelhor();
-            melhorDaIteracaoPassada = melhorSer;
-
-            while (!terminou() && getContadorDeIteracoes() < getMaxIteracoes()) {
-                ++contadorDeIteracoes;
-                iteracao();
-
-                melhorDaIteracao = populacao.getMelhor();
-
-                if (ambiente.compare(melhorDaIteracaoPassada.getGrauDeAdaptacao(), melhorDaIteracao.getGrauDeAdaptacao()) >= 0) {
-
-                    contadorSemMelhoras++;
-                } else {
-
-                    contadorSemMelhoras = 0;
-
-                    if (ambiente.compare(melhorDaIteracao.getGrauDeAdaptacao(), melhorSer.getGrauDeAdaptacao()) > 0) {
-                        melhorSer = melhorDaIteracao;
-                    }
-                }
-
-                melhorDaIteracaoPassada = melhorDaIteracao;
-
-                populacao.stream().forEach(ser -> ser.envelhece());
-            }
-            finaliza();
-        }
-        tempoDeExecucao = System.nanoTime() - tempoDeExecucao;
-    }
+    /**
+     * Define uma iteração.
+     *
+     * <p>
+     * Algoritmos serão baseados em iterações, executando-as até que a condição
+     * de parada seja atingida.
+     * </p>
+     * <p>
+     * Dessa forma, para cada algoritmo a ser definido, essa função deve ser
+     * implementada, pois nela será descrito o comportamento esperado, bem como
+     * o uso e relacionamento entre os operadores.
+     * </p>
+     *
+     * @since 1.0
+     *
+     * @see #run()
+     * @see #terminou()
+     */
+    public abstract void iteracao();
 
     /**
      * Verifica as condições necessárias para execução do algoritmo.
      *
      * <h3>Condições:</h3>
      * <ul>
-     * <li>Ambiente definido;</li>
-     * <li>População definida.</li>
+     * <li>Ambiente definido.</li>
      * </ul>
      *
      * @since 1.0
      */
     protected void verificacaoInicial() throws IllegalStateException {
-        if (ambiente == null) {
+        if (getAmbiente() == null) {
             throw new IllegalStateException("Ambiente não definido: referencia nula.");
-        }
-
-        if (populacao == null) {
-            throw new IllegalStateException("População não definida: referencia nula.");
         }
     }
 
     /**
-     * Função a ser executada após o termino das iterações.
+     * Grava melhor ser encontrado.
      *
-     * <p>
-     * A realização de uma busca local pode ser um exemplo de aplicação.
-     * </p>
-     * <p>
-     * Essa função é considerada no calculo do tempo de execução.
-     * </p>
-     *
+     * @param melhorSer
      * @since 1.0
      */
-    protected void finaliza() {
+    protected final void setMelhorSer(S melhorSer) {
+        this.melhorSer = melhorSer;
+    }
+
+    /**
+     * Retorna o melhor ser encontrado em todas as iterações.
+     *
+     * Ao executar o algoritmo manterá o controle do melhor ser desde a primeira
+     * iteração até que a condição de parada seja satisfeita.
+     *
+     * @since 1.0
+     * @return Ser mais adaptado.
+     * @see #run()
+     */
+    public final S getMelhorSer() {
+        return melhorSer;
+    }
+
+    /**
+     * Condição de parada.
+     *
+     * Determina quando o algoritmo atinge sua iteração final, devendo tal
+     * condição ser definida para cada algoritmo que se pretende implementar, se
+     * o número de iterações não for uma condição suficiente.
+     *
+     * O número máximo de iterações já é uma condição levada em conta, logo não
+     * precisa ser reavaliada aqui.
+     *
+     * @since 1.0
+     * @return
+     * <ul>
+     * <li>true: se o algoritmo atingiu a condição de parada;</li>
+     * <li>false: caso contrário.</li>
+     * </ul>
+     *
+     */
+    public Boolean terminou() {
+        return false;
     }
 
     /**
@@ -297,53 +251,105 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
     protected void inicia() {
     }
 
-    //Gets e set padrão---------------------------------------------------------
     /**
-     * Retorna Tempo de execução (nSeg).
+     * Função a ser executada após o termino das iterações.
      *
-     * Ao executar o algoritmo manterá o controle do tempo decorrido desde a
-     * primeira iteração até que a condição de parada seja satisfeita.
+     * <p>
+     * A realização de uma busca local pode ser um exemplo de aplicação.
+     * </p>
+     * <p>
+     * Essa função é considerada no calculo do tempo de execução.
+     * </p>
      *
      * @since 1.0
-     * @return Tempo de execução em nano segundos.
-     *
-     * @see #run()
-     * @see #iteracao()
-     * @see #terminou()
      */
-    public Long getTempoDeExecucaoNano() {
-        return tempoDeExecucao;
+    protected void finaliza() {
     }
 
     /**
-     * Retorna Tempo de execução (Seg).
+     * Retorna o ambiente do algoritmo.
      *
-     * Ao executar o algoritmo manterá o controle do tempo decorrido desde a
-     * primeira iteração até que a condição de parada seja satisfeita.
+     * Operadores podem ser trocados no decorrer das operações.
      *
      * @since 1.0
-     * @return Tempo de execução em segundos.
-     *
-     * @see #run()
-     * @see #iteracao()
-     * @see #terminou()
+     * @return Ambiente.
      */
-    public Double getTempoDeExecucaoSeg() {
-        return tempoDeExecucao / 1000000000.0;
+    public Ambiente<G, S> getAmbiente() {
+        return ambiente;
     }
 
     /**
-     * Retorna o melhor ser encontrado em todas as iterações.
+     * Atribui um novo ambiente ao algoritmo, sem avaliação dos seres.
      *
-     * Ao executar o algoritmo manterá o controle do melhor ser desde a primeira
-     * iteração até que a condição de parada seja satisfeita.
+     * Método deve ser usado apenas para atribuição inicial do ambiente. Para
+     * troca de ambientes use:
+     * {@link #switchAmbiente(inteligenciaComputacional.evolucioria.Ambiente)}
      *
      * @since 1.0
-     * @return Ser mais adaptado.
-     * @see #run()
+     * @param ambiente
+     *
+     * @throws IllegalStateException Caso um ambiente já esteja definido.
+     *
+     * @see #switchAmbiente(inteligenciaComputacional.evolucioria.Ambiente)
      */
-    public S getMelhorSer() {
-        return melhorSer;
+    public final void setAmbiente(Ambiente<G, S> ambiente) {
+        if (this.ambiente != null) {
+            throw new IllegalStateException("Ambiente já definido.");
+        }
+        this.ambiente = ambiente;
+    }
+
+    /**
+     * Atribui um novo ambiente ao algoritmo, com reavaliação.
+     *
+     * O ambiente pode ser trocado no decorrer das iterações. Quando tal troca
+     * ocorre, por esse método, todos os seres - em uma população ou não - devem
+     * ser avaliados pelo novo ambiente.
+     *
+     * @since 1.0
+     * @param ambiente
+     *
+     * @see #setAmbiente(inteligenciaComputacional.evolucioria.Ambiente)
+     */
+    protected void switchAmbiente(Ambiente<G, S> ambiente) {
+        this.ambiente = ambiente;
+    }
+
+    /**
+     * Atribui um número máximo para iterações.
+     *
+     * Valor padrão: Integer.MAX_VALUE
+     *
+     * @since 1.0
+     * @param maxIteracoes Número máximo de iterações.
+     */
+    public final void setMaxIteracoes(Integer maxIteracoes) {
+        if (maxIteracoes < 0) {
+            throw new IllegalArgumentException("Número máximo de iterações menor que zero.");
+        }
+        this.maxIteracoes = maxIteracoes;
+    }
+
+    /**
+     * Recupera o número máximo de iterações.
+     *
+     * Valor padrão: Integer.MAX_VALUE
+     *
+     * @since 1.0
+     * @return Número máximo de iterações.
+     */
+    public Integer getMaxIteracoes() {
+        return maxIteracoes;
+    }
+
+    /**
+     * Incrementa o valor do contador de iterações.
+     *
+     * @since 1.0
+     * @return Número de iterações executadas(valor atualizado).
+     */
+    public Integer incrementaContadorDeIteracoes() {
+        return ++contadorDeIteracoes;
     }
 
     /**
@@ -354,6 +360,26 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      */
     public Integer getContadorDeIteracoes() {
         return contadorDeIteracoes;
+    }
+
+    /**
+     * Incrementa o valor do contador de iterações sem melhoras.
+     *
+     * @since 1.0
+     * @return Número de iterações executadas sem melhorias(valor atualizado).
+     */
+    protected Integer incrementaContadorSemMelhoras() {
+        return ++contadorSemMelhoras;
+    }
+
+    /**
+     * Zera o valor do contador de iterações sem melhoras.
+     *
+     * @since 1.0
+     * @return Número de iterações executadas sem melhorias(valor atualizado).
+     */
+    protected Integer zeraContadorSemMelhoras() {
+        return contadorSemMelhoras = 0;
     }
 
     /**
@@ -424,195 +450,65 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
     }
 
     /**
-     * Retorna o operador de recombinação utilizado.
+     * Inicial contador do tempo de execução.
      *
      * @since 1.0
-     * @return O operador de recombinação do algoritmo.
      */
-    public Recombinador<G, S> getRecombinador() {
-        return recombinador;
+    protected final void timerStart() {
+        inicio = Instant.now();
     }
 
     /**
-     * Atribui um novo operador de recombinação ao algoritmo.
-     *
-     * Operadores podem ser trocados no decorrer das iterações.
+     * Finaliza contador do tempo de execução.
      *
      * @since 1.0
-     * @param recombinador Operador a ser atribuído.
      */
-    public void setRecombinador(Recombinador<G, S> recombinador) {
-        this.recombinador = recombinador;
-        recombinador.setAlgoritmo(this);
+    protected final void timerStop() {
+        fim = Instant.now();
     }
 
     /**
-     * Retorna o operador de seleção utilizado.
+     * Acesso ao contador do tempo.
      *
      * @since 1.0
-     * @return O operador de seleção do algoritmo.
+     * @return Duração da execução.
      */
-    public Seletor<G, S> getSeletor() {
-        return seletor;
+    public final Duration getTempoDeExcucao() {
+        return Duration.between(inicio, fim);
     }
 
     /**
-     * Atribui um novo operador de seleção ao algoritmo.
+     * Retorna Tempo de execução (nSeg).
      *
-     * Operadores podem ser trocados no decorrer das iterações.
+     * Ao executar o algoritmo manterá o controle do tempo decorrido desde a
+     * primeira iteração até que a condição de parada seja satisfeita.
      *
      * @since 1.0
-     * @param seletor Operador a ser atribuído.
+     * @return Tempo de execução em nano segundos.
+     *
+     * @see #run()
+     * @see #iteracao()
+     * @see #terminou()
      */
-    public void setSeletor(Seletor<G, S> seletor) {
-        this.seletor = seletor;
-        seletor.setAlgoritmo(this);
+    public Long getTempoDeExecucaoNano() {
+        return getTempoDeExcucao().toNanos();
     }
 
     /**
-     * Retorna o ambiente do algoritmo.
+     * Retorna Tempo de execução (Seg).
      *
-     * Operadores podem ser trocados no decorrer das operações.
-     *
-     * @since 1.0
-     * @return Ambiente.
-     */
-    public Ambiente<G, S> getAmbiente() {
-        return ambiente;
-    }
-
-    /**
-     * Atribui um novo ambiente ao algoritmo, sem avaliação dos seres.
-     *
-     * Método deve ser usado apenas para atribuição inicial do ambiente. Para
-     * troca de ambientes use:
-     * {@link #switchAmbiente(inteligenciaComputacional.evolucioria.Ambiente)}
+     * Ao executar o algoritmo manterá o controle do tempo decorrido desde a
+     * primeira iteração até que a condição de parada seja satisfeita.
      *
      * @since 1.0
-     * @param ambiente
+     * @return Tempo de execução em segundos.
      *
-     * @throws IllegalStateException Caso um ambiente já esteja definido.
-     *
-     * @see #switchAmbiente(inteligenciaComputacional.evolucioria.Ambiente)
+     * @see #run()
+     * @see #iteracao()
+     * @see #terminou()
      */
-    public final void setAmbiente(Ambiente<G, S> ambiente) {
-        if (this.ambiente != null) {
-            throw new IllegalStateException("Ambiente já definido.");
-        }
-        this.ambiente = ambiente;
+    public Double getTempoDeExecucaoSeg() {
+        return getTempoDeExcucao().toNanos() / 1000000000.0;
     }
 
-    /**
-     * Atribui um novo ambiente ao algoritmo, com reavaliação.
-     *
-     * O ambiente pode ser trocado no decorrer das iterações. Quando tal troca
-     * ocorre, por esse método, todos os seres da população serão avaliados pelo
-     * novo ambiente.
-     *
-     * @since 1.0
-     * @param ambiente
-     *
-     * @see #setAmbiente(inteligenciaComputacional.evolucioria.Ambiente)
-     */
-    public final void switchAmbiente(Ambiente<G, S> ambiente) {
-        this.ambiente = ambiente;
-        ambiente.avalia(populacao);
-    }
-
-    /**
-     * Retorna a população do algoritmo.
-     *
-     * @since 1.0
-     * @return População do algoritmo.
-     */
-    public Populacao<G, S> getPopulacao() {
-        return populacao;
-    }
-
-    /**
-     * Atribui uma nova população ao algoritmo, sem avaliação dos seres.
-     *
-     * Método deve ser usado apenas para atribuição inicial da população.
-     *
-     * @since 1.0
-     * @param populacao População a ser atribuída.
-     *
-     * @throws IllegalStateException Caso uma população já esteja definida.
-     *
-     */
-    public void setPopulacao(Populacao<G, S> populacao) {
-        if (this.populacao != null) {
-            throw new IllegalStateException("População já definida.");
-        }
-        this.populacao = populacao;
-    }
-
-    /**
-     * Recupera o número máximo de iterações.
-     *
-     * Valor padrão: Integer.MAX_VALUE
-     *
-     * @since 1.0
-     * @return Número máximo de iterações.
-     */
-    public Integer getMaxIteracoes() {
-        return maxIteracoes;
-    }
-
-    /**
-     * Atribui um número máximo para iterações.
-     *
-     * Valor padrão: Integer.MAX_VALUE
-     *
-     * @since 1.0
-     * @param maxIteracoes Número máximo de iterações.
-     */
-    public void setMaxIteracoes(Integer maxIteracoes) {
-        if (maxIteracoes < 0) {
-            throw new IllegalArgumentException("Número máximo de iterações menor que zero.");
-        }
-        this.maxIteracoes = maxIteracoes;
-    }
-
-    //Relatórios----------------------------------------------------------------
-    /**
-     * Realiza a compilação dos dados coletados durante a execução do algoritmo.
-     *
-     * Nessa coletânea serão retornados os seguintes dados(em formato textual):
-     * <ul>
-     * <li>Nome do algoritmo.</li>
-     * <li>Numero de indivíduos na população.</li>
-     * <li>Probabilidade de Mutação.</li>
-     * <li>Probabilidade de Recombinação.</li>
-     * <li>Tempo de execução, em segundos.</li>
-     * <li>Número de Iterações.</li>
-     * <li> Número de Iterações sem melhora.</li>
-     * <li> Melhor solução.</li>
-     * </ul>
-     *
-     * @since 1.0
-     * @return Relatório básico de execução.
-     */
-    public String relatorio() {
-        StringBuilder relatorio = new StringBuilder();
-
-        relatorio.append("Algoritmo:\t" + this.nome + "\n");
-        relatorio.append("\tProbabilidade de Mutação:\t" + getMutador().getProbabilidadeMutacao() + "\n");
-        relatorio.append("\tProbabilidade de Recombinação:\t" + getRecombinador().getProbabilidadeDeRecombinacao() + "\n");
-
-        relatorio.append("\tTempo (seg):\t" + getTempoDeExecucaoSeg() + "\n");
-        relatorio.append("\tIterações:\t" + getContadorDeIteracoes() + "\n");
-        relatorio.append("\tIterações sem melhora:\t" + getContadorSemMelhoras() + "\n");
-
-        /* Padrão = Inicio da linha = modo (?m) */
-        Pattern pattern = Pattern.compile("(?m)(^)");
-        Matcher matcher = pattern.matcher(getPopulacao().estatisticas());
-
-        relatorio.append("População:\n");
-        relatorio.append(matcher.replaceAll("\t") + "\n");
-
-        relatorio.append("Melhor Solução:\t" + getMelhorSer() + "\n");
-
-        return relatorio.toString();
-    }
 }

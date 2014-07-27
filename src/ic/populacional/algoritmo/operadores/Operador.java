@@ -30,13 +30,14 @@ import ic.populacional.Ambiente;
 import ic.populacional.Populacao;
 import ic.populacional.Ser;
 import ic.populacional.algoritmo.AlgoritmoEvolucionario;
+import ic.populacional.algoritmo.AlgoritmoPopulacional;
 
 /**
  * Classe base aos operadores evolucionários.
  *
  * @author Victor de Lima Soares
  * @version 1.0
- * 
+ *
  * @param <G> Classe do retorno da função objetivo (Grau de adaptação):
  * AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, Float,
  * Integer, Long, Short.
@@ -44,7 +45,7 @@ import ic.populacional.algoritmo.AlgoritmoEvolucionario;
  */
 public abstract class Operador<G extends Number & Comparable<G>, S extends Ser<G>> {
 
-    private AlgoritmoEvolucionario<G,S> algoritmo;
+    private AlgoritmoEvolucionario<G, S> algoritmo;
 
     /**
      * Método de acesso ao algoritmos que utiliza desse operador.
@@ -52,7 +53,7 @@ public abstract class Operador<G extends Number & Comparable<G>, S extends Ser<G
      * @since 1.0
      * @return Algoritmo.
      */
-    public final AlgoritmoEvolucionario<G,S> getAlgoritmo() {
+    public final AlgoritmoEvolucionario<G, S> getAlgoritmo() {
         return algoritmo;
     }
 
@@ -67,7 +68,7 @@ public abstract class Operador<G extends Number & Comparable<G>, S extends Ser<G
      *
      * @param algoritmo
      */
-    public final void setAlgoritmo(AlgoritmoEvolucionario<G,S> algoritmo) {
+    public final void setAlgoritmo(AlgoritmoEvolucionario<G, S> algoritmo) {
         this.algoritmo = algoritmo;
     }
 
@@ -76,9 +77,15 @@ public abstract class Operador<G extends Number & Comparable<G>, S extends Ser<G
      *
      * @since 1.0
      * @return população.
+     *
+     * @throws ClassCastException
+     * <ul>
+     * <li>Se o algoritmo que utiliza o operador não for um algoritmo
+     * populacional.</li>
+     * </ul>
      */
-    public final Populacao<G,S> getPopulacao() {
-        return getAlgoritmo().getPopulacao();
+    public final Populacao<G, S> getPopulacao() throws ClassCastException {
+        return ((AlgoritmoPopulacional) getAlgoritmo()).getPopulacao();
     }
 
     /**
@@ -87,7 +94,7 @@ public abstract class Operador<G extends Number & Comparable<G>, S extends Ser<G
      * @since 1.0
      * @return ambiente.
      */
-    public final Ambiente<G,S> getAmbiente() {
+    public final Ambiente<G, S> getAmbiente() {
         return getAlgoritmo().getAmbiente();
     }
 }

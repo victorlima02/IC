@@ -26,7 +26,7 @@
  */
 package ic.populacional.algoritmos.DE;
 
-import ic.populacional.algoritmo.AlgoritmoEvolucionario;
+import ic.populacional.algoritmo.AlgoritmoPopulacional;
 import ic.populacional.seres.reais.SerReal;
 import java.util.List;
 
@@ -45,7 +45,7 @@ import java.util.List;
  * Integer, Long, Short.
  * @param <S> Classe dos Seres.
  */
-public class DE<G extends Number & Comparable<G>, S extends SerReal<G>> extends AlgoritmoEvolucionario<G, S> {
+public class DE<G extends Number & Comparable<G>, S extends SerReal<G>> extends AlgoritmoPopulacional<G, S> {
 
     {
         nome = "DE";

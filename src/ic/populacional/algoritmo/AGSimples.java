@@ -45,12 +45,12 @@ import java.util.List;
  * Integer, Long, Short.
  * @param <S> Classe dos Seres.
  */
-public abstract class AGSimples<G  extends Number & Comparable<G>, S extends Ser<G>> extends AlgoritmoEvolucionario<G, S> {
+public abstract class AGSimples<G  extends Number & Comparable<G>, S extends Ser<G>> extends AlgoritmoPopulacional<G, S> {
 
     {
         nome = "AGS";
     }
-    
+
     @Override
     public void iteracao() {
 

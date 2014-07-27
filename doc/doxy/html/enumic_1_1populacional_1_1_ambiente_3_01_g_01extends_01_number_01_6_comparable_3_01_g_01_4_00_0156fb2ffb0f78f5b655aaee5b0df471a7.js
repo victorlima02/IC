@@ -1,5 +1,0 @@
-var enumic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_01_6_comparable_3_01_g_01_4_00_0156fb2ffb0f78f5b655aaee5b0df471a7 =
-[
-    [ "MAXIMIZACAO", "enumic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_01_6_comparable_3_01_g_01_4_00_0156fb2ffb0f78f5b655aaee5b0df471a7.html#aebd926ba90a2f0976426930757e52389", null ],
-    [ "MINIMIZACAO", "enumic_1_1populacional_1_1_ambiente_3_01_g_01extends_01_number_01_6_comparable_3_01_g_01_4_00_0156fb2ffb0f78f5b655aaee5b0df471a7.html#a78ac05db732c05991ffbc586141bd137", null ]
-];

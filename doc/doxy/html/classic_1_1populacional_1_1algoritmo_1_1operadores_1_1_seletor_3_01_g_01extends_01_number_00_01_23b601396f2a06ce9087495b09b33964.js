@@ -1,9 +1,0 @@
-var classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_seletor_3_01_g_01extends_01_number_00_01_23b601396f2a06ce9087495b09b33964 =
-[
-    [ "Seletor", "classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_seletor_3_01_g_01extends_01_number_00_01_23b601396f2a06ce9087495b09b33964.html#a4ad6beb365247f1bd8f1326ea54534bd", null ],
-    [ "getPais", "classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_seletor_3_01_g_01extends_01_number_00_01_23b601396f2a06ce9087495b09b33964.html#a60bd3b1fde253d2a15f94a50b6f1ded3", null ],
-    [ "getSobreviventes", "classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_seletor_3_01_g_01extends_01_number_00_01_23b601396f2a06ce9087495b09b33964.html#ac76a6549268418ec4ad3f1f9704c18e2", null ],
-    [ "melhoresEntreAleatorios", "classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_seletor_3_01_g_01extends_01_number_00_01_23b601396f2a06ce9087495b09b33964.html#a927659f8b0a92dacfa3a9e68c02256bf", null ],
-    [ "ambiente", "classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_seletor_3_01_g_01extends_01_number_00_01_23b601396f2a06ce9087495b09b33964.html#a354469d2739865e5bfcaa1707ed80048", null ],
-    [ "populacao", "classic_1_1populacional_1_1algoritmo_1_1operadores_1_1_seletor_3_01_g_01extends_01_number_00_01_23b601396f2a06ce9087495b09b33964.html#ac31141aeb3db4cbbd5f0f7db86cc6bae", null ]
-];

@@ -564,7 +564,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @since 1.0
      * @param listener
      */
-    public void addMelhorSerListener(MelhorSerListener listener) {
+    public final void addMelhorSerListener(MelhorSerListener listener) {
         this.pcs.addPropertyChangeListener(EventosEvolucionarios.MelhorSer.toString(), listener);
     }
 
@@ -574,7 +574,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @since 1.0
      * @param listener
      */
-    public void removeMelhorSerListener(MelhorSerListener listener) {
+    public final void removeMelhorSerListener(MelhorSerListener listener) {
         this.pcs.removePropertyChangeListener(EventosEvolucionarios.MelhorSer.toString(), listener);
     }
 }

@@ -48,7 +48,7 @@ import java.util.List;
 public abstract class AGSimples<G  extends Number & Comparable<G>, S extends Ser<G>> extends AlgoritmoPopulacional<G, S> {
 
     {
-        nome = "AGS";
+        setNome("AGS");
     }
 
     @Override

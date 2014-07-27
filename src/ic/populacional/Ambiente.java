@@ -32,11 +32,11 @@ import java.util.Comparator;
 
 /**
  * <p>
- * Essa classe visa criar uma abstração do conceito de ambiente em seu sentido
- * biológico - aplicado a problemas de CE.
+ * Abstração do conceito de ambiente em seu sentido biológico, aplicado a
+ * problemas de CE.
  * </p>
  * <p>
- * Sendo dessa forma, uma entidade avaliadora para uma população, que quando
+ * Sendo dessa forma, uma entidade avaliadora para uma população/ser, que quando
  * sujeita aos vários fenômenos ambientais, evoluirá no tempo.
  * </p>
  * <p>
@@ -159,11 +159,10 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
      * </p>
      *
      * <p>
-     * Essa função realiza o cálculo do grau de adaptação, sem persisti-lo no ser.
-     * Para realizar a avaliação e gravação utilize:<br>
+     * Essa função realiza o cálculo do grau de adaptação, sem persisti-lo no
+     * ser. Para realizar a avaliação e gravação utilize:<br>
      * {@link Ser#setGrauDeAdaptacao(ic.populacional.Ambiente) } <br>
-     * ou, para coleções:<br>
-     * {@link #avalia(java.util.Collection) }
+     * ou, para coleções:<br> {@link #avalia(java.util.Collection) }
      * </p>
      *
      * @since 1.0
@@ -171,7 +170,7 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
      * @return Grau de adaptação.
      *
      * @see Ser#setGrauDeAdaptacao(ic.populacional.Ambiente)
-     * @see #avalia(java.util.Collection) 
+     * @see #avalia(java.util.Collection)
      *
      */
     public abstract G avalia(S individuo);
@@ -202,7 +201,7 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
      * @see #avalia(ic.populacional.Ser)
      * @see Ser#setGrauDeAdaptacao(ic.populacional.Ambiente)
      */
-    public void avalia(Collection<? extends S> seres) {
+    public final void avalia(Collection<? extends S> seres) {
         seres.parallelStream().filter(ser -> !ser.isAvaliadoPor(this)).forEach((ser) -> ser.setGrauDeAdaptacao(this));
     }
 
@@ -229,7 +228,7 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
      * @see Comparable#compareTo(java.lang.Object)
      */
     @Override
-    public int compare(S ser1, S ser2) {
+    public final int compare(S ser1, S ser2) {
         return comparador.compare(ser1, ser2);
     }
 
@@ -252,20 +251,8 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
      *
      * @see Comparable#compareTo(java.lang.Object)
      */
-    public int compare(G grau1, G grau2) {
+    public final int compare(G grau1, G grau2) {
         return comparadorGraus.compare(grau1, grau2);
-    }
-
-    /**
-     * Retorna um comparador para a ordem invertida quanto ao grau de adaptação.
-     *
-     * @since 1.0
-     * @return Comparator para ordem invertida.
-     *
-     * @see Comparable#compareTo(java.lang.Object)
-     */
-    public Comparator<S> comparadorInverso() {
-        return comparadorInverso;
     }
 
     /**
@@ -337,7 +324,48 @@ public abstract class Ambiente<G extends Number & Comparable<G>, S extends Ser<G
      * @since 1.0
      * @return Modo de comparação.
      */
-    public Modo getModo() {
+    public final Modo getModo() {
         return modo;
+    }
+
+    /**
+     * Retorna um comparador de seres para a ordem invertida quanto ao grau de
+     * adaptação.
+     *
+     * @since 1.0
+     * @return Comparator para ordem invertida.
+     *
+     */
+    public final Comparator<S> getComparadorInverso() {
+        return comparadorInverso;
+    }
+
+    /**
+     * Acesso ao comparador usado pela classe.
+     *
+     * <p>
+     * Esse comparador é o mesmo usado pelos métodos de comparação no ambiente,
+     * gerado na sua instanciação de acordo com o modo.
+     * </p>
+     *
+     * @return Comparador de seres.
+     */
+    public final Comparator<S> getComparador() {
+        return comparador;
+    }
+
+    /**
+     * Acesso ao comparador de graus usado pela classe.
+     *
+     * <p>
+     * Esse comparador é o mesmo usado pelos métodos de comparação no ambiente,
+     * gerado na sua instanciação de acordo com o modo.
+     * </p>
+     *
+     * @since 1.0
+     * @return Comparador de graus.
+     */
+    public final Comparator<G> getComparadorGraus() {
+        return comparadorGraus;
     }
 }

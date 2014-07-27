@@ -51,6 +51,7 @@ public abstract class AlgoritmoPopulacional<G extends Number & Comparable<G>, S 
     private Recombinador<G, S> recombinador;
     private Seletor<G, S> seletor;
     private Populacao<G, S> populacao;
+      
 
     /**
      * Construtor padrão.
@@ -68,15 +69,7 @@ public abstract class AlgoritmoPopulacional<G extends Number & Comparable<G>, S 
      * @since 1.0
      *
      * @see #setPopulacao(inteligenciaComputacional.evolucioria.Populacao)
-     * @see #setAmbiente(inteligenciaComputacional.evolucioria.Ambiente)
-     * @see
-     * #setGerador(inteligenciaComputacional.evolucioria.algoritmo.operadores.Gerador)
-     * @see
-     * #setRecombinador(inteligenciaComputacional.evolucioria.algoritmo.operadores.Recombinador)
-     * @see
-     * #setMutador(inteligenciaComputacional.evolucioria.algoritmo.operadores.Mutador)
-     * @see
-     * #setSeletor(inteligenciaComputacional.evolucioria.algoritmo.operadores.Seletor)
+     * @see AlgoritmoEvolucionario#AlgoritmoEvolucionario()
      */
     public AlgoritmoPopulacional() {
         super();
@@ -101,15 +94,8 @@ public abstract class AlgoritmoPopulacional<G extends Number & Comparable<G>, S 
      * @param populacao População inicial.
      *
      * @see #setPopulacao(inteligenciaComputacional.evolucioria.Populacao)
-     * @see #setAmbiente(inteligenciaComputacional.evolucioria.Ambiente)
      * @see
-     * #setGerador(inteligenciaComputacional.evolucioria.algoritmo.operadores.Gerador)
-     * @see
-     * #setRecombinador(inteligenciaComputacional.evolucioria.algoritmo.operadores.Recombinador)
-     * @see
-     * #setMutador(inteligenciaComputacional.evolucioria.algoritmo.operadores.Mutador)
-     * @see
-     * #setSeletor(inteligenciaComputacional.evolucioria.algoritmo.operadores.Seletor)
+     * AlgoritmoEvolucionario#AlgoritmoEvolucionario(ic.populacional.Ambiente)
      */
     public AlgoritmoPopulacional(Ambiente<G, S> ambiente, Populacao<G, S> populacao) {
         super(ambiente);
@@ -139,9 +125,7 @@ public abstract class AlgoritmoPopulacional<G extends Number & Comparable<G>, S 
      * @since 1.0
      *
      * @see Populacao#getMelhor()
-     * @see #iteracao()
-     * @see #terminou()
-     * @see #relatorio()
+     * @see AlgoritmoEvolucionario#run() 
      */
     @Override
     public void run() {
@@ -167,7 +151,7 @@ public abstract class AlgoritmoPopulacional<G extends Number & Comparable<G>, S 
 
                 if (getAmbiente().compare(melhorDaIteracaoPassada.getGrauDeAdaptacao(), melhorDaIteracao.getGrauDeAdaptacao()) >= 0) {
 
-                    incrementaContadorDeIteracoes();
+                    incrementaContadorSemMelhoras();
 
                 } else {
 
@@ -180,7 +164,7 @@ public abstract class AlgoritmoPopulacional<G extends Number & Comparable<G>, S 
 
                 melhorDaIteracaoPassada = melhorDaIteracao;
 
-                getPopulacao().stream().forEach(ser -> ser.envelhece());
+                getPopulacao().parallelStream().forEach(ser -> ser.envelhece());
             }
             finaliza();
         }
@@ -311,8 +295,8 @@ public abstract class AlgoritmoPopulacional<G extends Number & Comparable<G>, S 
      * <li>Probabilidade de Recombinação.</li>
      * <li>Tempo de execução, em segundos.</li>
      * <li>Número de Iterações.</li>
-     * <li> Número de Iterações sem melhora.</li>
-     * <li> Melhor solução.</li>
+     * <li>Número de Iterações sem melhora.</li>
+     * <li>Melhor solução.</li>
      * </ul>
      *
      * @since 1.0
@@ -321,22 +305,17 @@ public abstract class AlgoritmoPopulacional<G extends Number & Comparable<G>, S 
     public String relatorio() {
         StringBuilder relatorio = new StringBuilder();
 
-        relatorio.append("Algoritmo:\t" + this.nome + "\n");
-        relatorio.append("\tProbabilidade de Mutação:\t" + getMutador().getProbabilidadeMutacao() + "\n");
-        relatorio.append("\tProbabilidade de Recombinação:\t" + getRecombinador().getProbabilidadeDeRecombinacao() + "\n");
+        relatorio.append(super.relatorio());
 
-        relatorio.append("\tTempo (seg):\t" + getTempoDeExecucaoSeg() + "\n");
-        relatorio.append("\tIterações:\t" + getContadorDeIteracoes() + "\n");
-        relatorio.append("\tIterações sem melhora:\t" + getContadorSemMelhoras() + "\n");
+        if (getRecombinador() != null) {
+            relatorio.append("\tProbabilidade de Recombinação:\t" + getRecombinador().getProbabilidadeDeRecombinacao() + "\n");
+        }
 
-        /* Padrão = Inicio da linha = modo (?m) */
         Pattern pattern = Pattern.compile("(?m)(^)");
         Matcher matcher = pattern.matcher(getPopulacao().estatisticas());
 
         relatorio.append("População:\n");
         relatorio.append(matcher.replaceAll("\t") + "\n");
-
-        relatorio.append("Melhor Solução:\t" + getMelhorSer() + "\n");
 
         return relatorio.toString();
     }

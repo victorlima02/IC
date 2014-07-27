@@ -25,8 +25,11 @@ package ic.populacional.algoritmo;
 
 import ic.populacional.Ambiente;
 import ic.populacional.Ser;
+import ic.populacional.algoritmo.listeners.EventosEvolucionarios;
+import ic.populacional.algoritmo.listeners.MelhorSerListener;
 import ic.populacional.algoritmo.operadores.Gerador;
 import ic.populacional.algoritmo.operadores.Mutador;
+import java.beans.PropertyChangeSupport;
 import java.time.Duration;
 import java.time.Instant;
 
@@ -44,7 +47,7 @@ import java.time.Instant;
  */
 public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S extends Ser<G>> implements Runnable {
 
-    protected String nome;
+    private String nome;
     private Gerador<S> gerador;
     private Mutador<S> mutador;
 
@@ -58,6 +61,8 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
     private Integer contadorSemMelhoras = 0;
     private Integer maxIteracoes;
 
+    private final PropertyChangeSupport pcs;
+
     /**
      * Construtor padrão.
      *
@@ -66,60 +71,62 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      *
      * <p>
      * Cada componente do algoritmo deve ser atribuído antes da execução do
-     * mesmo, sendo obrigatórios uma população inicial e um ambiente. Os demais
-     * componentes (operadores), devem ser incluídos se exigidos pela função
-     * {@link #iteracao()}.
+     * mesmo, sendo obrigatórios uma população/ser inicial e um ambiente. Os
+     * demais componentes (operadores), devem ser incluídos se exigidos pela
+     * função {@link #iteracao()}.
      * </p>
      *
      * @since 1.0
      *
-     * @see #setPopulacao(inteligenciaComputacional.evolucioria.Populacao)
+     * @see
+     * AlgoritmoPopulacional#setPopulacao(inteligenciaComputacional.evolucioria.Populacao)
      * @see #setAmbiente(inteligenciaComputacional.evolucioria.Ambiente)
      * @see
      * #setGerador(inteligenciaComputacional.evolucioria.algoritmo.operadores.Gerador)
      * @see
-     * #setRecombinador(inteligenciaComputacional.evolucioria.algoritmo.operadores.Recombinador)
+     * AlgoritmoPopulacional#setRecombinador(inteligenciaComputacional.evolucioria.algoritmo.operadores.Recombinador)
      * @see
      * #setMutador(inteligenciaComputacional.evolucioria.algoritmo.operadores.Mutador)
      * @see
-     * #setSeletor(inteligenciaComputacional.evolucioria.algoritmo.operadores.Seletor)
+     * AlgoritmoEvolucionario#setSeletor(inteligenciaComputacional.evolucioria.algoritmo.operadores.Seletor)
      */
     public AlgoritmoEvolucionario() {
         setMaxIteracoes(Integer.MAX_VALUE);
-        this.nome = "Não atribuido";
+        setNome("Não atribuido");
+        this.pcs = new PropertyChangeSupport(this);
     }
 
     /**
      * Construtor.
      *
      * <p>
-     * Construtor para fazer a atribuição inicial do ambiente e da população.
+     * Construtor para fazer a atribuição inicial do ambiente.
      * </p>
      *
      * <p>
      * Cada componente do algoritmo deve ser atribuído antes da execução do
-     * mesmo, sendo obrigatórios uma população inicial e um ambiente. Os demais
-     * componentes (operadores), devem ser incluídos se exigidos pela função
-     * {@link #iteracao()}.
+     * mesmo, sendo obrigatórios uma população/ser inicial e um ambiente. Os
+     * demais componentes (operadores), devem ser incluídos se exigidos pela
+     * função {@link #iteracao()}.
      * </p>
      *
      * @since 1.0
      * @param ambiente Ambiente para o algoritmo.
-     * @param populacao População inicial.
      *
-     * @see #setPopulacao(inteligenciaComputacional.evolucioria.Populacao)
+     * @see
+     * AlgoritmoPopulacional#setPopulacao(inteligenciaComputacional.evolucioria.Populacao)
      * @see #setAmbiente(inteligenciaComputacional.evolucioria.Ambiente)
      * @see
      * #setGerador(inteligenciaComputacional.evolucioria.algoritmo.operadores.Gerador)
      * @see
-     * #setRecombinador(inteligenciaComputacional.evolucioria.algoritmo.operadores.Recombinador)
+     * AlgoritmoPopulacional#setRecombinador(inteligenciaComputacional.evolucioria.algoritmo.operadores.Recombinador)
      * @see
      * #setMutador(inteligenciaComputacional.evolucioria.algoritmo.operadores.Mutador)
      * @see
-     * #setSeletor(inteligenciaComputacional.evolucioria.algoritmo.operadores.Seletor)
+     * AlgoritmoEvolucionario#setSeletor(inteligenciaComputacional.evolucioria.algoritmo.operadores.Seletor)
      */
     public AlgoritmoEvolucionario(Ambiente<G, S> ambiente) {
-        super();
+        this();
         setAmbiente(ambiente);
     }
 
@@ -131,21 +138,9 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * realizando a coleta dos dados fornecidos pelos métodos de acesso e
      * geração de relatórios.
      * </p>
-     * <p>
-     * Devido a coleta de dados, esse método implica em um tempo de execução
-     * adicional, possivelmente significativo. Especialmente, no controle do
-     * número de iterações sem melhora e memorização do melhor ser encontrado.
-     * </p>
-     * <p>
-     * Tais informações dependem fortemente da estrutura de dados usada na
-     * implementação da população – pela exigência de buscas pelo mais adapto. O
-     * que pode ser insignificante em casos de estruturas ordenadas, como
-     * arvores, tamanho reduzido da população e/ou custo elevado de avaliação.
-     * </p>
      *
      * @since 1.0
      *
-     * @see Populacao#getMelhor()
      * @see #iteracao()
      * @see #terminou()
      * @see #relatorio()
@@ -196,7 +191,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @since 1.0
      */
     protected final void setMelhorSer(S melhorSer) {
-        this.melhorSer = melhorSer;
+        this.pcs.firePropertyChange(EventosEvolucionarios.MelhorSer.toString(), this.melhorSer, this.melhorSer = melhorSer);
     }
 
     /**
@@ -274,7 +269,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @since 1.0
      * @return Ambiente.
      */
-    public Ambiente<G, S> getAmbiente() {
+    public final Ambiente<G, S> getAmbiente() {
         return ambiente;
     }
 
@@ -338,7 +333,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @since 1.0
      * @return Número máximo de iterações.
      */
-    public Integer getMaxIteracoes() {
+    public final Integer getMaxIteracoes() {
         return maxIteracoes;
     }
 
@@ -348,7 +343,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @since 1.0
      * @return Número de iterações executadas(valor atualizado).
      */
-    public Integer incrementaContadorDeIteracoes() {
+    public final Integer incrementaContadorDeIteracoes() {
         return ++contadorDeIteracoes;
     }
 
@@ -358,7 +353,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @since 1.0
      * @return Número de iterações executadas.
      */
-    public Integer getContadorDeIteracoes() {
+    public final Integer getContadorDeIteracoes() {
         return contadorDeIteracoes;
     }
 
@@ -368,7 +363,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @since 1.0
      * @return Número de iterações executadas sem melhorias(valor atualizado).
      */
-    protected Integer incrementaContadorSemMelhoras() {
+    protected final Integer incrementaContadorSemMelhoras() {
         return ++contadorSemMelhoras;
     }
 
@@ -378,7 +373,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @since 1.0
      * @return Número de iterações executadas sem melhorias(valor atualizado).
      */
-    protected Integer zeraContadorSemMelhoras() {
+    protected final Integer zeraContadorSemMelhoras() {
         return contadorSemMelhoras = 0;
     }
 
@@ -398,7 +393,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @since 1.0
      * @return Número de iterações executadas sem melhorias.
      */
-    public Integer getContadorSemMelhoras() {
+    public final Integer getContadorSemMelhoras() {
         return contadorSemMelhoras;
     }
 
@@ -408,7 +403,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @since 1.0
      * @return O operador de geração do algoritmo.
      */
-    public Gerador<S> getGerador() {
+    public final Gerador<S> getGerador() {
         return gerador;
     }
 
@@ -421,7 +416,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @since 1.0
      * @param gerador Operador a ser atribuído.
      */
-    public void setGerador(Gerador<S> gerador) {
+    public final void setGerador(Gerador<S> gerador) {
         this.gerador = gerador;
         gerador.setAlgoritmo(this);
     }
@@ -432,7 +427,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @since 1.0
      * @return O operador de mutação do algoritmo.
      */
-    public Mutador<S> getMutador() {
+    public final Mutador<S> getMutador() {
         return mutador;
     }
 
@@ -444,7 +439,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @since 1.0
      * @param mutador Operador a ser atribuído.
      */
-    public void setMutador(Mutador<S> mutador) {
+    public final void setMutador(Mutador<S> mutador) {
         this.mutador = mutador;
         mutador.setAlgoritmo(this);
     }
@@ -490,7 +485,7 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @see #iteracao()
      * @see #terminou()
      */
-    public Long getTempoDeExecucaoNano() {
+    public final Long getTempoDeExecucaoNano() {
         return getTempoDeExcucao().toNanos();
     }
 
@@ -507,8 +502,79 @@ public abstract class AlgoritmoEvolucionario<G extends Number & Comparable<G>, S
      * @see #iteracao()
      * @see #terminou()
      */
-    public Double getTempoDeExecucaoSeg() {
+    public final Double getTempoDeExecucaoSeg() {
         return getTempoDeExcucao().toNanos() / 1000000000.0;
     }
 
+    /**
+     * Acessa o nome do algoritmo
+     *
+     * @return
+     */
+    public final String getNome() {
+        return nome;
+    }
+
+    /**
+     * Atribui um nome ao algoritmo.
+     *
+     * @param nome
+     */
+    protected final void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * Realiza a compilação dos dados coletados durante a execução do algoritmo.
+     *
+     * Nessa coletânea serão retornados os seguintes dados(em formato textual):
+     * <ul>
+     * <li>Nome do algoritmo.</li>
+     * <li>Probabilidade de Mutação.</li>
+     * <li>Tempo de execução, em segundos.</li>
+     * <li>Número de Iterações.</li>
+     * <li>Número de Iterações sem melhora.</li>
+     * <li>Melhor solução(avaliação).</li>
+     * </ul>
+     *
+     * @since 1.0
+     * @return Relatório básico de execução.
+     */
+    public String relatorio() {
+        StringBuilder relatorio = new StringBuilder();
+
+        relatorio.append("Algoritmo:\t" + this.getNome() + "\n");
+
+        relatorio.append("\tTempo (seg):\t" + getTempoDeExecucaoSeg() + "\n");
+        relatorio.append("\tIterações:\t" + getContadorDeIteracoes() + "\n");
+        relatorio.append("\tIterações sem melhora:\t" + getContadorSemMelhoras() + "\n");
+
+        relatorio.append("Melhor avaliação:\t" + getMelhorSer().getGrauDeAdaptacao() + "\n");
+
+        if (getMutador() != null) {
+            relatorio.append("\tProbabilidade de Mutação:\t" + getMutador().getProbabilidadeMutacao() + "\n");
+        }
+
+        return relatorio.toString();
+    }
+
+    /**
+     * Adiciona um receptor para o evento de se encontrar um ser melhor.
+     *
+     * @since 1.0
+     * @param listener
+     */
+    public void addMelhorSerListener(MelhorSerListener listener) {
+        this.pcs.addPropertyChangeListener(EventosEvolucionarios.MelhorSer.toString(), listener);
+    }
+
+    /**
+     * Remove um receptor para o evento de se encontrar um ser melhor.
+     *
+     * @since 1.0
+     * @param listener
+     */
+    public void removeMelhorSerListener(MelhorSerListener listener) {
+        this.pcs.removePropertyChangeListener(EventosEvolucionarios.MelhorSer.toString(), listener);
+    }
 }

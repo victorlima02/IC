@@ -21,47 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-/**
- * @author Victor de Lima Soares
- */
-package ic.populacional.algoritmos.DE;
 
-import ic.populacional.algoritmo.AlgoritmoPopulacional;
-import ic.populacional.seres.reais.SerReal;
-import java.util.List;
+package ic.populacional.algoritmo.listeners;
+
+import java.beans.PropertyChangeListener;
 
 /**
- * Algoritmo evolucionário: DE
- * 
- * <p>
- * DE/?/?/?
- * </p>
- * 
+ *
  * @author Victor de Lima Soares
  * @version 1.0
- * 
- * @param <G> Classe do retorno da função objetivo (Grau de adaptação):
- * AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, Float,
- * Integer, Long, Short.
- * @param <S> Classe dos Seres.
  */
-public class DE<G extends Number & Comparable<G>, S extends SerReal<G>> extends AlgoritmoPopulacional<G, S> {
+public interface MelhorSerListener extends PropertyChangeListener{
 
-    {
-        setNome("DE");
-    }
-
-    @Override
-    public void iteracao() {
-        
-        List<S> novaGeracao = getGerador().getN(getPopulacao().size()); 
-        
-        getMutador().muta(novaGeracao);
-                
-        List<S> filhos = getRecombinador().recombinaTodos(novaGeracao);
-    
-        getPopulacao().setIndividuos(filhos);
-        
-    }
-    
 }

@@ -64,7 +64,7 @@ public abstract class Seletor<G  extends Number & Comparable<G>, S extends Ser<G
         if(nMelhores > nAleatorios) throw new IllegalArgumentException("Número de seres para retorno deve ser menor ou igual ao número de seres por amostra.");
        
         List<Integer> indices = IndiceAleatorio.getUniforme(getPopulacao(), nAleatorios);
-        PriorityQueue<S> melhores = new PriorityQueue<>(getAmbiente().comparadorInverso());
+        PriorityQueue<S> melhores = new PriorityQueue<>(getAmbiente().getComparadorInverso());
         List<S> selecionados = new ArrayList<>(nMelhores);
 
         for (Integer indice : indices) {

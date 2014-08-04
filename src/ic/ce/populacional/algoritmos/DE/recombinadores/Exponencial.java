@@ -25,7 +25,6 @@ package ic.ce.populacional.algoritmos.DE.recombinadores;
 
 import ic.ce.populacional.seres.reais.SerReal;
 import java.util.List;
-import javax.naming.OperationNotSupportedException;
 
 /**
  * Operador de recombinação para DE: Exponencial
@@ -38,16 +37,13 @@ import javax.naming.OperationNotSupportedException;
  * Integer, Long, Short.
  * @param <S> Classe dos Seres.
  */
-public class Exponencial<G extends Number & Comparable<G>, S extends SerReal<G>> extends RecombinadorDE<G, S> {
+public abstract class Exponencial<G extends Number & Comparable<G>, S extends SerReal<G>> extends RecombinadorDE<G, S> {
 
     public Exponencial(Double probabilidadeDeCrossover) {
         super(probabilidadeDeCrossover);
     }
 
     @Override
-    protected List<S> recombina(List<S> pares) {
-        throw new RuntimeException(new OperationNotSupportedException(
-                "Ainda por implementar"));
-    }
+    protected abstract List<S> recombina(List<S> pares);
 
 }

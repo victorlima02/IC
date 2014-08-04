@@ -302,6 +302,7 @@ public abstract class AlgoritmoPopulacional<G extends Number & Comparable<G>, S 
      * @since 1.0
      * @return Relatório básico de execução.
      */
+    @Override
     public String relatorio() {
         StringBuilder relatorio = new StringBuilder();
 

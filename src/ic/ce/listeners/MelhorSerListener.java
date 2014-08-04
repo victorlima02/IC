@@ -21,28 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package ic.ce.populacional.algoritmo.listeners;
+
+package ic.ce.listeners;
+
+import java.beans.PropertyChangeListener;
 
 /**
  *
  * @author Victor de Lima Soares
  * @version 1.0
  */
-public enum EventosEvolucionarios {
-    MelhorSer("melhorSer");
-    
-    private final String nome;
-    
-    private EventosEvolucionarios(String nome){
-        this.nome=nome;
-    }
+public interface MelhorSerListener extends PropertyChangeListener{
 
-    public String getNome() {
-        return nome;
-    }
-    
-    @Override
-    public String toString(){
-        return getNome();
-    }
 }

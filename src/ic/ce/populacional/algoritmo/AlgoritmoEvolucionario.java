@@ -25,8 +25,8 @@ package ic.ce.populacional.algoritmo;
 
 import ic.ce.populacional.Ambiente;
 import ic.ce.populacional.Ser;
-import ic.ce.populacional.algoritmo.listeners.EventosEvolucionarios;
-import ic.ce.populacional.algoritmo.listeners.MelhorSerListener;
+import ic.ce.eventos.EventosEvolucionarios;
+import ic.ce.listeners.MelhorSerListener;
 import ic.ce.populacional.algoritmo.operadores.Gerador;
 import ic.ce.populacional.algoritmo.operadores.Mutador;
 import java.beans.PropertyChangeSupport;

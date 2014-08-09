@@ -23,6 +23,8 @@
  */
 package ic.ce.populacional;
 
+import ic.ce.base.Ambiente;
+import ic.ce.base.Ser;
 import static java.lang.Math.pow;
 import java.util.Collection;
 import java.util.Iterator;

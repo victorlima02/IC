@@ -23,8 +23,9 @@
  */
 package ic.ce.populacional.algoritmo.operadores;
 
-import ic.ce.populacional.utilidades.IndiceAleatorio;
-import ic.ce.populacional.Ser;
+import ic.ce.base.algoritmo.operadores.Operador;
+import ic.ce.base.utilidades.IndiceAleatorio;
+import ic.ce.base.Ser;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;

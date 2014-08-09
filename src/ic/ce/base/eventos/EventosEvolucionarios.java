@@ -21,44 +21,28 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package ic.ce.populacional.algoritmo;
-
-import ic.ce.base.Ser;
-import java.util.List;
+package ic.ce.base.eventos;
 
 /**
- * AG simples (SGA) ou canônico.
- *
- * Características:
- * <ul>
- * <li>Forma de Representação: Codificação binária/real;</li>
- * <li>Operador de Recombinação: crossover de 1-ponto;</li>
- * <li>Operador de Mutação: Bit-Flip com baixa probabilidade;</li>
- * <li>Seleção dos Pais: Proporcional ao Fitness Geracional.</li>
- * <li>Seleção dos SobreviventeS: Geracional.</li>
- * </ul>
  *
  * @author Victor de Lima Soares
  * @version 1.0
- * @param <G> Classe do retorno da função objetivo (Grau de adaptação):
- * AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, Float,
- * Integer, Long, Short.
- * @param <S> Classe dos Seres.
  */
-public abstract class AGSimples<G  extends Number & Comparable<G>, S extends Ser<G>> extends AlgoritmoPopulacional<G, S> {
-
-    {
-        setNome("AGS");
+public enum EventosEvolucionarios {
+    MelhorSer("melhorSer");
+    
+    private final String nome;
+    
+    private EventosEvolucionarios(String nome){
+        this.nome=nome;
     }
 
+    public String getNome() {
+        return nome;
+    }
+    
     @Override
-    public void iteracao() {
-
-        List<S> pais = getSeletor().getPais();
-        List<S> filhos = getRecombinador().recombinaTodos(pais);
-
-        getMutador().muta(filhos);
-  
-        getPopulacao().setIndividuos(filhos);
+    public String toString(){
+        return getNome();
     }
 }

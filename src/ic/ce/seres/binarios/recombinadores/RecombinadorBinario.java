@@ -21,49 +21,40 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package ic.ce.populacional.algoritmos.DE.recombinadores;
+package ic.ce.seres.binarios.recombinadores;
 
-import ic.ce.seres.reais.SerReal;
-import ic.ce.base.utilidades.IndiceAleatorio;
-import java.util.ArrayList;
-import java.util.List;
+import ic.ce.populacional.algoritmo.operadores.Recombinador;
+import ic.ce.seres.binarios.SerBinario;
 
 /**
- * Operador de recombinação para DE: Binomial
  *
  * @author Victor de Lima Soares
  * @version 1.0
- *
+ * 
  * @param <G> Classe do retorno da função objetivo (Grau de adaptação):
  * AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, Float,
  * Integer, Long, Short.
  * @param <S> Classe dos Seres.
  */
-public class Binomial<G extends Number & Comparable<G>, S extends SerReal<G>> extends RecombinadorDE<G, S> {
+public abstract class RecombinadorBinario<G extends Number & Comparable<G>,S extends SerBinario<G>> extends Recombinador<G,S> {
 
-    public Binomial(Double probabilidadeDeCrossover) {
-        super(probabilidadeDeCrossover);
-    }
-
-    @Override
-    protected List<S> recombina(List<S> pares) {
-        S doador = pares.get(0);
-        S alvo = getPopulacao().get(IndiceAleatorio.getUniforme(getPopulacao()));
-
-        S experimental = discriteRecombination(doador, alvo, 1, getProbabilidadeDeCrossover()).get(0);
-        experimental.setGrauDeAdaptacao(getAmbiente());
-
-        List<S> filhos = new ArrayList<>(1);
-
-        getPopulacao().remove(alvo);
-
-        if (getAmbiente().compare(experimental, alvo) > 0) {
-            filhos.add(experimental);
-        } else {
-            filhos.add(alvo);
-        }
-
-        return filhos;
+    /**
+     * Construtor.
+     *
+     * @since 1.0
+     * @param probabilidadeDeRecombinacao Probabilidade de recombinação, entre
+     * [0-1].
+     * @param nParceiros Número de parceiros necessários para cada operação de
+     * reprodução.
+     *
+     * @throws IllegalArgumentException
+     * <ul>
+     * <li>Caso a probabilidade de recombinação não esteja em [0,1];</li>
+     * <li>Caso o número de parceiros for menor ou igual a 0.</li>
+     * </ul>
+     */
+    public RecombinadorBinario(double probabilidadeDeRecombinacao, int nParceiros) {
+        super(probabilidadeDeRecombinacao, nParceiros);
     }
 
 }

@@ -23,8 +23,8 @@
  */
 package ic.ce.populacional.algoritmos.DE.mutadores;
 
-import ic.ce.populacional.seres.reais.SerReal;
-import ic.ce.populacional.seres.reais.mutadores.MutadorReal;
+import ic.ce.seres.reais.SerReal;
+import ic.ce.seres.reais.mutadores.MutadorReal;
 
 /**
  * Operador de mutação DE.

@@ -23,7 +23,7 @@
  */
 package ic.ce.populacional.algoritmos.DE.recombinadores;
 
-import ic.ce.populacional.seres.reais.SerReal;
+import ic.ce.seres.reais.SerReal;
 import java.util.List;
 
 /**

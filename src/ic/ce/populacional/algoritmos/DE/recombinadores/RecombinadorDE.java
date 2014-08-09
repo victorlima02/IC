@@ -26,8 +26,8 @@
  */
 package ic.ce.populacional.algoritmos.DE.recombinadores;
 
-import ic.ce.populacional.seres.reais.SerReal;
-import ic.ce.populacional.seres.reais.recombinadores.RecombinadorReal;
+import ic.ce.seres.reais.SerReal;
+import ic.ce.seres.reais.recombinadores.RecombinadorReal;
 
 /**
  * Operador de recombinação para DE.

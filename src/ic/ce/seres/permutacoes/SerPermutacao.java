@@ -21,49 +21,59 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package ic.ce.populacional.algoritmos.DE.recombinadores;
+/**
+ * @author Victor de Lima Soares
+ */
+package ic.ce.seres.permutacoes;
 
-import ic.ce.seres.reais.SerReal;
-import ic.ce.base.utilidades.IndiceAleatorio;
+import ic.ce.base.Caracteristica;
+import ic.ce.seres.inteiros.SerInteiro;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Operador de recombinação para DE: Binomial
  *
  * @author Victor de Lima Soares
  * @version 1.0
- *
+ * 
  * @param <G> Classe do retorno da função objetivo (Grau de adaptação):
  * AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, Float,
  * Integer, Long, Short.
- * @param <S> Classe dos Seres.
  */
-public class Binomial<G extends Number & Comparable<G>, S extends SerReal<G>> extends RecombinadorDE<G, S> {
+public class SerPermutacao<G extends Number & Comparable<G>> extends SerInteiro<G> {
 
-    public Binomial(Double probabilidadeDeCrossover) {
-        super(probabilidadeDeCrossover);
+    /**
+     * Construtor.
+     *
+     * @since 1.0
+     * @param limiteInferior Limite inferior, inclusive.
+     * @param limiteSuperior Limite superior, exclusive.
+     *
+     * @throws IllegalArgumentException Se <ul>
+     * <li>
+     * Limite superior for menor que o limite inferior;
+     * </li>
+     * </ul>
+     */
+    public SerPermutacao(int limiteInferior, int limiteSuperior) {
+        super(limiteSuperior - limiteInferior, limiteInferior, limiteSuperior);
     }
 
-    @Override
-    protected List<S> recombina(List<S> pares) {
-        S doador = pares.get(0);
-        S alvo = getPopulacao().get(IndiceAleatorio.getUniforme(getPopulacao()));
+    /**
+     * Transforma uma lista de inteiros em uma lista de características.
+     *
+     * @since 1.0
+     * @param caracteristicas
+     * @return
+     */
+    public static List<Caracteristica<Integer>> integerListToLocusList(List<Integer> caracteristicas) {
 
-        S experimental = discriteRecombination(doador, alvo, 1, getProbabilidadeDeCrossover()).get(0);
-        experimental.setGrauDeAdaptacao(getAmbiente());
+        List<Caracteristica<Integer>> locus = new ArrayList(caracteristicas.size());
 
-        List<S> filhos = new ArrayList<>(1);
+        caracteristicas.stream().forEach((inteiro) -> {
+            locus.add(new LocusPermutacao(inteiro));
+        });
 
-        getPopulacao().remove(alvo);
-
-        if (getAmbiente().compare(experimental, alvo) > 0) {
-            filhos.add(experimental);
-        } else {
-            filhos.add(alvo);
-        }
-
-        return filhos;
+        return locus;
     }
-
 }

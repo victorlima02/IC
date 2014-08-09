@@ -23,9 +23,9 @@
  */
 package ic.ce.populacional.algoritmos.DE.mutadores;
 
-import ic.ce.populacional.seres.reais.LocusReal;
-import ic.ce.populacional.seres.reais.SerReal;
-import ic.ce.populacional.utilidades.IndiceAleatorio;
+import ic.ce.seres.reais.LocusReal;
+import ic.ce.seres.reais.SerReal;
+import ic.ce.base.utilidades.IndiceAleatorio;
 import java.util.List;
 
 /**

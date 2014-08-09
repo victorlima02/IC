@@ -21,44 +21,52 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package ic.ce.populacional.algoritmo;
+package ic.ce.seres.binarios;
 
-import ic.ce.base.Ser;
-import java.util.List;
+import ic.ce.base.Caracteristica;
 
 /**
- * AG simples (SGA) ou canônico.
- *
- * Características:
- * <ul>
- * <li>Forma de Representação: Codificação binária/real;</li>
- * <li>Operador de Recombinação: crossover de 1-ponto;</li>
- * <li>Operador de Mutação: Bit-Flip com baixa probabilidade;</li>
- * <li>Seleção dos Pais: Proporcional ao Fitness Geracional.</li>
- * <li>Seleção dos SobreviventeS: Geracional.</li>
- * </ul>
- *
+ * Característica para seres binários.
+ * 
  * @author Victor de Lima Soares
  * @version 1.0
- * @param <G> Classe do retorno da função objetivo (Grau de adaptação):
- * AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, Float,
- * Integer, Long, Short.
- * @param <S> Classe dos Seres.
  */
-public abstract class AGSimples<G  extends Number & Comparable<G>, S extends Ser<G>> extends AlgoritmoPopulacional<G, S> {
+public class LocusBinario extends Caracteristica<Integer> {
 
-    {
-        setNome("AGS");
+    private Boolean set;
+
+    public LocusBinario() {
+        this.set = null;
+    }
+
+    public LocusBinario(Boolean set) {
+        this.set = set;
+    }
+
+    public final Boolean getBit() {
+        return set;
+    }
+
+    public final void setBit(Boolean bit) {
+        this.set = bit;
+    }
+
+    /**
+     * Realiza a inversão de valor de uma característica binária.
+     *
+     * @since 1.0
+     */
+    public final void flip() {
+        setBit(!getBit());
     }
 
     @Override
-    public void iteracao() {
+    public LocusBinario copia() {
+        return new LocusBinario(this.getBit());
+    }
 
-        List<S> pais = getSeletor().getPais();
-        List<S> filhos = getRecombinador().recombinaTodos(pais);
-
-        getMutador().muta(filhos);
-  
-        getPopulacao().setIndividuos(filhos);
+    @Override
+    public Integer getValor() {
+        return (set) ? 1 : 0;
     }
 }

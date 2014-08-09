@@ -21,49 +21,44 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package ic.ce.populacional.algoritmos.DE.recombinadores;
+package ic.ce.seres.binarios.mutadores;
 
-import ic.ce.seres.reais.SerReal;
-import ic.ce.base.utilidades.IndiceAleatorio;
-import java.util.ArrayList;
-import java.util.List;
+import ic.ce.base.algoritmo.operadores.Mutador;
+import ic.ce.seres.binarios.LocusBinario;
+import ic.ce.seres.binarios.SerBinario;
+import ic.ce.base.utilidades.Aleatorios;
 
 /**
- * Operador de recombinação para DE: Binomial
- *
+ * Mutador para seres binários.
+ * 
  * @author Victor de Lima Soares
  * @version 1.0
- *
- * @param <G> Classe do retorno da função objetivo (Grau de adaptação):
- * AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, Float,
- * Integer, Long, Short.
+ * 
  * @param <S> Classe dos Seres.
  */
-public class Binomial<G extends Number & Comparable<G>, S extends SerReal<G>> extends RecombinadorDE<G, S> {
+public class MutadorBinario<S extends SerBinario> extends Mutador<S> {
 
-    public Binomial(Double probabilidadeDeCrossover) {
-        super(probabilidadeDeCrossover);
+    public MutadorBinario(double probabilidadeDeMutacao) {
+        super(probabilidadeDeMutacao);
     }
-
+    
     @Override
-    protected List<S> recombina(List<S> pares) {
-        S doador = pares.get(0);
-        S alvo = getPopulacao().get(IndiceAleatorio.getUniforme(getPopulacao()));
-
-        S experimental = discriteRecombination(doador, alvo, 1, getProbabilidadeDeCrossover()).get(0);
-        experimental.setGrauDeAdaptacao(getAmbiente());
-
-        List<S> filhos = new ArrayList<>(1);
-
-        getPopulacao().remove(alvo);
-
-        if (getAmbiente().compare(experimental, alvo) > 0) {
-            filhos.add(experimental);
-        } else {
-            filhos.add(alvo);
-        }
-
-        return filhos;
+    public void muta(S ser) {
+        bitFlipping(ser, 1.0/ser.getSize());
     }
 
+    /**
+     * bit-flipping.
+     *
+     * @param ser
+     * @param probabilidadeDeFlip
+     */
+    public final static void bitFlipping(SerBinario ser, double probabilidadeDeFlip) {
+        for (int i = 0; i < ser.getCaracteristicas().size(); i++) {
+            LocusBinario locus = (LocusBinario) ser.getCaracteristica(i);
+            if (Aleatorios.sorteioUniforme(probabilidadeDeFlip)) {
+                locus.flip();
+            }
+        }
+    }
 }

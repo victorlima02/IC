@@ -26,9 +26,10 @@
  */
 package ic.ce.populacional.algoritmo;
 
-import ic.ce.populacional.Ambiente;
+import ic.ce.base.algoritmo.AlgoritmoEvolucionario;
+import ic.ce.base.Ambiente;
 import ic.ce.populacional.Populacao;
-import ic.ce.populacional.Ser;
+import ic.ce.base.Ser;
 import ic.ce.populacional.algoritmo.operadores.Recombinador;
 import ic.ce.populacional.algoritmo.operadores.Seletor;
 import java.util.regex.Matcher;

@@ -21,49 +21,55 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package ic.ce.populacional.algoritmos.DE.recombinadores;
+package ic.ce.base.utilidades;
 
-import ic.ce.seres.reais.SerReal;
-import ic.ce.base.utilidades.IndiceAleatorio;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Operador de recombinação para DE: Binomial
  *
  * @author Victor de Lima Soares
  * @version 1.0
- *
- * @param <G> Classe do retorno da função objetivo (Grau de adaptação):
- * AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, Float,
- * Integer, Long, Short.
- * @param <S> Classe dos Seres.
  */
-public class Binomial<G extends Number & Comparable<G>, S extends SerReal<G>> extends RecombinadorDE<G, S> {
+public class Binarios {
 
-    public Binomial(Double probabilidadeDeCrossover) {
-        super(probabilidadeDeCrossover);
+    /**
+     * Retorna <i>n</i> Booleans aleatórios em uma lista.
+     *
+     * <p>
+     * Distribuição uniforme.
+     * </p>
+     *
+     * @since 1.0
+     * @param nbits Número de bits desejado.
+     * @return Lista de Booleans sorteada.
+     */
+    public final static List<Boolean> arrayAleatorioUniforme(int nbits) {
+
+        List<Boolean> lista = new ArrayList<>();
+        for (int i = 0; i <= nbits; i++) {
+            lista.add(ThreadLocalRandom.current().nextBoolean());
+        }
+        return lista;
     }
 
-    @Override
-    protected List<S> recombina(List<S> pares) {
-        S doador = pares.get(0);
-        S alvo = getPopulacao().get(IndiceAleatorio.getUniforme(getPopulacao()));
+    /**
+     * Converte listas de números binários em um valor inteiro.
+     * 
+     * @since 1.0
+     * @param bits Vetor de bits.
+     * @return Inteiro equivalente.
+     */
+    public final static Integer bits2Int(List<Boolean> bits) {
 
-        S experimental = discriteRecombination(doador, alvo, 1, getProbabilidadeDeCrossover()).get(0);
-        experimental.setGrauDeAdaptacao(getAmbiente());
-
-        List<S> filhos = new ArrayList<>(1);
-
-        getPopulacao().remove(alvo);
-
-        if (getAmbiente().compare(experimental, alvo) > 0) {
-            filhos.add(experimental);
-        } else {
-            filhos.add(alvo);
+        double valor = 0;
+        for (int i = 0; i < bits.size(); i++) {
+            if (bits.get(i)) {
+                valor += Math.pow(2, bits.size() - 1 - i);
+            }
         }
-
-        return filhos;
+        return (int) valor;
     }
 
 }

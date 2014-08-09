@@ -21,49 +21,42 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package ic.ce.populacional.algoritmos.DE.recombinadores;
+package ic.ce.seres.permutacoes;
 
-import ic.ce.seres.reais.SerReal;
-import ic.ce.base.utilidades.IndiceAleatorio;
+import ic.ce.base.algoritmo.operadores.Gerador;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Operador de recombinação para DE: Binomial
- *
+ * Gerador de seres baseados em permutações.
+ * 
  * @author Victor de Lima Soares
  * @version 1.0
- *
- * @param <G> Classe do retorno da função objetivo (Grau de adaptação):
- * AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, Float,
- * Integer, Long, Short.
+ * 
  * @param <S> Classe dos Seres.
  */
-public class Binomial<G extends Number & Comparable<G>, S extends SerReal<G>> extends RecombinadorDE<G, S> {
+public abstract class GeradorPermutacoes<S extends SerPermutacao> extends Gerador<S> {
 
-    public Binomial(Double probabilidadeDeCrossover) {
-        super(probabilidadeDeCrossover);
-    }
+    /**
+     * Retorna n números aleatórios em uma permutação de inteiros.
+     *
+     * <p>
+     * Distribuição uniforme.
+     * </p>
+     *
+     * @since 1.0
+     * @param inicio Menor número na permutação.
+     * @param fim Maior número na permutação.
+     * @return Índices escolhidos aleatoriamente, em uma permutação de inteiros.
+     */
+    public final static List<Integer> getPermutacao(int inicio, int fim) {
 
-    @Override
-    protected List<S> recombina(List<S> pares) {
-        S doador = pares.get(0);
-        S alvo = getPopulacao().get(IndiceAleatorio.getUniforme(getPopulacao()));
-
-        S experimental = discriteRecombination(doador, alvo, 1, getProbabilidadeDeCrossover()).get(0);
-        experimental.setGrauDeAdaptacao(getAmbiente());
-
-        List<S> filhos = new ArrayList<>(1);
-
-        getPopulacao().remove(alvo);
-
-        if (getAmbiente().compare(experimental, alvo) > 0) {
-            filhos.add(experimental);
-        } else {
-            filhos.add(alvo);
+        List<Integer> lista = new ArrayList<>();
+        for (int i = inicio; i <= fim; i++) {
+            lista.add(i);
         }
-
-        return filhos;
+        java.util.Collections.shuffle(lista);
+        return lista;
     }
 
 }

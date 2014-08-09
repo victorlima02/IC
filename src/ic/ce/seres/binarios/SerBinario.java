@@ -21,15 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package ic.ce.populacional.algoritmos.DE.recombinadores;
+/**
+ * @author Victor de Lima Soares
+ */
+package ic.ce.seres.binarios;
 
-import ic.ce.seres.reais.SerReal;
-import ic.ce.base.utilidades.IndiceAleatorio;
+import ic.ce.base.Caracteristica;
+import ic.ce.seres.SerFixo;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Operador de recombinação para DE: Binomial
+ * Gerador de seres baseados em números binários.
  *
  * @author Victor de Lima Soares
  * @version 1.0
@@ -37,33 +40,48 @@ import java.util.List;
  * @param <G> Classe do retorno da função objetivo (Grau de adaptação):
  * AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, Float,
  * Integer, Long, Short.
- * @param <S> Classe dos Seres.
  */
-public class Binomial<G extends Number & Comparable<G>, S extends SerReal<G>> extends RecombinadorDE<G, S> {
+public class SerBinario<G extends Number & Comparable<G>> extends SerFixo<G> {
 
-    public Binomial(Double probabilidadeDeCrossover) {
-        super(probabilidadeDeCrossover);
+    public SerBinario(int ncaracteristicas) {
+        super(ncaracteristicas);
     }
 
-    @Override
-    protected List<S> recombina(List<S> pares) {
-        S doador = pares.get(0);
-        S alvo = getPopulacao().get(IndiceAleatorio.getUniforme(getPopulacao()));
+    public SerBinario(List<Boolean> caracteristicas) {
+        super(caracteristicas.size());
+        setCaracteristicas(booleanListToLocusList(caracteristicas));
+    }
+    
+    public static List<Caracteristica<Integer>> booleanListToLocusList(List<Boolean> caracteristicas) {
 
-        S experimental = discriteRecombination(doador, alvo, 1, getProbabilidadeDeCrossover()).get(0);
-        experimental.setGrauDeAdaptacao(getAmbiente());
+        List<Caracteristica<Integer>> locus = new ArrayList(caracteristicas.size());
 
-        List<S> filhos = new ArrayList<>(1);
+        caracteristicas.stream().forEach((bool) -> {
+            locus.add(new LocusBinario(bool));
+        });
 
-        getPopulacao().remove(alvo);
+        return locus;
+    }
 
-        if (getAmbiente().compare(experimental, alvo) > 0) {
-            filhos.add(experimental);
-        } else {
-            filhos.add(alvo);
+    public final static Integer bits2Int(List<Boolean> bits) {
+
+        double valor = 0;
+        for (int i = 0; i < bits.size(); i++) {
+            if (bits.get(i)) {
+                valor += Math.pow(2, bits.size() - 1 - i);
+            }
         }
-
-        return filhos;
+        return (int) valor;
     }
 
+    public final static Integer locusBinarios2Int(List<Caracteristica> bits) {
+
+        double valor = 0;
+        for (int i = 0; i < bits.size(); i++) {
+            if (((LocusBinario)bits.get(i)).getBit()) {
+                valor += Math.pow(2, bits.size() - 1 - i);
+            }
+        }
+        return (int) valor;
+    }
 }

@@ -23,10 +23,11 @@
  */
 package ic.ce.populacional.algoritmo.operadores;
 
-import ic.ce.populacional.Caracteristica;
-import ic.ce.populacional.Ser;
-import ic.ce.populacional.utilidades.Aleatorios;
-import ic.ce.populacional.utilidades.IndiceAleatorio;
+import ic.ce.base.algoritmo.operadores.Operador;
+import ic.ce.base.Caracteristica;
+import ic.ce.base.Ser;
+import ic.ce.base.utilidades.Aleatorios;
+import ic.ce.base.utilidades.IndiceAleatorio;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;

@@ -21,49 +21,60 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package ic.ce.populacional.algoritmos.DE.recombinadores;
+package ic.ce.seres.permutacoes;
 
-import ic.ce.seres.reais.SerReal;
-import ic.ce.base.utilidades.IndiceAleatorio;
-import java.util.ArrayList;
-import java.util.List;
+import ic.ce.base.Caracteristica;
+import java.util.Objects;
 
 /**
- * Operador de recombinação para DE: Binomial
  *
  * @author Victor de Lima Soares
  * @version 1.0
- *
- * @param <G> Classe do retorno da função objetivo (Grau de adaptação):
- * AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, Float,
- * Integer, Long, Short.
- * @param <S> Classe dos Seres.
  */
-public class Binomial<G extends Number & Comparable<G>, S extends SerReal<G>> extends RecombinadorDE<G, S> {
+public class LocusPermutacao extends Caracteristica<Integer> implements Comparable<LocusPermutacao> {
 
-    public Binomial(Double probabilidadeDeCrossover) {
-        super(probabilidadeDeCrossover);
+    Integer locus;
+
+    public LocusPermutacao(int i) {
+        this.locus = i;
     }
 
     @Override
-    protected List<S> recombina(List<S> pares) {
-        S doador = pares.get(0);
-        S alvo = getPopulacao().get(IndiceAleatorio.getUniforme(getPopulacao()));
-
-        S experimental = discriteRecombination(doador, alvo, 1, getProbabilidadeDeCrossover()).get(0);
-        experimental.setGrauDeAdaptacao(getAmbiente());
-
-        List<S> filhos = new ArrayList<>(1);
-
-        getPopulacao().remove(alvo);
-
-        if (getAmbiente().compare(experimental, alvo) > 0) {
-            filhos.add(experimental);
-        } else {
-            filhos.add(alvo);
-        }
-
-        return filhos;
+    public Integer getValor() {
+        return locus;
     }
 
+    public void setRepresentacaoNumerica(int x) {
+        locus = x;
+    }
+
+    @Override
+    public LocusPermutacao copia() {
+        return new LocusPermutacao(locus);
+    }
+
+    @Override
+    public int compareTo(LocusPermutacao o) {
+        return locus.compareTo(o.locus);
+    }
+
+    @Override
+    public boolean equals(Object outro) {
+        if (!(outro instanceof LocusPermutacao)) {
+            return false;
+        }
+        return locus.equals(((LocusPermutacao) outro).locus);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.locus);
+        return hash;
+    }
+
+    @Override
+    public String toString() {
+        return locus.toString();
+    }
 }

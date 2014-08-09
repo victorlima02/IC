@@ -27,7 +27,7 @@
 package ic.ce.populacional.algoritmos.DE;
 
 import ic.ce.populacional.algoritmo.AlgoritmoPopulacional;
-import ic.ce.populacional.seres.reais.SerReal;
+import ic.ce.seres.reais.SerReal;
 import java.util.List;
 
 /**

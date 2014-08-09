@@ -21,69 +21,70 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package ic.ce.populacional;
+/**
+ * @author Victor de Lima Soares
+ */
+package ic.ce.seres;
 
-import ic.ce.base.Ambiente;
+import ic.ce.base.Caracteristica;
 import ic.ce.base.Ser;
+import java.util.Arrays;
 import java.util.List;
-import java.util.TreeSet;
-import java.util.stream.Collectors;
 
 /**
- * População ordenada.
- *
- * <p>
- * População mantém os seres ordenados de acordo com o ambiente usado para
- * construção.
- * </p>
- *
+ * Ser com número fixo de características.
+ * 
  * @author Victor de Lima Soares
  * @version 1.0
- *
+ * 
  * @param <G> Classe do retorno da função objetivo (Grau de adaptação):
  * AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, Float,
  * Integer, Long, Short.
- * @param <S> Classe dos Seres.
- *
- * @see Populacao
  */
-public class PopulacaoOrdenada<G extends Number & Comparable<G>, S extends Ser<G>> extends Populacao<G, S> {
+public abstract class SerFixo<G  extends Number & Comparable<G>> extends Ser<G> {
+   
+    /**
+     * Construtor.
+     *
+     * <p>
+     * Características não serão atribuídas.
+     * </p>
+     *
+     * @since 1.0
+     * @param ncaracteristicas Número inicial de características.
+     * 
+     * @throws IllegalArgumentException Se <ul>
+     * <li>
+     * Número de locus for menor que zero.
+     * </li>
+     * </ul>
+     */
+    public SerFixo(int ncaracteristicas) {
+        if (ncaracteristicas <= 0) {
+            throw new IllegalArgumentException("Número de locus deve ser maior que zero.");
+        }
+        this.caracteristicas = Arrays.asList(new Caracteristica[ncaracteristicas]);
+    }
 
     /**
      * Construtor.
      *
+     * <p>
+     * Por padrão, seres criados por esse método terão tamanho fixo.
+     * </p>
+     *
+     * <p>
+     * Características não serão copiadas de forma a criar novas
+     * instâncias.
+     * </p>
+     *
+     * @param caracteristicas Lista de características a serem atribuídas ao
+     * ser.
      * @since 1.0
-     *
-     * @param ambiente Ambiente avaliador.
-     * @param maxIndividuos Número máximo de indivíduos na população. Esse
-     * parâmetro pode ser usado para controlar barreiras impostas por algoritmos
-     * com finalidade algorítmica ou por escassez de recursos.
-     * <ul>
-     * <li>Deve ser um número natural maior que zero;</li>
-     * <li>O valor zero indica a ausência de limite. </li>
-     * </ul>
-     *
-     * @throws IllegalArgumentException
-     * <ul>
-     * <li>O ambiente for uma referência nula;</li>
-     * <li>Se o número máximo de indivíduos for menor que zero.</li>
-     * </ul>
-     *
-     * @see Populacao#setMaxIndividuos(int)
      */
-    public PopulacaoOrdenada(Ambiente<G, S> ambiente, int maxIndividuos) {
-        super(ambiente, maxIndividuos);
-        seres = new TreeSet<>(ambiente);
-    }
-
-    @Override
-    public S getMelhor() {
-        return ((TreeSet<S>) seres).last();
-    }
-
-    @Override
-    public List<S> getNMelhores(int n) {
-        return ((TreeSet<S>) seres).descendingSet().stream().limit(n).collect(Collectors.toList());
+    public SerFixo(List<? extends Caracteristica> caracteristicas) {
+        this.caracteristicas = Arrays.asList(new Caracteristica[caracteristicas.size()]);
+        setCaracteristicas(caracteristicas);
     }
 
 }

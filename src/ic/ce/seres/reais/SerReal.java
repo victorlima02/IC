@@ -21,49 +21,41 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package ic.ce.populacional.algoritmos.DE.recombinadores;
+/**
+ * @author Victor de Lima Soares
+ */
+package ic.ce.seres.reais;
 
-import ic.ce.seres.reais.SerReal;
-import ic.ce.base.utilidades.IndiceAleatorio;
-import java.util.ArrayList;
+import ic.ce.base.Caracteristica;
+import ic.ce.seres.SerFixo;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
- * Operador de recombinação para DE: Binomial
  *
  * @author Victor de Lima Soares
  * @version 1.0
- *
+ * 
  * @param <G> Classe do retorno da função objetivo (Grau de adaptação):
  * AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, Float,
  * Integer, Long, Short.
- * @param <S> Classe dos Seres.
  */
-public class Binomial<G extends Number & Comparable<G>, S extends SerReal<G>> extends RecombinadorDE<G, S> {
+public class SerReal<G extends Number & Comparable<G>> extends SerFixo<G> {
 
-    public Binomial(Double probabilidadeDeCrossover) {
-        super(probabilidadeDeCrossover);
+    /**
+     * Construtor.
+     *
+     * @since 1.0
+     * @param ncaracteristicas Número de locus.
+     */
+    public SerReal(int ncaracteristicas) {
+        super(ncaracteristicas);
     }
 
-    @Override
-    protected List<S> recombina(List<S> pares) {
-        S doador = pares.get(0);
-        S alvo = getPopulacao().get(IndiceAleatorio.getUniforme(getPopulacao()));
+    
+    public static List<Caracteristica<Double>> doubleListToLocusList(List<Double> caracteristicas) {
 
-        S experimental = discriteRecombination(doador, alvo, 1, getProbabilidadeDeCrossover()).get(0);
-        experimental.setGrauDeAdaptacao(getAmbiente());
-
-        List<S> filhos = new ArrayList<>(1);
-
-        getPopulacao().remove(alvo);
-
-        if (getAmbiente().compare(experimental, alvo) > 0) {
-            filhos.add(experimental);
-        } else {
-            filhos.add(alvo);
-        }
-
-        return filhos;
+        return caracteristicas.stream().map(LocusReal::new).collect(Collectors.toList());
+   
     }
-
 }

@@ -21,35 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package ic.ce.base.eventos;
+
+import java.beans.PropertyChangeEvent;
 
 /**
  *
  * @author Victor de Lima Soares
  * @version 1.0
  */
-public enum EventosEvolucionarios {
+public class EventoEvolucionario extends PropertyChangeEvent{
+    
+    private final EventosEvolucionarios tipo;
 
-    MelhorSer("melhorSer", EventoMelhorSer.class);
-
-    private final String nome;
-    private final Class classe;
-
-    private EventosEvolucionarios(String nome, Class classe) {
-        this.nome = nome;
-        this.classe = classe;
+    public EventoEvolucionario(Object origem, EventosEvolucionarios tipoEvento, Object velhoValor, Object novoValor) {
+        super(origem, tipoEvento.getNome(), velhoValor, novoValor);
+        tipo=tipoEvento;
     }
 
-    public String getNome() {
-        return nome;
+    public final EventosEvolucionarios getTipo() {
+        return tipo;
+    }
+    
+    public final String getNome() {
+        return tipo.getNome();
     }
 
-    public Class getClasse() {
-        return classe;
-    }
-
-    @Override
-    public String toString() {
-        return getNome();
-    }
 }

@@ -21,6 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package ic.ce.base.eventos;
 
 /**
@@ -28,28 +29,10 @@ package ic.ce.base.eventos;
  * @author Victor de Lima Soares
  * @version 1.0
  */
-public enum EventosEvolucionarios {
+public class EventoMelhorSer extends EventoEvolucionario{
 
-    MelhorSer("melhorSer", EventoMelhorSer.class);
-
-    private final String nome;
-    private final Class classe;
-
-    private EventosEvolucionarios(String nome, Class classe) {
-        this.nome = nome;
-        this.classe = classe;
+    public EventoMelhorSer(Object origem, Object velhoValor, Object novoValor) {
+        super(origem, EventosEvolucionarios.MelhorSer , velhoValor, novoValor);
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public Class getClasse() {
-        return classe;
-    }
-
-    @Override
-    public String toString() {
-        return getNome();
-    }
 }
